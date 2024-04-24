@@ -1,0 +1,24 @@
+plan : 
+
+
+1/Introduction
+
+1.1/Présentation du sujet : Introduction au concept de musée virtuel et de son importance dans la société contemporaine.
+1.2/Présentation de l'ODD choisi
+
+2/Explication de l'ODD sélectionné : Définition de l'Objectif de Développement Durable choisi et mise en contexte de son importance.
+2.2/Justification du choix de l'ODD : Expliquer pourquoi cet ODD est pertinent pour le sujet du musée virtuel.
+2.3Relation entre l'ODD et le sujet du musée virtuel : Mettre en lumière la manière dont le musée virtuel contribue à atteindre ou à sensibiliser à cet ODD.
+Nom du musée virtuel
+
+3/Présentation du nom choisi : Explication du choix du nom du musée virtuel.
+3.3/Justification du nom : Décrire comment le nom reflète la mission et les valeurs du musée virtuel.
+3.4/Impact du musée sur le sujet abordé : Expliquer en quoi le nom du musée contribue à renforcer la sensibilisation et l'engagement envers l'ODD et le sujet du musée.
+4/Présentation du musée virtuel
+
+4.1/Explication du choix des couleurs : Analyse des couleurs utilisées dans la conception du musée virtuel.
+4.2/Signification des couleurs : Expliquer comment les couleurs choisies renforcent l'expérience utilisateur et communiquent les valeurs du musée.
+4.3/Impact émotionnel des couleurs : Discuter de l'impact psychologique des couleurs sur les visiteurs et comment cela contribue à la sensibilisation à l'ODD et au sujet du musée.
+
+
+5/ Conclusion 
