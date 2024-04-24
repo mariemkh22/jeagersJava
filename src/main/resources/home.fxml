@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterCommande">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BackendHome">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -90,7 +90,7 @@
                   <ComboBox fx:id="NomProduitTf" layoutX="519.0" layoutY="162.0" prefHeight="55.0" prefWidth="314.0" promptText="                                   Product's Name" />
                   <ComboBox fx:id="VilleTF" layoutX="519.0" layoutY="357.0" prefHeight="59.0" prefWidth="314.0" promptText="                                    Delivery Type" />
                   <DatePicker fx:id="DateCommdTf" layoutX="519.0" layoutY="254.0" onAction="#DateCommdTf" prefHeight="59.0" prefWidth="314.0" />
-                  <Label layoutX="586.0" layoutY="32.0" prefHeight="86.0" prefWidth="205.0" text="Add Order !">
+                  <Label layoutX="596.0" layoutY="32.0" prefHeight="86.0" prefWidth="205.0" text="Add Order !">
                      <font>
                         <Font name="System Bold" size="35.0" />
                      </font>

@@ -208,12 +208,12 @@
                         <Font name="System Bold" size="35.0" />
                      </font>
                   </Label>
-                  <Button layoutX="371.0" layoutY="604.0" mnemonicParsing="false" onAction="#AjoutCmdbtn" prefHeight="60.0" prefWidth="148.0" text="Add Order">
+                  <Button layoutX="371.0" layoutY="604.0" mnemonicParsing="false" onAction="#AjoutCmdbtn" prefHeight="60.0" prefWidth="148.0" style="-fx-background-color: #10172C;" text="Add Order" textFill="#fffafa">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="652.0" layoutY="604.0" mnemonicParsing="false" onAction="#Affichercmdbtn" prefHeight="60.0" prefWidth="148.0" text="Orders list">
+                  <Button layoutX="652.0" layoutY="604.0" mnemonicParsing="false" onAction="#Affichercmdbtn" prefHeight="60.0" prefWidth="148.0" style="-fx-background-color: #10172C;" text="Orders list" textFill="#fffdfd">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>

@@ -15,141 +15,23 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherCommande">
-   <left>
-      <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="350.0" spacing="10.0" styleClass="right-side-border">
-               <children>
-                  <ImageView fitHeight="65.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@LOGO.png" />
-                     </image>
-                  </ImageView>
-                  <Label prefHeight="35.0" prefWidth="183.0" text="SWAPCRAZE" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="50.0" left="20.0" top="10.0" />
-               </VBox.margin>
-            </HBox>
-            <VBox prefHeight="726.0" prefWidth="389.0" style="-fx-background-color: #10172C;">
-               <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="54.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@user.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="27.0" prefWidth="231.0" text="User managment" textFill="WHITE">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@product.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Product managment" textFill="WHITE">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="54.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@service.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Service managment" textFill="WHITE">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="317.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="39.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@contact.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Messaging managment" textFill="WHITE">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="271.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="36.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@delivery.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Delivery managment" textFill="WHITE">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </HBox>
-               </children>
-            </VBox>
-         </children>
-      </VBox>
-   </left>
    <center>
-      <VBox prefHeight="756.0" prefWidth="1148.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #10172C;" styleClass="search-container">
+            <HBox alignment="CENTER_RIGHT" prefHeight="127.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container">
                <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="127.0" prefWidth="339.0" spacing="10.0" styleClass="right-side-border">
+                     <children>
+                        <ImageView fitHeight="83.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@LOGO.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="250.0" />
+                     </HBox.margin>
+                  </HBox>
                   <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="300.0" styleClass="transparent">
                      <HBox.margin>
                         <Insets />
@@ -198,32 +80,37 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <AnchorPane prefHeight="787.0" prefWidth="1220.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="111.0" prefWidth="1200.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <AnchorPane prefHeight="733.0" prefWidth="1550.0">
                <children>
-                  <TableView fx:id="ListTF" layoutX="76.0" layoutY="122.0" prefHeight="487.0" prefWidth="1026.0" stylesheets="@style.css">
+                  <TableView fx:id="ListTF" layoutX="57.0" layoutY="101.0" prefHeight="487.0" prefWidth="1426.0" stylesheets="@style.css">
                      <columns>
-                        <TableColumn fx:id="NomProduitCol" prefWidth="255.0" text="Product Name" />
-                        <TableColumn fx:id="DateCmdCol" prefWidth="241.0" text="Order's Date" />
-                        <TableColumn fx:id="MethodLivCol" prefWidth="260.0" text="Delivery Type" />
-                        <TableColumn fx:id="VilleCmdCol" prefWidth="269.0" text="Region" />
+                        <TableColumn fx:id="NomProduitCol" prefWidth="389.0" text="Product Name" />
+                        <TableColumn fx:id="DateCmdCol" prefWidth="251.0" text="Order's Date" />
+                        <TableColumn fx:id="MethodLivCol" prefWidth="225.0" text="Delivery Type" />
+                        <TableColumn fx:id="VilleCmdCol" prefWidth="559.0" text="Region" />
                      </columns>
                   </TableView>
-                  <Label layoutX="473.0" layoutY="29.0" prefHeight="66.0" prefWidth="275.0" text="Orders List">
+                  <Label layoutX="678.0" layoutY="20.0" prefHeight="66.0" prefWidth="275.0" text="Orders List">
                      <font>
                         <Font name="System Bold" size="45.0" />
                      </font>
                   </Label>
-                  <Button fx:id="AjoutCmdbtn" layoutX="252.0" layoutY="653.0" mnemonicParsing="false" onAction="#AjoutCmdbtn" prefHeight="60.0" prefWidth="148.0" text="Add Order">
+                  <Button fx:id="AjoutCmdbtn" layoutX="117.0" layoutY="609.0" mnemonicParsing="false" onAction="#AjoutCmdbtn" prefHeight="60.0" prefWidth="202.0" style="-fx-background-color: #10172C;" text="Add Order" textFill="#fcf3f3">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="SupprimerCmdbtn" layoutX="549.0" layoutY="653.0" mnemonicParsing="false" onAction="#SupprimerCmdbtn" prefHeight="60.0" prefWidth="148.0" text="Cancel Order" textFill="#a11515">
+                  <Button fx:id="SupprimerCmdbtn" layoutX="660.0" layoutY="609.0" mnemonicParsing="false" onAction="#SupprimerCmdbtn" prefHeight="60.0" prefWidth="202.0" style="-fx-background-color: #10172C;" text="Cancel Order" textFill="#fcf3f3">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="ClearCmdbtn" layoutX="820.0" layoutY="653.0" mnemonicParsing="false" onAction="#ClearCmdbtn" prefHeight="60.0" prefWidth="148.0" text="Cancel All" textFill="#a11515">
+                  <Button fx:id="ClearCmdbtn" layoutX="1187.0" layoutY="609.0" mnemonicParsing="false" onAction="#ClearCmdbtn" prefHeight="60.0" prefWidth="204.0" style="-fx-background-color: #10172C;" text="Cancel All" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>

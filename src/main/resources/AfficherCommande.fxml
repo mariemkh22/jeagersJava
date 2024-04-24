@@ -213,17 +213,17 @@
                         <Font name="System Bold" size="45.0" />
                      </font>
                   </Label>
-                  <Button fx:id="AjoutCmdbtn" layoutX="252.0" layoutY="653.0" mnemonicParsing="false" onAction="#AjoutCmdbtn" prefHeight="60.0" prefWidth="148.0" text="Add Order">
+                  <Button fx:id="AjoutCmdbtn" layoutX="252.0" layoutY="653.0" mnemonicParsing="false" onAction="#AjoutCmdbtn" prefHeight="60.0" prefWidth="148.0" style="-fx-background-color: #10172C;" text="Add Order" textFill="#fffbfb">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="SupprimerCmdbtn" layoutX="549.0" layoutY="653.0" mnemonicParsing="false" onAction="#SupprimerCmdbtn" prefHeight="60.0" prefWidth="148.0" text="Cancel Order" textFill="#a11515">
+                  <Button fx:id="SupprimerCmdbtn" layoutX="549.0" layoutY="653.0" mnemonicParsing="false" onAction="#SupprimerCmdbtn" prefHeight="60.0" prefWidth="148.0" style="-fx-background-color: #10172C;" text="Cancel Order" textFill="#fff9f9">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="ClearCmdbtn" layoutX="820.0" layoutY="653.0" mnemonicParsing="false" onAction="#ClearCmdbtn" prefHeight="60.0" prefWidth="148.0" text="Cancel All" textFill="#a11515">
+                  <Button fx:id="ClearCmdbtn" layoutX="820.0" layoutY="653.0" mnemonicParsing="false" onAction="#ClearCmdbtn" prefHeight="60.0" prefWidth="148.0" style="-fx-background-color: #10172C;" text="Cancel All" textFill="#fcfafa">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
