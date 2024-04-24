@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="745.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterLivraisonFront">
+   <children>
+      <Label layoutX="198.0" layoutY="270.0" text="First date">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="firstdate" layoutX="351.0" layoutY="262.0" onAction="#firstdate" prefHeight="47.0" prefWidth="290.0" promptText="First date" />
+      <Label layoutX="197.0" layoutY="354.0" prefHeight="36.0" prefWidth="110.0" text="Last date">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="lastdate" layoutX="351.0" layoutY="346.0" onAction="#lastdate" prefHeight="47.0" prefWidth="290.0" promptText="Last date" />
+      <Label layoutX="196.0" layoutY="442.0" prefHeight="36.0" prefWidth="122.0" text="Company">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="EntrpriseTf" layoutX="351.0" layoutY="435.0" prefHeight="45.0" prefWidth="290.0" promptText="                          Choose  Company" />
+      <Label layoutX="175.0" layoutY="531.0" prefHeight="36.0" prefWidth="157.0" text="Delivery Fee">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="221.0" layoutY="618.0" prefHeight="32.0" prefWidth="109.0" text="Status">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="RegionTf" layoutX="350.0" layoutY="180.0" prefHeight="44.0" prefWidth="290.0" promptText="                             Choose Destination" />
+      <Label layoutX="198.0" layoutY="184.0" prefHeight="32.0" prefWidth="109.0" text="Region">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="221.0" layoutY="44.0" prefHeight="62.0" prefWidth="474.0" text="ADD your Delivery">
+         <font>
+            <Font name="System Bold" size="52.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="FeeTf" layoutX="351.0" layoutY="524.0" prefHeight="46.0" prefWidth="290.0" promptText="                           Choose Fee" />
+      <ComboBox fx:id="StatusTf1" layoutX="351.0" layoutY="609.0" prefHeight="50.0" prefWidth="289.0" promptText="                             Choose Status" />
+      <Label fx:id="destinationtf" layoutX="351.0" layoutY="230.0" prefHeight="18.0" prefWidth="290.0" textFill="#f40000">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstdatetf" layoutX="351.0" layoutY="313.0" prefHeight="18.0" prefWidth="292.0" textFill="#ea0000">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lastdatetf" layoutX="350.0" layoutY="403.0" prefHeight="18.0" prefWidth="291.0" textFill="RED">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="entreprisetfcont" layoutX="351.0" layoutY="489.0" prefHeight="18.0" prefWidth="292.0" textFill="RED">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="feetfcont" layoutX="351.0" layoutY="578.0" prefHeight="18.0" prefWidth="292.0" textFill="RED">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="statustfcont" layoutX="351.0" layoutY="667.0" prefHeight="18.0" prefWidth="290.0" textFill="RED">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Button layoutX="796.0" layoutY="291.0" mnemonicParsing="false" onAction="#SaveDeliveryBtn" prefHeight="62.0" prefWidth="215.0" text="Save Delivery">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
