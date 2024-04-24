@@ -1,90 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="745.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterLivraisonFront">
-   <children>
-      <Label layoutX="198.0" layoutY="270.0" text="First date">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="firstdate" layoutX="351.0" layoutY="262.0" onAction="#firstdate" prefHeight="47.0" prefWidth="290.0" promptText="First date" />
-      <Label layoutX="197.0" layoutY="354.0" prefHeight="36.0" prefWidth="110.0" text="Last date">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="lastdate" layoutX="351.0" layoutY="346.0" onAction="#lastdate" prefHeight="47.0" prefWidth="290.0" promptText="Last date" />
-      <Label layoutX="196.0" layoutY="442.0" prefHeight="36.0" prefWidth="122.0" text="Company">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="EntrpriseTf" layoutX="351.0" layoutY="435.0" prefHeight="45.0" prefWidth="290.0" promptText="                          Choose  Company" />
-      <Label layoutX="175.0" layoutY="531.0" prefHeight="36.0" prefWidth="157.0" text="Delivery Fee">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="221.0" layoutY="618.0" prefHeight="32.0" prefWidth="109.0" text="Status">
-         <font>
-            <Font name="System Bold Italic" size="25.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="RegionTf" layoutX="350.0" layoutY="180.0" prefHeight="44.0" prefWidth="290.0" promptText="                             Choose Destination" />
-      <Label layoutX="198.0" layoutY="184.0" prefHeight="32.0" prefWidth="109.0" text="Region">
-         <font>
-            <Font name="System Bold Italic" size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="221.0" layoutY="44.0" prefHeight="62.0" prefWidth="474.0" text="ADD your Delivery">
-         <font>
-            <Font name="System Bold" size="52.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="FeeTf" layoutX="351.0" layoutY="524.0" prefHeight="46.0" prefWidth="290.0" promptText="                           Choose Fee" />
-      <ComboBox fx:id="StatusTf1" layoutX="351.0" layoutY="609.0" prefHeight="50.0" prefWidth="289.0" promptText="                             Choose Status" />
-      <Label fx:id="destinationtf" layoutX="351.0" layoutY="230.0" prefHeight="18.0" prefWidth="290.0" textFill="#f40000">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="firstdatetf" layoutX="351.0" layoutY="313.0" prefHeight="18.0" prefWidth="292.0" textFill="#ea0000">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="lastdatetf" layoutX="350.0" layoutY="403.0" prefHeight="18.0" prefWidth="291.0" textFill="RED">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="entreprisetfcont" layoutX="351.0" layoutY="489.0" prefHeight="18.0" prefWidth="292.0" textFill="RED">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="feetfcont" layoutX="351.0" layoutY="578.0" prefHeight="18.0" prefWidth="292.0" textFill="RED">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="statustfcont" layoutX="351.0" layoutY="667.0" prefHeight="18.0" prefWidth="290.0" textFill="RED">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </Label>
-      <Button layoutX="796.0" layoutY="291.0" mnemonicParsing="false" onAction="#SaveDeliveryBtn" prefHeight="62.0" prefWidth="215.0" text="Save Delivery">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Button>
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterLivraisonFront">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="127.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="127.0" prefWidth="339.0" spacing="10.0" styleClass="right-side-border">
+                     <children>
+                        <ImageView fitHeight="83.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@LOGO.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="250.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="300.0" styleClass="transparent">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="357.0" styleClass="transparent">
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                     <children>
+                        <ImageView fitHeight="51.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@search.png" />
+                           </image>
+                        </ImageView>
+                        <TextField prefHeight="26.0" prefWidth="266.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@english.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="EN" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@profileIcon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="111.0" prefWidth="1200.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <AnchorPane prefHeight="745.0" prefWidth="1550.0">
+               <children>
+                  <Label layoutX="365.0" layoutY="226.0" text="First date">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="firstdate" layoutX="518.0" layoutY="218.0" onAction="#firstdate" prefHeight="47.0" prefWidth="290.0" promptText="First date" />
+                  <Label layoutX="364.0" layoutY="310.0" prefHeight="36.0" prefWidth="110.0" text="Last date">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="lastdate" layoutX="518.0" layoutY="302.0" onAction="#lastdate" prefHeight="47.0" prefWidth="290.0" promptText="Last date" />
+                  <Label layoutX="363.0" layoutY="398.0" prefHeight="36.0" prefWidth="122.0" text="Company">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="EntrpriseTf" layoutX="518.0" layoutY="391.0" prefHeight="45.0" prefWidth="290.0" promptText="                          Choose  Company" />
+                  <Label layoutX="342.0" layoutY="487.0" prefHeight="36.0" prefWidth="157.0" text="Delivery Fee">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="388.0" layoutY="574.0" prefHeight="32.0" prefWidth="109.0" text="Status">
+                     <font>
+                        <Font name="System Bold Italic" size="25.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="RegionTf" layoutX="517.0" layoutY="136.0" prefHeight="44.0" prefWidth="290.0" promptText="                             Choose Destination" />
+                  <Label layoutX="365.0" layoutY="140.0" prefHeight="32.0" prefWidth="109.0" text="Region">
+                     <font>
+                        <Font name="System Bold Italic" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="427.0" layoutY="8.0" prefHeight="62.0" prefWidth="474.0" text="ADD your Delivery">
+                     <font>
+                        <Font name="System Bold" size="52.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="FeeTf" layoutX="518.0" layoutY="480.0" prefHeight="46.0" prefWidth="290.0" promptText="                           Choose Fee" />
+                  <ComboBox fx:id="StatusTf1" layoutX="518.0" layoutY="565.0" prefHeight="50.0" prefWidth="289.0" promptText="                             Choose Status" />
+                  <Label fx:id="destinationtf" layoutX="518.0" layoutY="186.0" prefHeight="18.0" prefWidth="290.0" textFill="#f40000">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="firstdatetf" layoutX="518.0" layoutY="269.0" prefHeight="18.0" prefWidth="292.0" textFill="#ea0000">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lastdatetf" layoutX="517.0" layoutY="359.0" prefHeight="18.0" prefWidth="291.0" textFill="RED">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="entreprisetfcont" layoutX="518.0" layoutY="445.0" prefHeight="18.0" prefWidth="292.0" textFill="RED">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="feetfcont" layoutX="518.0" layoutY="534.0" prefHeight="18.0" prefWidth="292.0" textFill="RED">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="statustfcont" layoutX="518.0" layoutY="623.0" prefHeight="18.0" prefWidth="290.0" textFill="RED">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="1221.0" layoutY="578.0" mnemonicParsing="false" onAction="#SaveDeliveryBtn" prefHeight="62.0" prefWidth="215.0" style="-fx-background-color: #10172C;" text="Save Delivery" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="246.0" fitWidth="299.0" layoutX="65.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@OIP (1).jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="196.0" fitWidth="306.0" layoutX="1210.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@OIP (2).jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="183.0" fitWidth="247.0" layoutX="963.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@OIP.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="162.0" fitWidth="247.0" layoutX="1210.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@footer-logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
