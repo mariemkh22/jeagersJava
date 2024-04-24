@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="424.0" minWidth="800.0" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontService">
+    <left>
+        <VBox prefHeight="700.0" prefWidth="130.0" BorderPane.alignment="CENTER" />
+    </left>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" prefHeight="62.0" prefWidth="226.0" text="OUR ARTICLES" textFill="#3bab47">
+                    <font>
+                        <Font name="Elephant" size="24.0" />
+                    </font>
+                </Label>
+                <ScrollPane prefHeight="638.0" prefWidth="502.0" VBox.vgrow="ALWAYS">
+               <content>
+                  <HBox fx:id="boxservices" alignment="CENTER_LEFT" prefHeight="622.0" prefWidth="3080.0" spacing="20.0" />
+               </content>
+                </ScrollPane>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

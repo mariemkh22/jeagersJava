@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifierCategorie">
+   <children>
+      <AnchorPane prefHeight="820.0" prefWidth="1550.0">
+         <children>
+            <Text fill="#f09d1a" layoutX="477.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#04577c" layoutX="328.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Category" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="38.0" />
+               </font>
+            </Text>
+
+            <!-- Champ de saisie et label d'erreur pour le nom de catégorie -->
+            <TextField fx:id="namectf" layoutX="630.0" layoutY="258.0" promptText="Category Name" />
+            <Label fx:id="erreurNomLabel" layoutX="630.0" layoutY="290.0" textFill="red" />
+
+            <!-- Champ de saisie et label d'erreur pour la description de la catégorie -->
+            <TextField fx:id="descriptionctf" layoutX="630.0" layoutY="328.0" promptText="Category description" />
+            <Label fx:id="erreurDescriptionLabel" layoutX="630.0" layoutY="360.0" textFill="red" />
+
+            <!-- Boutons et autres éléments -->
+            <Button layoutX="1323.0" layoutY="587.0" mnemonicParsing="false" onAction="#modifierCategorie" prefHeight="33.0" prefWidth="74.0" styleClass="updateBTN" stylesheets="@style.css" text="OK" textFill="#1c1a69">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button layoutX="1292.0" layoutY="639.0" mnemonicParsing="false" onAction="#navigatetoAfficher" prefHeight="34.0" prefWidth="137.0" styleClass="addBTN" stylesheets="@style.css" text="Show all categories" textFill="#1c1a69">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Text fill="#f2b819" layoutX="478.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <HBox alignment="CENTER_RIGHT" layoutX="302.0" prefHeight="100.0" prefWidth="1248.0" style="-fx-background-color: #10172C;" styleClass="search-container">
+               <children>
+                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="300.0" styleClass="transparent">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="357.0" styleClass="transparent">
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                     <children>
+                        <ImageView fitHeight="51.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@search.png" />
+                           </image>
+                        </ImageView>
+                        <TextField prefHeight="26.0" prefWidth="266.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@english.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="EN" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@profileIcon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="350.0" spacing="10.0" styleClass="right-side-border">
+               <children>
+                  <ImageView fitHeight="65.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@LOGO.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="35.0" prefWidth="183.0" text="SWAPCRAZE" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" left="20.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="54.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@user.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label prefHeight="27.0" prefWidth="231.0" text="User managment" textFill="WHITE">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@product.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Product managment" textFill="WHITE">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="54.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@service.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Service managment" textFill="#eca42f">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="317.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="39.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@contact.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Messaging managment" textFill="WHITE">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="271.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="36.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@delivery.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Delivery managment" textFill="WHITE">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

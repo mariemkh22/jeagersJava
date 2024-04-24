@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="185.0" minWidth="225.0" prefHeight="400.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CardController">
+    <children>
+        <VBox alignment="CENTER" minHeight="185.0" minWidth="308.0" prefHeight="400.0" prefWidth="308.0" spacing="15.0">
+            <children>
+            <ImageView fx:id="imgSRC" fitHeight="173.0" fitWidth="272.0" pickOnBounds="true" preserveRatio="true" />
+                <Label fx:id="SERname" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="21.0" prefWidth="105.0" text="Name" textFill="#181718" VBox.vgrow="ALWAYS">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets right="150.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="SERdescription" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="21.0" prefWidth="105.0" text="Description" VBox.vgrow="ALWAYS">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets right="150.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="SERlocation" contentDisplay="CENTER" prefHeight="21.0" prefWidth="105.0" text="Location">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets right="150.0" />
+                    </VBox.margin>
+                </Label>
+            <Label fx:id="SERstate" prefHeight="21.0" prefWidth="105.0" text="State">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="150.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="SERdate" text="Availability Date">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="150.0" />
+               </VBox.margin>
+            </Label>
+            </children>
+        </VBox>
+    </children>
+</HBox>
