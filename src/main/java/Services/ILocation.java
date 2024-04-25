@@ -9,6 +9,4 @@ public interface ILocation <S>{
     public void supprimerLocation (int id) throws SQLException;
     public List<S> afficherLocation () throws SQLException;
     public void supprimerToutesLocations() throws SQLException;
-    public void supprimerLivraisonsParLocalisation(int localisationId) throws SQLException;
-
 }

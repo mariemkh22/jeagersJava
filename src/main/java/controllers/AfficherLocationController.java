@@ -112,12 +112,8 @@ public class AfficherLocationController {
             // Afficher la boîte de dialogue et attendre la réponse de l'utilisateur
             Optional<ButtonType> result = confirmationAlert.showAndWait();
             if (result.isPresent() && result.get() == deleteButton) {
-                // Si l'utilisateur a choisi "Delete", supprimer la localisation et ses livraisons associées
+                // Si l'utilisateur a choisi "Delete", supprimer la localisation de la base de données
                 try {
-                    // Supprimer les livraisons associées à cette localisation
-                    sl.supprimerLivraisonsParLocalisation(selectedLocation.getId());
-
-                    // Supprimer la localisation elle-même
                     sl.supprimerLocation(selectedLocation.getId());
 
                     // Mettre à jour l'affichage dans le TableView
