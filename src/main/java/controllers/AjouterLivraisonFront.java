@@ -117,42 +117,42 @@ public class AjouterLivraisonFront {
             StringBuilder errorMessage = new StringBuilder();
 
             if (entreprise == null || entreprise.isEmpty()) {
-                entreprisetfcont.setText("Chose your entreprise");
+                entreprisetfcont.setText("Choose your entreprise");
                 isValid = false;
             } else {
                 entreprisetfcont.setText("");
             }
 
             if (frais == null) {
-                feetfcont.setText("Chose level of service");
+                feetfcont.setText("Choose level of service");
                 isValid = false;
             } else {
                 feetfcont.setText("");
             }
 
             if (region == null || region.isEmpty()) {
-                destinationtf.setText("Chose your région");
+                destinationtf.setText("Choose your region");
                 isValid = false;
             } else {
                 destinationtf.setText("");
             }
 
             if (status == null || status.isEmpty()) {
-                statustfcont.setText("Chose the statut");
+                statustfcont.setText("Choose the status");
                 isValid = false;
             } else {
                 statustfcont.setText("");
             }
 
             if (startDate == null) {
-                firstdatetf.setText("chose first date");
+                firstdatetf.setText("choose first date");
                 isValid = false;
             } else {
                 firstdatetf.setText("");
             }
 
             if (endDate == null) {
-                lastdatetf.setText("chose last date");
+                lastdatetf.setText("choose last date");
                 isValid = false;
             } else {
                 lastdatetf.setText("");
@@ -160,9 +160,9 @@ public class AjouterLivraisonFront {
             // Vérifier si la date de fin est antérieure à la date de début
             if (startDate != null && endDate != null && endDate.isBefore(startDate)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Erreur");
-                alert.setHeaderText("Date de fin invalide");
-                alert.setContentText("La date de fin ne peut pas être antérieure à la date de début.");
+                alert.setTitle("Error");
+                alert.setHeaderText("last date invalide");
+                alert.setContentText("last date must be after start date.");
                 alert.showAndWait();
                 return;
             }
@@ -171,9 +171,9 @@ public class AjouterLivraisonFront {
             if (!isValid) {
                 // Afficher une alerte si toutes les valeurs ne sont pas sélectionnées
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Erreur");
-                alert.setHeaderText("Champs obligatoires non remplis");
-                alert.setContentText("Veuillez remplir tous les champs.");
+                alert.setTitle("Error");
+                alert.setHeaderText("fields invalide");
+                alert.setContentText("please fill all the fields correctly.");
                 alert.showAndWait();
                 return;
             }

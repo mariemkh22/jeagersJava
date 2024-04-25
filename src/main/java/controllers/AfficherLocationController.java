@@ -62,7 +62,7 @@ public class AfficherLocationController {
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmationAlert.setTitle("Confirmation");
         confirmationAlert.setHeaderText(null);
-        confirmationAlert.setContentText("Voulez-vous vraiment supprimer toutes les localisations ?");
+        confirmationAlert.setContentText("Are you sure?");
 
         // Ajouter les boutons "Clear" et "Cancel" à la boîte de dialogue
         ButtonType clearButton = new ButtonType("Clear", ButtonBar.ButtonData.OK_DONE);
@@ -86,8 +86,8 @@ public class AfficherLocationController {
                 Tableview.getItems().clear();
             } catch (SQLException e) {
                 Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                errorAlert.setTitle("Erreur");
-                errorAlert.setContentText("Erreur lors de la suppression des données de la base de données : " + e.getMessage());
+                errorAlert.setTitle("Error");
+                errorAlert.setContentText("Error while Deleting from Data Base : " + e.getMessage());
                 errorAlert.showAndWait();
             }
         }
@@ -102,7 +102,7 @@ public class AfficherLocationController {
             Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
             confirmationAlert.setTitle("Confirmation");
             confirmationAlert.setHeaderText(null);
-            confirmationAlert.setContentText("Voulez-vous vraiment supprimer cette localisation ?");
+            confirmationAlert.setContentText("Are you sure?");
 
             // Ajouter les boutons "Delete" et "Cancel" à la boîte de dialogue
             ButtonType deleteButton = new ButtonType("Delete", ButtonBar.ButtonData.OK_DONE);
@@ -120,16 +120,16 @@ public class AfficherLocationController {
                     Tableview.getItems().remove(selectedLocation);
                 } catch (SQLException e) {
                     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                    errorAlert.setTitle("Erreur");
-                    errorAlert.setContentText("Erreur lors de la suppression de la localisation : " + e.getMessage());
+                    errorAlert.setTitle("Errorr");
+                    errorAlert.setContentText("Error while deleting : " + e.getMessage());
                     errorAlert.showAndWait();
                 }
             }
         } else {
             // Aucune localisation sélectionnée, afficher un message d'erreur
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setContentText("Veuillez sélectionner une localisation à supprimer.");
+            alert.setTitle("Error");
+            alert.setContentText("Choose location.");
             alert.showAndWait();
         }
     }
@@ -160,8 +160,8 @@ public class AfficherLocationController {
         } else {
             // Aucune localisation sélectionnée, afficher un message d'erreur
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setContentText("Veuillez sélectionner une localisation à modifier.");
+            alert.setTitle("Error");
+            alert.setContentText("Choose location to update.");
             alert.showAndWait();
         }
     }

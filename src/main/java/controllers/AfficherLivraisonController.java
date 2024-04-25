@@ -86,9 +86,9 @@ public class AfficherLivraisonController {
     void CLEARDeliverybtn(ActionEvent event) {
         // Créer une boîte de dialogue de confirmation
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmationAlert.setTitle("Confirmation de suppression");
+        confirmationAlert.setTitle("Delete Confirmation ");
         confirmationAlert.setHeaderText(null);
-        confirmationAlert.setContentText("Voulez-vous vraiment supprimer toutes les livraisons ?");
+        confirmationAlert.setContentText("Are you sure?");
 
         // Ajouter les boutons "Clear" et "Cancel" à la boîte de dialogue
         ButtonType clearButton = new ButtonType("Clear", ButtonBar.ButtonData.OK_DONE);
@@ -106,13 +106,13 @@ public class AfficherLivraisonController {
                 confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
                 confirmationAlert.setTitle("Confirmation");
                 confirmationAlert.setHeaderText(null);
-                confirmationAlert.setContentText("Toutes les livraisons ont été supprimées avec succès.");
+                confirmationAlert.setContentText("All Deliveries added successfully!");
                 confirmationAlert.showAndWait();
             } catch (SQLException e) {
                 // Gérer l'exception si une erreur SQL se produit
                 Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                errorAlert.setTitle("Erreur");
-                errorAlert.setContentText("Erreur lors de la suppression des livraisons : " + e.getMessage());
+                errorAlert.setTitle("Error");
+                errorAlert.setContentText("Error: " + e.getMessage());
                 errorAlert.showAndWait();
             }
         }
@@ -125,9 +125,9 @@ public class AfficherLivraisonController {
         if (selectedLivraison != null) {
             // Créer une boîte de dialogue de confirmation
             Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
-            confirmationAlert.setTitle("Confirmation de suppression");
+            confirmationAlert.setTitle("Delete Confirmation");
             confirmationAlert.setHeaderText(null);
-            confirmationAlert.setContentText("Voulez-vous vraiment supprimer cette livraison ?");
+            confirmationAlert.setContentText("Are you sure?");
 
             // Ajouter les boutons "Delete" et "Cancel" à la boîte de dialogue
             ButtonType deleteButton = new ButtonType("Delete", ButtonBar.ButtonData.OK_DONE);
@@ -145,13 +145,13 @@ public class AfficherLivraisonController {
                     confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
                     confirmationAlert.setTitle("Confirmation");
                     confirmationAlert.setHeaderText(null);
-                    confirmationAlert.setContentText("La livraison a été supprimée avec succès.");
+                    confirmationAlert.setContentText("Delivery Deleted");
                     confirmationAlert.showAndWait();
                 } catch (SQLException e) {
                     // Gérer l'exception si une erreur SQL se produit
                     Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                    errorAlert.setTitle("Erreur");
-                    errorAlert.setContentText("Erreur lors de la suppression de la livraison : " + e.getMessage());
+                    errorAlert.setTitle("Error");
+                    errorAlert.setContentText("Erreur! " + e.getMessage());
                     errorAlert.showAndWait();
                 }
             }
@@ -159,7 +159,7 @@ public class AfficherLivraisonController {
             // Aucune livraison sélectionnée, afficher un message d'erreur
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");
-            alert.setContentText("Veuillez sélectionner une livraison à supprimer.");
+            alert.setContentText("Choose Delivery.");
             alert.showAndWait();
         }
     }
@@ -190,8 +190,8 @@ public class AfficherLivraisonController {
         } else {
             // Aucune livraison sélectionnée, afficher un message d'erreur
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setContentText("Veuillez sélectionner une livraison à modifier.");
+            alert.setTitle("Error!");
+            alert.setContentText("Choose Delivery.");
             alert.showAndWait();
         }
     }
