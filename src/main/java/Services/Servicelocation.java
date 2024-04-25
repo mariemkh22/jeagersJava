@@ -69,4 +69,13 @@ public class Servicelocation implements ILocation<LocalisationGeographique>{
         }
         return locations;
     }
+
+    @Override
+    public void supprimerLivraisonsParLocalisation(int localisationId) throws SQLException {
+        String query = "DELETE FROM livraison WHERE localisation_geographique_id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, localisationId);
+            preparedStatement.executeUpdate();
+        }
+    }
 }
