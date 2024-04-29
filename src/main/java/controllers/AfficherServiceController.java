@@ -22,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.AnchorPane;
+import menusandcharts.MenuAppWithChartController;
 import services.ServiceService;
 
 public class AfficherServiceController {
@@ -313,7 +314,21 @@ public class AfficherServiceController {
         }
     }
 
+    @FXML
+    void stat(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/chart.fxml"));
+            Parent root = loader.load();
 
+            MenuAppWithChartController MenuAppWithChartController = loader.getController();
+
+
+            // Changer la scène pour afficher l'interface de mise à jour
+            listView.getScene().setRoot(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
     void setData(String param) {

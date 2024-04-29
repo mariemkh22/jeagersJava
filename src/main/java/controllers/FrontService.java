@@ -1,6 +1,8 @@
 package controllers;
 
 import entities.service;
+import javafx.event.ActionEvent;
+import javafx.scene.Parent;
 import services.ServiceService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,24 +28,21 @@ public class FrontService implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
-            loadArticles();
+            loadServices();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private int column = 0 ;
-    private int row = 1 ;
 
-    private void loadArticles() throws SQLException {
+    private void loadServices() throws SQLException {
         List<service> services = serviceService.afficher();
 
         for (service service : services)
         {
             try
             {
-
-                // Charge chaque carte des services et l'ajoute au GridPane
+                //chargement des cardes
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/card.fxml"));
                 HBox box = loader.load();
                 CardController controller = loader.getController();
@@ -57,4 +56,6 @@ public class FrontService implements Initializable {
             }
         }
     }
+
+
 }

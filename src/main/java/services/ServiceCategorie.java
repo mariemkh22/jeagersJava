@@ -75,6 +75,27 @@ public class ServiceCategorie implements IService <categorie_service>{
     }
 
 
-}
+
+        // ...
+
+        public List<categorie_service> getAllCategories() throws SQLException {
+            List<categorie_service> categories = new ArrayList<>();
+            String req = "SELECT * FROM categorie_service";
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(req);
+            while (rs.next()) {
+                categorie_service categorie = new categorie_service();
+                categorie.setId(rs.getInt("id"));
+                categorie.setName_c(rs.getString("name_c"));
+                categorie.setDescription_c(rs.getString("description_c"));
+                categories.add(categorie);
+            }
+            return categories;
+        }
+    }
+
+
+
+
 
 

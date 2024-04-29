@@ -26,10 +26,10 @@ public class AfficherCategorieController {
     private URL location;
 
     @FXML
-    private TableColumn<?, ?> descriptionCol;
+    private TableColumn<categorie_service, String> descriptionCol;
 
     @FXML
-    private TableColumn<?, ?> nameCol;
+    private TableColumn<categorie_service, String> nameCol;
     @FXML
     private TableView<categorie_service> tableview;
     @FXML
@@ -73,28 +73,28 @@ public class AfficherCategorieController {
                 observableList.remove(selectedCategorie);
                 // Afficher une boîte de dialogue de succès
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Succès");
+                alert.setTitle("Success");
                 alert.setHeaderText(null);
-                alert.setContentText("La categorie a été supprimé avec succès.");
+                alert.setContentText("The category was successfully deleted");
                 alert.showAndWait();
             } catch (SQLException e) {
                 // En cas d'erreur, afficher une boîte de dialogue d'erreur
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Erreur");
+                alert.setTitle("Error");
                 alert.setHeaderText(null);
-                alert.setContentText("Une erreur est survenue lors de la suppression de la categorie : " + e.getMessage());
+                alert.setContentText("An error occured while deleting the category : " + e.getMessage());
                 alert.showAndWait();
             }
         } else {
             // Si aucune categorie n'est sélectionné, afficher une boîte de dialogue d'avertissement
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Aucune sélection");
+            alert.setTitle("No selection");
             alert.setHeaderText(null);
-            alert.setContentText("Veuillez sélectionner une categorie à supprimer.");
+            alert.setContentText("Please select a category to delete.");
             alert.showAndWait();
         }
     }
-    // Méthode pour naviguer vers l'interface de mise à jour
+    //// naviguer vers l'interface de mise à jour////
     @FXML
     void navigatetoupdate(ActionEvent event) {
         categorie_service selectedCategorie = tableview.getSelectionModel().getSelectedItem();
@@ -114,9 +114,9 @@ public class AfficherCategorieController {
         } else {
             // Si aucune categorie n'est sélectionné, afficher une boîte de dialogue d'avertissement
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Aucune sélection");
+            alert.setTitle("No selection");
             alert.setHeaderText(null);
-            alert.setContentText("Veuillez sélectionner une categorie à mettre à jour.");
+            alert.setContentText("Please select a category to update.");
             alert.showAndWait();
         }
     }
@@ -129,8 +129,6 @@ public class AfficherCategorieController {
 
             AjouterCategorie AjouterCategorie = loader.getController();
 
-
-            // Changer la scène pour afficher l'interface de mise à jour
             tableview.getScene().setRoot(root);
         } catch (Exception e) {
             e.printStackTrace();
@@ -147,8 +145,6 @@ public class AfficherCategorieController {
 
             AfficherServiceController AfficherServiceController = loader.getController();
 
-
-            // Changer la scène pour afficher l'interface de mise à jour
             tableview.getScene().setRoot(root);
         } catch (Exception e) {
             e.printStackTrace();

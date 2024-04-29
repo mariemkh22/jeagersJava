@@ -42,25 +42,25 @@ public class AjouterCategorie {
         String name_c = namectf.getText();
         String description_c = descriptionctf.getText();
 
-        boolean erreur = false; // Pour vérifier s'il y a des erreurs de saisie
+        boolean erreur = false; //var pour verifier s'il y a des erreurs de saisie//
 
-        // Vérification de chaque champ avec des messages personnalisés
+        //verification des champs
         if (name_c.isEmpty()) {
             erreurNomLabel.setText("The category name is missing!");
             erreur = true;
         } else {
-            erreurNomLabel.setText(""); // Effacer le message d'erreur
+            erreurNomLabel.setText(""); // pas dee message d'erreur
         }
 
         if (description_c.isEmpty()) {
             erreurDescriptionLabel.setText("Please enter the description.");
             erreur = true;
         } else {
-            erreurDescriptionLabel.setText(""); // Effacer le message d'erreur
+            erreurDescriptionLabel.setText("");
         }
 
         if (erreur) {
-            return; // Arrêter l'exécution si des erreurs sont trouvées
+            return;
         }
 
 

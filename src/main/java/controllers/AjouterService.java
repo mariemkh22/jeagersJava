@@ -119,49 +119,46 @@ public class AjouterService {
             erreurNomLabel.setText("The service name is missing!");
             erreur = true;
         } else {
-            erreurNomLabel.setText(""); // Effacer le message d'erreur
+            erreurNomLabel.setText("");
         }
 
         if (description_s.isEmpty()) {
             erreurDescriptionLabel.setText("Please enter the description.");
             erreur = true;
         } else {
-            erreurDescriptionLabel.setText(""); // Effacer le message d'erreur
+            erreurDescriptionLabel.setText("");
         }
 
         if (localisation.isEmpty()) {
             erreurLocationLabel.setText("The location field is empty.");
             erreur = true;
         } else {
-            erreurLocationLabel.setText(""); // Effacer le message d'erreur
+            erreurLocationLabel.setText("");
         }
 
         if (state.isEmpty()) {
             erreurStateLabel.setText("The state field is empty.");
             erreur = true;
         } else {
-            erreurStateLabel.setText(""); // Effacer le message d'erreur
+            erreurStateLabel.setText("");
         }
 
         if (dispo_date.isEmpty()) {
             erreurDateLabel.setText("Please enter the availability date.");
             erreur = true;
         } else {
-            erreurDateLabel.setText(""); // Effacer le message d'erreur
+            erreurDateLabel.setText("");
         }
 
         if (erreur) {
-            return; // Arrêter l'exécution si des erreurs sont trouvées
+            return;
         }
 
         ServiceService ss = new ServiceService();
 
-        // Récupérer le chemin de l'image sélectionnée
+        //recuperation du chemin d'image selectionnée//
         String imagePath = selectedImage.getUrl();
 
-
-
-        // Créer l'objet service avec le chemin de l'image
         try {
             service s = new service(name_s, description_s, localisation, state, dispo_date, cat_id, imageFile);
             s.setCat_id(categorieBox.getValue().getId());
@@ -183,8 +180,7 @@ public class AjouterService {
         FileChooser fileChooser = new FileChooser();
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
-            // Charge l'image sélectionnée et l'affiche dans l'interface utilisateur
-            selectedImage = new Image(selectedFile.toURI().toString());
+            selectedImage = new Image(selectedFile.getName());
             imageView.setImage(selectedImage);
         }
     }

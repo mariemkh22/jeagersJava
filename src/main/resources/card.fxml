@@ -7,12 +7,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="185.0" minWidth="225.0" prefHeight="400.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CardController">
+<HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="185.0" minWidth="225.0" prefHeight="400.0" prefWidth="418.0" styleClass="tableview1" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CardController">
     <children>
-        <VBox alignment="CENTER" minHeight="185.0" minWidth="308.0" prefHeight="400.0" prefWidth="308.0" spacing="15.0">
+        <VBox alignment="CENTER" minHeight="185.0" minWidth="308.0" prefHeight="395.0" prefWidth="417.0" spacing="15.0">
             <children>
             <ImageView fx:id="imgSRC" fitHeight="173.0" fitWidth="272.0" pickOnBounds="true" preserveRatio="true" />
-                <Label fx:id="SERname" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="21.0" prefWidth="105.0" text="Name" textFill="#181718" VBox.vgrow="ALWAYS">
+                <Label fx:id="SERname" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="28.0" prefWidth="230.0" text="Name" textFill="#181718" VBox.vgrow="ALWAYS">
+                    <font>
+                        <Font name="Arial Black" size="19.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets right="150.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="SERdescription" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="22.0" prefWidth="225.0" text="Description" VBox.vgrow="ALWAYS">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
@@ -20,7 +28,7 @@
                         <Insets right="150.0" />
                     </VBox.margin>
                 </Label>
-                <Label fx:id="SERdescription" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="21.0" prefWidth="105.0" text="Description" VBox.vgrow="ALWAYS">
+                <Label fx:id="SERlocation" contentDisplay="CENTER" prefHeight="22.0" prefWidth="225.0" text="Location">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
@@ -28,15 +36,7 @@
                         <Insets right="150.0" />
                     </VBox.margin>
                 </Label>
-                <Label fx:id="SERlocation" contentDisplay="CENTER" prefHeight="21.0" prefWidth="105.0" text="Location">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                    <VBox.margin>
-                        <Insets right="150.0" />
-                    </VBox.margin>
-                </Label>
-            <Label fx:id="SERstate" prefHeight="21.0" prefWidth="105.0" text="State">
+            <Label fx:id="SERstate" prefHeight="22.0" prefWidth="227.0" text="State">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -44,7 +44,7 @@
                   <Insets right="150.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="SERdate" text="Availability Date">
+            <Label fx:id="SERdate" prefHeight="22.0" prefWidth="227.0" text="Availability Date">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

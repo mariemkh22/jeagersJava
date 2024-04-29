@@ -45,11 +45,11 @@ public class ModifierCategorie {
         private categorie_service categoryToUpdate;
         private ServiceCategorie sc = new ServiceCategorie();
 
-        // Méthode pour initialiser les données de l'article à mettre à jour
+        //pour initialiser les données du service à mettre à jour:
         public void initData(categorie_service categorie) {
             categoryToUpdate = categorie;
 
-            // Utiliser les données de la categorie pour pré-remplir les champs de texte
+            //utiliser les données de la categorie
             namectf.setText(categorie.getName_c());
             descriptionctf.setText(categorie.getDescription_c());
 
@@ -58,44 +58,43 @@ public class ModifierCategorie {
         @FXML
         void modifierCategorie(ActionEvent event) {
             if (categoryToUpdate != null) {
-                // Mettre à jour les propriétés de l'article avec les valeurs des champs de texte
+
                 categoryToUpdate.setName_c(namectf.getText());
                 categoryToUpdate.setDescription_c(descriptionctf.getText());
 
                 String name_c = namectf.getText();
                 String description_c = descriptionctf.getText();
+
                 boolean erreur = false;
 
                 if (name_c.isEmpty()) {
                     erreurNomLabel.setText("The category name is missing!");
                     erreur = true;
                 } else {
-                    erreurNomLabel.setText(""); // Effacer le message d'erreur
+                    erreurNomLabel.setText("");
                 }
 
                 if (description_c.isEmpty()) {
                     erreurDescriptionLabel.setText("Please enter the description.");
                     erreur = true;
                 } else {
-                    erreurDescriptionLabel.setText(""); // Effacer le message d'erreur
+                    erreurDescriptionLabel.setText("");
                 }
 
                 if (erreur) {
-                    return; // Arrêter l'exécution si des erreurs sont trouvées
+                    return;
                 }
 
 
                 try {
-                    // Appeler la méthode de service pour mettre à jour la catégorie dans la base de données
                     sc.modifier(categoryToUpdate);
-                    // Afficher une boîte de dialogue de succès
+                    //boîte de dialogue
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Success.");
                     alert.setHeaderText(null);
                     alert.setContentText("Category updated successfully.");
                     alert.showAndWait();
                 } catch (SQLException e) {
-                    // En cas d'erreur, afficher une boîte de dialogue d'erreur
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
                     alert.setHeaderText(null);
@@ -103,7 +102,7 @@ public class ModifierCategorie {
                     alert.showAndWait();
                 }
             } else {
-                // Si aucune categorie n'est sélectionné, afficher une boîte de dialogue d'avertissement
+                ///aucune categorie n'est sélectionné
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("No selection !");
                 alert.setHeaderText(null);
