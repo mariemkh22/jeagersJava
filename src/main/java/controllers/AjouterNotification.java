@@ -64,6 +64,11 @@ private final ServiceNotification serviceNotification=new ServiceNotification();
 
         try {
             serviceNotification.ajouter(new Notification(dateTF.getText(),sujetTF.getText(),contenueTF.getText()));
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Notification Added");
+            alert.setHeaderText(null);
+            alert.setContentText("Notification successfully added!");
+            alert.showAndWait();
         } catch (SQLException e) {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -92,6 +97,10 @@ private final ServiceNotification serviceNotification=new ServiceNotification();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+    }
+
+    public void deletenotifAction(ActionEvent actionEvent) {
 
     }
 }

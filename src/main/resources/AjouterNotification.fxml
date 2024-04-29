@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterNotification">
    <children>
-      <Text fill="#0c28a8" layoutX="521.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD Notification" textAlignment="CENTER">
+      <Text fill="#10172c" layoutX="651.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD Notification" textAlignment="CENTER" wrappingWidth="157.60000000000002">
          <font>
             <Font size="21.0" />
          </font>
@@ -52,7 +52,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0" />
          </children>
       </VBox>
-      <HBox alignment="CENTER_LEFT" layoutX="163.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="1146.0" style="-fx-background-color: #10172c;" styleClass="transparent" />
+      <HBox alignment="CENTER_LEFT" layoutX="163.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="1486.0" style="-fx-background-color: #10172c;" styleClass="transparent" />
       <VBox layoutX="10.0" layoutY="10.0" prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="350.0" spacing="10.0" styleClass="right-side-border">
@@ -75,7 +75,7 @@
                   <Insets bottom="50.0" left="20.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <VBox prefHeight="634.0" prefWidth="306.0" style="-fx-background-color: #10172C;">
+            <VBox prefHeight="598.0" prefWidth="291.0" style="-fx-background-color: #10172C;">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
                      <children>
@@ -97,7 +97,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="320.0" spacing="10.0">
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -186,7 +186,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="643.0" layoutY="484.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="142.0" style="-fx-background-color: #10172c;" text="Delete Notification" textFill="WHITE">
+      <Button layoutX="643.0" layoutY="484.0" mnemonicParsing="false" onAction="#deletenotifAction" prefHeight="40.0" prefWidth="142.0" style="-fx-background-color: #10172c;" text="Delete Notification" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

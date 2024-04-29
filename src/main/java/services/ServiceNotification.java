@@ -63,7 +63,7 @@ public class ServiceNotification implements IService<Notification>{
             Notification notification= new Notification();
             notification.setContenue(rs.getString("contenue"));
             notification.setSujet(rs.getString(3));
-            notification.setDate_envoie(rs.getString("date"));
+            notification.setDate_envoie(rs.getString("date_envoie"));
             notification.setId(rs.getInt("id"));
 
             notifications.add(notification);

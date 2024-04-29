@@ -18,7 +18,7 @@ public class MainFx extends Application {
     public void start(Stage primaryStage) {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterNotification.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterMessage.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);

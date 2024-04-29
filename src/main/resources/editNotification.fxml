@@ -12,7 +12,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="820.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EditNotification">
    <children>
       <AnchorPane prefHeight="825.0" prefWidth="1555.0">
@@ -22,17 +21,17 @@
                   <Font size="21.0" />
                </font>
             </Text>
-            <Text fill="#2f7606" layoutX="460.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Date d'envoie :">
+            <Text fill="#fca119" layoutX="460.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Date d'envoie :">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="#0b7909" layoutX="489.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sujet :">
+            <Text fill="#fca119" layoutX="489.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sujet :">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="#048e1b" layoutX="488.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenue :">
+            <Text fill="#fca119" layoutX="488.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenue :">
                <font>
                   <Font size="14.0" />
                </font>
@@ -179,16 +178,19 @@
                   </VBox>
                </children>
             </VBox>
-            <Button layoutX="734.0" layoutY="494.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="54.0" prefWidth="170.0" text="Edit Notification" textFill="#f20202">
+            <Button layoutX="734.0" layoutY="494.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="54.0" prefWidth="170.0" style="-fx-background-color: #10172c;" text="Edit Notification" textFill="#fcfcfc">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="395.0" layoutY="494.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="160.0" text="Notifications List" textFill="#ef0b0b">
+            <Button fx:id="notiflistAction" layoutX="395.0" layoutY="494.0" mnemonicParsing="false" onAction="#notiflistAction" prefHeight="54.0" prefWidth="160.0" style="-fx-background-color: #10172c;" text="Notifications List" textFill="#f2f3f4">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
+            <Label fx:id="erreurDateLabel" layoutX="657.0" layoutY="244.0" textFill="#ea0a0a" />
+            <Label fx:id="erreurSujetLabel" layoutX="657.0" layoutY="342.0" textFill="#ff1515" />
+            <Label fx:id="erreurContenueLabel" layoutX="657.0" layoutY="445.0" textFill="#fc0909" />
          </children>
       </AnchorPane>
    </children>
