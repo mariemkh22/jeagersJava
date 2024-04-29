@@ -1,4 +1,5 @@
 package controllers;
+import com.mysql.cj.Session;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import services.serviceUser;
 import utils.myDatabase;
+import org.mindrot.jbcrypt.BCrypt;
 
 import entities.User;
 import javafx.event.ActionEvent;
@@ -26,12 +28,6 @@ import java.sql.*;
 import java.util.Base64;
 
 public class Login {
-
-    @FXML
-    private ImageView brandingImageViewL;
-
-    @FXML
-    private ImageView brandingImageViewR;
 
     @FXML
     private Button cancelB;
@@ -52,6 +48,9 @@ public class Login {
     private static User currentUser = null;
 
     @FXML
+    private Button signupB;
+
+    @FXML
     void cancelButton(ActionEvent event) {
         emailTextField.clear();
         passwordTextField.clear();
@@ -61,17 +60,18 @@ public class Login {
     void loginButton(ActionEvent event) {
         if(emailTextField.getText().isBlank() == false && passwordTextField.getText().isBlank() == false){
             validateLogin();
-            if (currentUser.getId()!=0){
-                try {
-                    Parent root= FXMLLoader.load(getClass().getResource("/backendHome.fxml"));
-                    Stage stage=new Stage();
+            try {
+                if (currentUser!=null) {
+                    Parent root = FXMLLoader.load(getClass().getResource("/backendHome.fxml"));
+                    Stage stage = new Stage();
                     stage.initStyle(StageStyle.UNDECORATED);
-                    stage.setScene(new Scene(root,1550,820));
+                    stage.setScene(new Scene(root, 1550, 820));
                     stage.show();
-                    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
-                } catch (IOException e){
-                    throw new RuntimeException(e);
+                    ((Stage) (((Button) event.getSource()).getScene().getWindow())).close();
                 }
+                }
+            catch (IOException e){
+                throw new RuntimeException(e);
             }
         } else {
             loginMessageLabel.setText("Please try again.");
@@ -92,9 +92,9 @@ public class Login {
 
             if (queryResult.next()) {
                 String hashedPasswordFromDB = queryResult.getString("password");
-                String hashedInputPassword = hashPassword(passwordTextField.getText());
+                String hashedInputPassword = passwordTextField.getText();
 
-                if (hashedInputPassword.equals(hashedPasswordFromDB)) {
+                if (BCrypt.checkpw(hashedInputPassword,hashedPasswordFromDB)) {
                     // Set the current user
                     currentUser = new User(
                             queryResult.getInt("id"),
@@ -104,7 +104,7 @@ public class Login {
                             queryResult.getString("date_of_birth")
                     );
                     System.out.println("Login successful!");
-                    return; // Exit method after successful login
+                    return;
                 }
             }
             currentUser = null;
@@ -114,25 +114,44 @@ public class Login {
             e.printStackTrace();
         }
     }
-    private String hashPassword(String password) {
-        try {
+    private String hashPassword(String password,int costFactor) {
+        /*try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hash = digest.digest(password.getBytes());
             return Base64.getEncoder().encodeToString(hash);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return null;
-        }
+        }*/
+        return BCrypt.hashpw(password, BCrypt.gensalt(costFactor));
     }
 
     public static User getCurrentUser() {
         return currentUser;
     }
 
+    public static User clearUserSession(){
+        return currentUser = null;
+    }
+
     private void clearErrorMessageAfterDelay() {
         // Set a timeline to clear the label after 5 seconds
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), e -> loginMessageLabel.setText("")));
         timeline.play(); // Start the timeline
+    }
+
+    @FXML
+    void signupButton(ActionEvent event) {
+        try {
+            Parent root= FXMLLoader.load(getClass().getResource("/signUp.fxml"));
+            Stage stage=new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(new Scene(root,544,450));
+            stage.show();
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
 }

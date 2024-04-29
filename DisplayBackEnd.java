@@ -1,5 +1,9 @@
 package controllers;
 
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Callback;
 import utils.myDatabase;
 import entities.User;
 import javafx.collections.FXCollections;
@@ -25,7 +29,7 @@ public class DisplayBackEnd {
     private Button DeliveryB;
 
     @FXML
-    private TableColumn<User, Integer> IdShow;
+    private TableColumn actionShow;
 
     @FXML
     private Button MessageB;
@@ -97,11 +101,38 @@ public class DisplayBackEnd {
             List<User> users = px.displayUser();
             ObservableList<User> observableList = FXCollections.observableList(users);
             table.setItems(observableList);
-            IdShow.setCellValueFactory(new PropertyValueFactory<>("id"));
             nameShow.setCellValueFactory(new PropertyValueFactory<>("full_name"));
             emailShow.setCellValueFactory(new PropertyValueFactory<>("email"));
             phoneShow.setCellValueFactory(new PropertyValueFactory<>("phone_number"));
             dateShow.setCellValueFactory(new PropertyValueFactory<>("date_of_birth"));
+
+            Callback<TableColumn<User,String>,TableCell<User,String>> cellfactory
+                    =(param) -> {
+                final TableCell<User,String> cell = new TableCell<User,String>(){
+                    @Override
+                    public void updateItem(String item, boolean empty){
+                        super.updateItem(item,empty);
+                        if(empty){
+                            setGraphic(null);
+                            setText(null);
+                        }
+                        else {
+                            final Button editButton = new Button("Edit");
+                            editButton.setOnAction(event -> {
+                                User p = getTableView().getItems().get(getIndex());
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setContentText("You have clicked "+ p.getFull_name());
+                                alert.show();
+                            });
+                            setGraphic(editButton);
+                            setText(null);
+                        }
+                    }
+                };
+                return cell;
+            };
+            actionShow.setCellFactory(cellfactory);
+
         } catch (SQLException e){
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error alert!");
@@ -214,10 +245,36 @@ public class DisplayBackEnd {
             User p = table.getSelectionModel().getSelectedItem();
             px.deleteUser(p.getId());
             initialize();
+            if(p.getId()==Login.getCurrentUser().getId()){
+                px.deleteUser(p.getId());
+                try {
+                    Parent root= FXMLLoader.load(getClass().getResource("/login.fxml"));
+                    Stage stage=new Stage();
+                    stage.initStyle(StageStyle.UNDECORATED);
+                    stage.setScene(new Scene(root,569,400));
+                    stage.show();
+                    ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+                    Login.clearUserSession();
+                    if (Login.getCurrentUser()==null){
+                        System.out.println("disconnected!");
+                    }
+                } catch (IOException e){
+                    throw new RuntimeException(e);
+                }
+            }
         } catch (Exception e){
             e.printStackTrace();
             e.getCause();
         }
     }
 
+    @FXML
+    void profileButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/profileAdmin.fxml"));
+            UserB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
 }

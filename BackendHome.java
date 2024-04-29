@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import services.serviceUser;
@@ -114,7 +115,6 @@ public class BackendHome {
             List<User> users = px.displayUser();
             ObservableList<User> observableList = FXCollections.observableList(users);
             tableView.setItems(observableList);
-            IdShow.setCellValueFactory(new PropertyValueFactory<>("id"));
             nameShow.setCellValueFactory(new PropertyValueFactory<>("full_name"));
             emailShow.setCellValueFactory(new PropertyValueFactory<>("email"));
             phoneShow.setCellValueFactory(new PropertyValueFactory<>("phone_number"));
@@ -133,6 +133,16 @@ public class BackendHome {
             Parent root = FXMLLoader.load(getClass().getResource("/displayBackEnd.fxml"));
             UserB.getScene().setRoot(root);
             System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void profileButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/profileAdmin.fxml"));
+            UserB.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);
         }

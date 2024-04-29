@@ -1,4 +1,8 @@
 package controllers;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+import org.mindrot.jbcrypt.BCrypt;
 import javafx.util.converter.LongStringConverter;
 import org.example.MainFX;
 
@@ -14,6 +18,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import services.serviceUser;
 
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -51,13 +56,45 @@ public class SignUp {
     @FXML
     private Button signUpB;
 
+    @FXML
+    private Button loginB;
+
     private final serviceUser px = new serviceUser();
 
     @FXML
     void signupButton(ActionEvent event) {
         try{
-            if (emailTF.getText().isBlank() == true || passTF.getText().isBlank() == true || fullNameTF.getText().isBlank() == true || phoneNumberTF.getText().isBlank() == true || DateTF.getText().isBlank() == true){
+            if (emailTF.getText().isBlank() == true && passTF.getText().isBlank() == true && fullNameTF.getText().isBlank() == true && phoneNumberTF.getText().isBlank() == true && DateTF.getText().isBlank() == true){
                 labelErrorMessage.setText("Please fill the form.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (fullNameTF.getText().isBlank() == true){
+                labelErrorMessage.setText("Please enter your full name.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (emailTF.getText().isBlank()) {
+                labelErrorMessage.setText("Please enter a valid email address.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (!emailTF.getText().matches("\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b")) {
+                labelErrorMessage.setText("Please enter a valid email address.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (phoneNumberTF.getText().isBlank() == true){
+                labelErrorMessage.setText("Please enter a valid phone number.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (phoneNumberTF.getText().length()<8){
+                labelErrorMessage.setText("Phone number should be at least 8 digits.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (DateTF.getText().isBlank() == true){
+                labelErrorMessage.setText("Please enter a valid date of birth.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (passTF.getText().isBlank() == true){
+                labelErrorMessage.setText("Please enter a valid password.");
+                clearErrorMessageAfterDelay();
             }
             else {
                 String role = "[\"ROLE_USER\"]";
@@ -88,7 +125,7 @@ public class SignUp {
             Parent root= FXMLLoader.load(getClass().getResource("/login.fxml"));
             Stage stage=new Stage();
             stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(new Scene(root,550,400));
+            stage.setScene(new Scene(root,569,400));
             stage.show();
             ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
         } catch (Exception e){
@@ -98,13 +135,26 @@ public class SignUp {
     }
 
     private String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
+    private void clearErrorMessageAfterDelay() {
+        // Set a timeline to clear the label after 5 seconds
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), e -> labelErrorMessage.setText("")));
+        timeline.play(); // Start the timeline
+    }
+
+    @FXML
+    void loginButton(ActionEvent event) {
         try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(password.getBytes());
-            return Base64.getEncoder().encodeToString(hash);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return null;
+            Parent root= FXMLLoader.load(getClass().getResource("/login.fxml"));
+            Stage stage=new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(new Scene(root,569,400));
+            stage.show();
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+        } catch (IOException e){
+            throw new RuntimeException(e);
         }
     }
 }

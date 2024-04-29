@@ -84,32 +84,13 @@ public class BackendAddUser {
     @FXML
     private Button resetB;
 
-    @FXML
-    private TableView<User> table;
 
     @FXML
     private Label labelErrorMessage;
 
     private final serviceUser px = new serviceUser();
 
-    @FXML
-    void initialize(){
-        try {
-            List<User> users = px.displayUser();
-            ObservableList<User> observableList = FXCollections.observableList(users);
-            table.setItems(observableList);
-            IdShow.setCellValueFactory(new PropertyValueFactory<>("id"));
-            nameShow.setCellValueFactory(new PropertyValueFactory<>("full_name"));
-            emailShow.setCellValueFactory(new PropertyValueFactory<>("email"));
-            phoneShow.setCellValueFactory(new PropertyValueFactory<>("phone_number"));
-            dateShow.setCellValueFactory(new PropertyValueFactory<>("date_of_birth"));
-        } catch (SQLException e){
-            Alert alert=new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error alert!");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
-        }
-    }
+
 
     @FXML
     void DeliveryButton(ActionEvent event) {
@@ -154,15 +135,39 @@ public class BackendAddUser {
     @FXML
     void addButton(ActionEvent event) {
         try{
-            if (addemailTF.getText().isBlank() == true || addpassTF.getText().isBlank() == true || addnameTF.getText().isBlank() == true || addphoneTF.getText().isBlank() == true || adddateTF.getText().isBlank() == true){
+            if (addemailTF.getText().isBlank() == true && addpassTF.getText().isBlank() == true && addnameTF.getText().isBlank() == true && addphoneTF.getText().isBlank() == true && adddateTF.getText().isBlank() == true){
                 labelErrorMessage.setText("Please fill the form.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (addnameTF.getText().isBlank() == true){
+                labelErrorMessage.setText("Please enter your full name.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (addemailTF.getText().isBlank() || !addemailTF.getText().matches("\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b")) {
+                labelErrorMessage.setText("Please enter a valid email address.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (addphoneTF.getText().isBlank() == true){
+                labelErrorMessage.setText("Please enter a valid phone number.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (addphoneTF.getText().length() <8 ){
+                labelErrorMessage.setText("Phone number should be at least 8 digits.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (adddateTF.getText().isBlank() == true){
+                labelErrorMessage.setText("Please enter a valid date of birth.");
+                clearErrorMessageAfterDelay();
+            }
+            else if (addpassTF.getText().isBlank() == true){
+                labelErrorMessage.setText("Please enter a valid password.");
                 clearErrorMessageAfterDelay();
             }
             else {
                 String role = "[\"ROLE_USER\"]";
                 String pass = hashPassword(addpassTF.getText());
                 px.addUser(new User(addemailTF.getText(),pass,role,addnameTF.getText(),addphoneTF.getText(),adddateTF.getText()));
-                initialize();
+                labelErrorMessage.setText("Account added !");
             }
         }
         catch (SQLException e){
@@ -217,5 +222,15 @@ public class BackendAddUser {
         // Set a timeline to clear the label after 5 seconds
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), e -> labelErrorMessage.setText("")));
         timeline.play(); // Start the timeline
+    }
+
+    @FXML
+    void profileButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/profileAdmin.fxml"));
+            UserB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 }
