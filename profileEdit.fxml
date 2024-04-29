@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" styleClass="secondary-color" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.profile">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" styleClass="secondary-color" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProfileEdit">
    <left>
       <VBox prefHeight="200.0" prefWidth="350.0" styleClass="primary-color" stylesheets="@style.css" BorderPane.alignment="CENTER">
          <children>
@@ -38,7 +38,7 @@
             </VBox>
             <VBox prefHeight="400.0" prefWidth="350.0" stylesheets="@style.css">
                <children>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="60.0" prefHeight="24.0" prefWidth="350.0" styleClass="selected">
+                  <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="350.0" styleClass="selected">
                      <children>
                         <ImageView fitHeight="63.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -61,7 +61,7 @@
                         <Insets bottom="10.0" top="20.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="350.0" styleClass="selected">
+                  <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="350.0" styleClass="selected">
                      <children>
                         <ImageView fitHeight="70.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -109,7 +109,7 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="69.0" prefWidth="1200.0" text="Profile Settings" textFill="WHITE">
+            <Label prefHeight="69.0" prefWidth="1200.0" text="Edit your profile" textFill="WHITE">
                <font>
                   <Font size="40.0" />
                </font>
@@ -141,10 +141,11 @@
                            </HBox.margin>
                         </Label>
                         <Pane prefHeight="50.0" prefWidth="213.0" />
-                        <TextField fx:id="readName" editable="false" prefHeight="26.0" prefWidth="517.0" style="-fx-text-fill: white;">
+                        <TextField fx:id="editName" prefHeight="26.0" prefWidth="517.0" style="-fx-text-fill: white;">
                            <font>
                               <Font size="18.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
                      </children>
                   </HBox>
                </children>
@@ -165,10 +166,11 @@
                            </HBox.margin>
                         </Label>
                         <Pane prefHeight="50.0" prefWidth="187.0" />
-                        <TextField fx:id="readDate" editable="false" prefHeight="26.0" prefWidth="517.0" style="-fx-text-fill: white;" styleClass="text-input">
+                        <TextField fx:id="editDate" prefHeight="26.0" prefWidth="517.0" style="-fx-text-fill: white;" styleClass="text-input">
                            <font>
                               <Font size="18.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
                      </children>
                   </HBox>
                </children>
@@ -197,10 +199,11 @@
                            </HBox.margin>
                         </Label>
                         <Pane prefHeight="41.0" prefWidth="159.0" />
-                        <TextField fx:id="readEmail" editable="false" prefHeight="26.0" prefWidth="517.0" style="-fx-text-fill: white;" styleClass="text-input">
+                        <TextField fx:id="editEmail" prefHeight="26.0" prefWidth="517.0" style="-fx-text-fill: white;" styleClass="text-input">
                            <font>
                               <Font size="18.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="86.0" prefHeight="50.0" prefWidth="1200.0">
@@ -214,10 +217,11 @@
                            </HBox.margin>
                         </Label>
                         <Pane prefHeight="41.0" prefWidth="157.0" />
-                        <TextField fx:id="readPhone" editable="false" prefHeight="26.0" prefWidth="517.0" style="-fx-text-fill: white;" styleClass="text-input">
+                        <TextField fx:id="editPhone" prefHeight="26.0" prefWidth="517.0" style="-fx-text-fill: white;" styleClass="text-input">
                            <font>
                               <Font size="18.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
                      </children>
                      <VBox.margin>
                         <Insets top="50.0" />
@@ -228,14 +232,29 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </VBox>
-            <Button fx:id="editProfile" mnemonicParsing="false" onAction="#editProfileButton" prefHeight="26.0" prefWidth="218.0" style="-fx-background-color: #10172C;" text="Edit profile" textFill="WHITE">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="saveB" mnemonicParsing="false" onAction="#saveButton" prefHeight="40.0" prefWidth="159.0" style="-fx-background-color: #10172C;" text="Save changes" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="290.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="cancelB" mnemonicParsing="false" onAction="#cancelButton" prefWidth="159.0" style="-fx-background-color: #10172C;" text="Cancel changes" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
                <VBox.margin>
-                  <Insets left="700.0" top="50.0" />
+                  <Insets top="40.0" />
                </VBox.margin>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
+            </HBox>
          </children>
       </VBox>
    </center>

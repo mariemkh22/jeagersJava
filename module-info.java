@@ -4,6 +4,7 @@ module Swapcraze {
     requires javafx.controls;
     requires java.sql;
     requires mysql.connector.j;
+    requires jbcrypt;
 
 
     opens org.example;

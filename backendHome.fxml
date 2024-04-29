@@ -181,7 +181,7 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </HBox>
-                  <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@profileIcon.png" />
                      </image>
@@ -219,11 +219,10 @@
             </VBox>
             <TableView fx:id="tableView" editable="true" prefHeight="248.0" prefWidth="1137.0" stylesheets="@style.css">
               <columns>
-                <TableColumn fx:id="IdShow" prefWidth="150.0" text="Identifier" />
-                <TableColumn fx:id="nameShow" prefWidth="250.0" text="Full name" />
-                  <TableColumn fx:id="emailShow" prefWidth="250.0" text="E-mail address" />
-                  <TableColumn fx:id="phoneShow" prefWidth="250.0" text="Phone number" />
-                  <TableColumn fx:id="dateShow" prefWidth="239.199951171875" text="Date of birth" />
+                <TableColumn fx:id="nameShow" prefWidth="285.0" text="Full name" />
+                  <TableColumn fx:id="emailShow" prefWidth="285.0" text="E-mail address" />
+                  <TableColumn fx:id="phoneShow" prefWidth="285.0" text="Phone number" />
+                  <TableColumn fx:id="dateShow" prefWidth="285.0" text="Date of birth" />
               </columns>
                <VBox.margin>
                   <Insets left="50.0" right="50.0" />

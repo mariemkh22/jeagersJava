@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BackendAddUser">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProfileAdminEdit">
    <left>
       <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;" BorderPane.alignment="CENTER">
          <children>
@@ -23,7 +22,7 @@
                         <Image url="@LOGO.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="homeB" mnemonicParsing="false" onAction="#homeButton" style="-fx-background-color: transparent;" text="SWAPCRAZE" textFill="WHITE">
+                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="SWAPCRAZE" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -35,19 +34,19 @@
             </HBox>
             <VBox prefHeight="726.0" prefWidth="389.0" style="-fx-background-color: #10172C;" stylesheets="@style.css">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0" styleClass="selected">
+                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
                      <children>
                         <ImageView fitHeight="54.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@user.png" />
+                              <Image url="@home.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Button fx:id="UserB" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#UserManagmentButton" prefHeight="40.0" prefWidth="219.0" style="-fx-background-color: transparent;" styleClass="selected-border" text="User managment" textFill="#fca119">
+                        <Button fx:id="homeB" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#homeButton" prefHeight="40.0" prefWidth="212.0" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="24.0" />
                            </font>
                         </Button>
                      </children>
@@ -59,15 +58,15 @@
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@product.png" />
+                              <Image url="@profileIcon.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Button fx:id="ProductB" mnemonicParsing="false" onAction="#ProductManagmentButton" style="-fx-background-color: transparent;" text="Product managment" textFill="WHITE">
+                        <Button fx:id="profileB" mnemonicParsing="false" onAction="#profileButton" prefHeight="40.0" prefWidth="228.0" style="-fx-background-color: transparent;" styleClass="selected-border" text="Profile " textFill="#fca119">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="24.0" />
                            </font>
                         </Button>
                      </children>
@@ -79,55 +78,15 @@
                      <children>
                         <ImageView fitHeight="54.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@service.png" />
+                              <Image url="@logout.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Button fx:id="ServiceB" mnemonicParsing="false" onAction="#ServiceManagmentButton" style="-fx-background-color: transparent;" text="Service managment" textFill="WHITE">
+                        <Button fx:id="logoutB" mnemonicParsing="false" onAction="#logoutButton" prefHeight="40.0" prefWidth="205.0" style="-fx-background-color: transparent;" text="Logout" textFill="WHITE">
                            <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="317.0" spacing="10.0" styleClass="selected">
-                     <children>
-                        <ImageView fitHeight="39.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@contact.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Button fx:id="MessageB" mnemonicParsing="false" onAction="#MessagingButton" style="-fx-background-color: transparent;" text="Messaging managment" textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="271.0" spacing="10.0" styleClass="selected">
-                     <children>
-                        <ImageView fitHeight="36.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@delivery.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Button fx:id="DeliveryB" mnemonicParsing="false" onAction="#DeliveryButton" style="-fx-background-color: transparent;" text="Delivery managment" textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
+                              <Font size="24.0" />
                            </font>
                         </Button>
                      </children>
@@ -145,30 +104,6 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #10172C;" styleClass="search-container" stylesheets="@style.css">
                <children>
-                  <Button fx:id="homeBDash" mnemonicParsing="false" onAction="#HomeButton" style="-fx-background-color: transparent;" styleClass="selected" text="Home" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="300.0" right="20.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="listB" mnemonicParsing="false" onAction="#listButton" style="-fx-background-color: transparent;" styleClass="selected" text="List of users" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="addB" mnemonicParsing="false" onAction="#addButton" style="-fx-background-color: transparent;" styleClass="selected" text="Add user" textFill="#fca119">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets right="370.0" />
-                     </HBox.margin>
-                  </Button>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
                      <children>
                         <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
@@ -186,30 +121,22 @@
                         </Label>
                      </children>
                      <HBox.margin>
-                        <Insets left="30.0" right="20.0" />
+                        <Insets left="1070.0" right="20.0" />
                      </HBox.margin>
                   </HBox>
-                  <ImageView fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@profileIcon.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </ImageView>
                </children>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </HBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="111.0" prefWidth="1200.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="111.0" prefWidth="1200.0" styleClass="secondary-color" stylesheets="@style.css">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="35.0" prefWidth="214.0" text="Add a user">
+                        <Label prefHeight="35.0" prefWidth="214.0" text="Edit profile" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -232,30 +159,25 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="609.0" prefWidth="1245.0">
+            <VBox prefHeight="609.0" prefWidth="1245.0" styleClass="secondary-color" stylesheets="@style.css">
                <children>
-                  <Label fx:id="labelErrorMessage" alignment="CENTER" prefHeight="46.0" prefWidth="403.0" textFill="RED">
+                  <Label text="Full name" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
                      <VBox.margin>
-                        <Insets left="430.0" />
+                        <Insets left="320.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="editnameTF" prefHeight="26.0" prefWidth="1137.0" style="-fx-text-fill: white;">
+                     <VBox.margin>
+                        <Insets left="300.0" right="300.0" top="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="18.0" />
                      </font>
-                  </Label>
-                  <Label text="Full name">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="320.0" top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="addnameTF" prefHeight="26.0" prefWidth="1137.0">
-                     <VBox.margin>
-                        <Insets left="300.0" right="300.0" top="10.0" />
-                     </VBox.margin>
                   </TextField>
-                  <Label text="E-mail address">
+                  <Label text="E-mail address" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -263,12 +185,15 @@
                         <Insets left="320.0" top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="addemailTF">
+                  <TextField fx:id="editemailTF" style="-fx-text-fill: white;">
                      <VBox.margin>
                         <Insets left="300.0" right="300.0" top="10.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </TextField>
-                  <Label text="Phone number">
+                  <Label text="Phone number" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -276,12 +201,15 @@
                         <Insets left="320.0" top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="addphoneTF">
+                  <TextField fx:id="editphoneTF" style="-fx-text-fill: white;">
                      <VBox.margin>
                         <Insets left="300.0" right="300.0" top="10.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </TextField>
-                  <Label text="Date of birth">
+                  <Label text="Date of birth" textFill="WHITE">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -289,30 +217,20 @@
                         <Insets left="320.0" top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="adddateTF">
+                  <TextField fx:id="editdateTF" style="-fx-text-fill: white;">
                      <VBox.margin>
                         <Insets left="300.0" right="300.0" top="10.0" />
                      </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </TextField>
-                  <Label text="Password">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="320.0" top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <PasswordField fx:id="addpassTF">
-                     <VBox.margin>
-                        <Insets left="300.0" right="300.0" top="10.0" />
-                     </VBox.margin>
-                  </PasswordField>
                   <HBox prefHeight="21.0" prefWidth="1245.0">
                      <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets top="50.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="addB" mnemonicParsing="false" onAction="#addButton" prefHeight="51.0" prefWidth="238.0" style="-fx-background-color: #10172C;" text="Add" textFill="WHITE">
+                        <Button fx:id="saveB" mnemonicParsing="false" onAction="#saveButton" prefHeight="51.0" prefWidth="259.0" style="-fx-background-color: #10172C;" text="Save changes" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -320,12 +238,12 @@
                               <Insets left="300.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="resetB" mnemonicParsing="false" onAction="#resetButton" prefWidth="238.0" style="-fx-background-color: #10172C;" text="Clear" textFill="WHITE">
+                        <Button fx:id="cancelB" layoutX="310.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancelButton" prefHeight="51.0" prefWidth="259.0" style="-fx-background-color: #10172C;" text="Cancel" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="170.0" />
+                              <Insets left="125.0" />
                            </HBox.margin>
                         </Button>
                      </children>

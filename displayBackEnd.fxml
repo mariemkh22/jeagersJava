@@ -46,7 +46,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Button fx:id="UserB" mnemonicParsing="false" onAction="#UserManagmentButton" style="-fx-background-color: transparent;" text="User managment" textFill="#fca119">
+                        <Button fx:id="UserB" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#UserManagmentButton" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: transparent;" styleClass="selected-border" text="User managment" textFill="#fca119">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -190,7 +190,7 @@
                         <Insets left="30.0" right="20.0" />
                      </HBox.margin>
                   </HBox>
-                  <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@profileIcon.png" />
                      </image>
@@ -236,11 +236,11 @@
             </VBox>
             <TableView fx:id="table" editable="true" onMouseClicked="#getData" prefHeight="342.0" prefWidth="1144.0" stylesheets="@style.css">
                <columns>
-                  <TableColumn fx:id="IdShow" prefWidth="186.9333175420761" text="Identifier" />
-                  <TableColumn fx:id="nameShow" prefWidth="235.0" text="Full name" />
-                  <TableColumn fx:id="emailShow" prefWidth="235.0" text="E-mail address" />
-                  <TableColumn fx:id="phoneShow" prefWidth="235.0" text="Phone number" />
-                  <TableColumn fx:id="dateShow" prefWidth="250.13330078125" text="Date of birth" />
+                  <TableColumn fx:id="nameShow" prefWidth="240.0" text="Full name" />
+                  <TableColumn fx:id="emailShow" prefWidth="240.0" text="E-mail address" />
+                  <TableColumn fx:id="phoneShow" prefWidth="240.0" text="Phone number" />
+                  <TableColumn fx:id="dateShow" prefWidth="240.0" text="Date of birth" />
+                  <TableColumn fx:id="actionShow" prefWidth="182.39990234375" text="Actions" />
                </columns>
                <VBox.margin>
                   <Insets left="50.0" right="50.0" />
