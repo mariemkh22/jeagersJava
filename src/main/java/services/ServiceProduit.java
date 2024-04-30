@@ -71,6 +71,9 @@ public class ServiceProduit implements IService<Produit> {
         return produits;
     }
 
+
+
+
     public void deleteAll() throws SQLException {
         String req = "DELETE FROM produit";
         try (Statement statement = connection.createStatement()) {
