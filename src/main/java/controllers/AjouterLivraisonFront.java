@@ -214,6 +214,24 @@ public class AjouterLivraisonFront {
         LocalDate selectedDate = lastdate.getValue();
         System.out.println("Last Date Selected: " + selectedDate);
     }
+    @FXML
+    void paybtn(ActionEvent event) {
+        try {
+            // Charger le fichier FXML de la fenêtre ajoutLocation
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketPayment.fxml"));
+            Parent root = loader.load();
 
+            // Récupérer la fenêtre actuelle à partir de l'événement
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Créer une nouvelle scène avec la racine chargée
+            Scene scene = new Scene(root);
+
+            // Changer la scène de la fenêtre actuelle
+            currentStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace(); // Gérer l'exception s'il y a une erreur de chargement du fichier FXML
+        }
+    }
 
 }

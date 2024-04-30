@@ -1,6 +1,7 @@
 package Entity;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Livraison {
     private int id;
@@ -81,6 +82,23 @@ public class Livraison {
         this.frais = frais;
         this.status = status;
         this.localisationGeographique = localisationGeographique;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null){
+            return false;
+        }
+        if(o instanceof Livraison){
+            final Livraison livraison = (Livraison) o;
+            return this.status == livraison.status;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, date_debut, date_fin, entreprise, frais, status, localisationGeographique);
     }
 
     @Override

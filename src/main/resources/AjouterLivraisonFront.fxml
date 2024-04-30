@@ -183,6 +183,11 @@
                         <Image url="@footer-logo.png" />
                      </image>
                   </ImageView>
+                  <Button layoutX="1221.0" layoutY="495.0" mnemonicParsing="false" onAction="#paybtn" prefHeight="62.0" prefWidth="215.0" style="-fx-background-color: #10172C;" text="Pay" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </children>
