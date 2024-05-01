@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.StatistiqueLivraison"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <BarChart fx:id="livraisonBarChart" layoutX="37.0" layoutY="39.0" prefHeight="307.0" prefWidth="512.0">
+        <xAxis>
+            <CategoryAxis fx:id="regionAxis" label="Region" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="livraisonCountAxis" label="Nombre de Livraisons" />
+        </yAxis>
+    </BarChart>
+
+</AnchorPane>

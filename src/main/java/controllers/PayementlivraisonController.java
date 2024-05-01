@@ -9,6 +9,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 
 import java.util.regex.Pattern;
 
@@ -47,6 +50,18 @@ public class PayementlivraisonController {
 
     // Clé d'API Stripe
     private static final String STRIPE_SECRET_KEY = "sk_test_51OqQysKZrAz2LN0A7ipHdO7hwCLMk5ezKvF085E84HoyVz6W2VJhAfrNYhpvsgd6ZfXTEzWzLMCZQsEpuV65zpFE00FDVKrTuy";
+    private static final String ACCOUNT_SID = "ACb32b5dce2baf53ab832edbd2b8e8537a";
+    private static final String AUTH_TOKEN = "581701bf5ea9af96cdbf70a70ffecf01";
+    private static final String FROM_NUMBER = "+12403392414";
+
+    private void sendTwilioMessage(String message) {
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        Message.creator(
+                new PhoneNumber("+21693683973"), // Votre numéro de téléphone
+                new PhoneNumber(FROM_NUMBER), // Votre numéro Twilio
+                message
+        ).create();
+    }
 
     @FXML
     void handlePayment(ActionEvent event) {
@@ -83,16 +98,17 @@ public class PayementlivraisonController {
 
             // Gérer la réponse du paiement
             if ("Completed".equals(intent.getStatus())) {
-
-                showAlert("Paiement réussi", "Le paiement a été effectué avec succès.");
-            } else {
                 showAlert("Erreur de paiement", "Le paiement a échoué. Veuillez réessayer.");
 
+            } else {
+                showAlert("Paiement réussi", "Le paiement a été effectué avec succès.");
+                sendTwilioMessage("Votre paiement a été confirmé.");
             }
         } catch (StripeException e) {
             // Gérer les exceptions
             showAlert("Erreur", "Une erreur est survenue lors du traitement du paiement : " + e.getMessage());
         }
+
     }
 
     // Méthode utilitaire pour afficher une alerte
