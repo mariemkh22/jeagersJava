@@ -19,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import services.ServiceCategorie;
 import services.ServiceService;
+import javafx.stage.Stage;
 
 public class ModifierService {
 
@@ -42,6 +43,9 @@ public class ModifierService {
 
         @FXML
         private TextField statetf;
+
+    @FXML
+    private ImageView qRcode;
     @FXML
     private ImageView imageView;
 
@@ -68,6 +72,12 @@ public class ModifierService {
     private service serviceToUpdate;
     private Image currentImage;
 
+    private Stage stage ;
+
+
+    @FXML
+    private TextField imgID;
+
     private ServiceService ss = new ServiceService();
 
     @FXML
@@ -92,13 +102,14 @@ public class ModifierService {
         locationtf.setText(service.getLocalisation());
         statetf.setText(service.getState());
         datetf.setText(service.getDispo_date());
+        imgID.setText(service.getImageFile());
 
 
     }
 
 
         @FXML
-        void modifierService(ActionEvent event) {
+        boolean modifierService(ActionEvent event) {
             if (serviceToUpdate != null) {
 
                 serviceToUpdate.setName_s(namestf.getText());
@@ -106,9 +117,9 @@ public class ModifierService {
                 serviceToUpdate.setLocalisation(locationtf.getText());
                 serviceToUpdate.setState(statetf.getText());
                 serviceToUpdate.setDispo_date(datetf.getText());
+                serviceToUpdate.setImageFile(imgID.getText());
 
-                Image updatedImage = imageView.getImage();
-                serviceToUpdate.setImageFile(String.valueOf((updatedImage)));
+
 
                 // controle de saisie:
                 String name_s = namestf.getText();
@@ -156,7 +167,7 @@ public class ModifierService {
                 }
 
                 if (erreur) {
-                    return;  //erreur detecté//
+                    return erreur;
                 }
 
 
@@ -184,8 +195,7 @@ public class ModifierService {
             }
 
 
-
-
+            return false;
         }
 
         @FXML
@@ -200,17 +210,30 @@ public class ModifierService {
         }
 
     @FXML
-    void addImage1(ActionEvent event){
+    void addImage1(ActionEvent event) {
+
         FileChooser fileChooser = new FileChooser();
-        File selectedFile = fileChooser.showOpenDialog(null);
-        if (selectedFile != null) {
-            Image imageFile = new Image(selectedFile.toURI().toString());
-            imageView.setImage(imageFile);
+        fileChooser.setTitle("Choose Image");
 
-            serviceToUpdate.setImageFile(String.valueOf((imageFile)));
+        File file = fileChooser.showOpenDialog(stage);
+        if (file != null) {
+            // Set the path of the selected image file to the image text field
+            imgID.setText(file.getAbsolutePath());
         }
-
     }
+    @FXML
+    void AjouterqR(ActionEvent event) {
+        // Récupérer le chemin du fichier QR Code
+        String qrCodeFilePath = "C:\\Users\\khadi\\IdeaProjects\\Pi\\src\\main\\resources\\test_qr_code1.png";
+
+        // Charger le fichier QR Code dans une Image
+        File qrCodeFile = new File(qrCodeFilePath);
+        Image qrCodeImage = new Image(qrCodeFile.toURI().toString());
+
+        // Afficher l'image du QR Code dans l'ImageView
+        qRcode.setImage(qrCodeImage);
+    }
+
 
         }
 

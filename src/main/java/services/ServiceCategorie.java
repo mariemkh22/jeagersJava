@@ -92,7 +92,24 @@ public class ServiceCategorie implements IService <categorie_service>{
             }
             return categories;
         }
+
+    public categorie_service getById(int id) throws SQLException {
+        String req = "SELECT * FROM categorie_service WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(req);
+        preparedStatement.setInt(1, id);
+        ResultSet rs = preparedStatement.executeQuery();
+        if (rs.next()) {
+            categorie_service categorie = new categorie_service();
+            categorie.setId(rs.getInt("id"));
+            categorie.setName_c(rs.getString("name_c"));
+            categorie.setDescription_c(rs.getString("description_c"));
+            return categorie;
+        } else {
+            return null; // Si aucune catégorie correspondante n'est trouvée
+        }
     }
+
+}
 
 
 

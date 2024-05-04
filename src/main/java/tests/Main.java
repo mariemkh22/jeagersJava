@@ -43,8 +43,7 @@ public class Main {
         }
 
 
-        service service = new service("ser", "dec", "gabes", "av", "12/12/2012", 1, null);
-        service service1 = new service("ser1", "des1", "tunis", "av", "12/12/2021", 2,null);
+
 
 
 
@@ -52,15 +51,7 @@ public class Main {
 
         ServiceService serviceService = new ServiceService();
 
-        try {
 
-            serviceService.modifier(service);
-            //serviceService.ajouter(service1);
-            //serviceService.ajouter(service2);
-
-        } catch (SQLException e){
-            System.out.println(e.getMessage());
-        }
 
         try {
 

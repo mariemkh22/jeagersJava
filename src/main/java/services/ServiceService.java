@@ -19,10 +19,17 @@ public class ServiceService implements IService <service> {
     @Override
     public void ajouter(service service) throws SQLException {
         String req ="insert into service (name_s,description_s,localisation,state,dispo_date,categorie_id, imageFile)"+
-                "values('"+service.getName_s()+"', '"+service.getDescription_s()+"', '"+service.getLocalisation()+"', '"+service.getState()+"', '"+service.getDispo_date()+"', "+service.getCat_id()+", '"+service.getImageFile()+"')";
+                "values(?,?,?,?,?,?,?)";
 
-        Statement statement= connection.createStatement();
-        statement.executeUpdate(req); //exécuter requete
+        PreparedStatement statement= connection.prepareStatement(req);
+        statement.setString(1,service.getName_s());
+        statement.setString(2,service.getDescription_s());
+        statement.setString(3,service.getLocalisation());
+        statement.setString(4,service.getState());
+        statement.setString(5,service.getDispo_date());
+        statement.setInt(6,service.getCat_id());
+        statement.setString(7,service.getImageFile());
+        statement.executeUpdate(); //exécuter requete
         System.out.println("service ajoute");
     }
 
@@ -80,6 +87,41 @@ public class ServiceService implements IService <service> {
         }
         return servicesL;
     }
+
+
+    public List<service> searchService(String search) throws SQLException {
+        List<service> services = new ArrayList<>();
+        String query = "SELECT * FROM service WHERE name_s LIKE ? OR description_s LIKE ? OR localisation LIKE ? OR state LIKE ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, "%" + search + "%");
+        preparedStatement.setString(2, "%" + search + "%");
+        preparedStatement.setString(3, "%" + search + "%");
+        preparedStatement.setString(4, "%" + search + "%");
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        // Parcours du résultat de la requête
+        while (resultSet.next()) {
+            service service = new service();
+            service.setId(resultSet.getInt("id"));
+            service.setName_s(resultSet.getString("name_s"));
+            service.setDescription_s(resultSet.getString("description_s"));
+            service.setLocalisation(resultSet.getString("localisation"));
+            service.setState(resultSet.getString("state"));
+            service.setDispo_date(resultSet.getString("dispo_date"));
+            service.setCat_id(resultSet.getInt("categorie_id"));
+            service.setImageFile(resultSet.getString("imageFile"));
+
+            services.add(service);
+        }
+        preparedStatement.close();
+
+        return services;
+    }
+
+    
+
 
 
 }

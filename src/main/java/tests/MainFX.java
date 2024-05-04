@@ -15,11 +15,11 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherService.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterService.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Gérer categories");
+            primaryStage.setTitle("Service management");
             primaryStage.show();
         } catch (IOException e) {
             System.err.println(e.getMessage());

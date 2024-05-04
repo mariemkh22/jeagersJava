@@ -1,25 +1,29 @@
 package calendar;
 
-import calendar.CalendarActivity;
-import javafx.event.ActionEvent;
+import java.net.URL;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
+import javafx.scene.paint.Color;
+import javafx.event.ActionEvent;
+import javafx.scene.input.MouseEvent;
 
-import java.io.IOException;
-import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.List;
 import java.time.ZonedDateTime;
-import java.util.*;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.VBox;
+import entities.service;
+import services.ServiceService;
 
 public class CalendarController implements Initializable {
 
@@ -39,24 +43,30 @@ public class CalendarController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateFocus = ZonedDateTime.now();
         today = ZonedDateTime.now();
-        drawCalendar();
+        try {
+            drawCalendar();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
-    void backOneMonth(ActionEvent event) {
+    void backOneMonth(ActionEvent event) throws SQLException {
         dateFocus = dateFocus.minusMonths(1);
         calendar.getChildren().clear();
         drawCalendar();
     }
 
     @FXML
-    void forwardOneMonth(ActionEvent event) {
+    void forwardOneMonth(ActionEvent event) throws SQLException {
         dateFocus = dateFocus.plusMonths(1);
         calendar.getChildren().clear();
         drawCalendar();
     }
 
-    private void drawCalendar() {
+
+
+    private void drawCalendar() throws SQLException {
         year.setText(String.valueOf(dateFocus.getYear()));
         month.setText(String.valueOf(dateFocus.getMonth()));
 
@@ -66,11 +76,11 @@ public class CalendarController implements Initializable {
         double spacingH = calendar.getHgap();
         double spacingV = calendar.getVgap();
 
-        //List of activities for a given month
+        // List of activities for a given month
         Map<Integer, List<CalendarActivity>> calendarActivityMap = getCalendarActivitiesMonth(dateFocus);
 
         int monthMaxDate = dateFocus.getMonth().maxLength();
-        //Check for leap year
+        // Check for leap year
         if (dateFocus.getYear() % 4 != 0 && monthMaxDate == 29) {
             monthMaxDate = 28;
         }
@@ -113,10 +123,35 @@ public class CalendarController implements Initializable {
         }
     }
 
+    private Map<Integer, List<CalendarActivity>> getCalendarActivitiesMonth(ZonedDateTime dateFocus) throws SQLException {
+        List<CalendarActivity> calendarActivities = new ArrayList<>();
+
+        // Utilisation du service réel pour récupérer les activités du calendrier
+        ServiceService service = new ServiceService(); // Assurez-vous que ServiceService est correctement importé
+        List<service> activities = service.afficher();
+
+        for (service activity : activities) {
+            // Extraction des informations pertinentes de l'objet service
+            LocalDate activityDate = LocalDate.parse(activity.getDispo_date()); // Supposons que getDispo_date() retourne une String au format ISO
+            ZonedDateTime zonedDateTime = activityDate.atStartOfDay(ZoneId.systemDefault());
+            if (zonedDateTime.getMonth() == dateFocus.getMonth() && zonedDateTime.getYear() == dateFocus.getYear()) {
+                CalendarActivity calendarActivity = new CalendarActivity();
+                calendarActivity.setTitle(activity.getName_s());
+                calendarActivity.setDateStart(zonedDateTime.toLocalDateTime());
+                calendarActivity.setDescription(activity.getDescription_s());
+                // Ajouter l'activité à la liste
+                calendarActivities.add(calendarActivity);
+            }
+        }
+
+        return createCalendarMap(calendarActivities);
+    }
+
+
     private void createCalendarActivity(List<CalendarActivity> calendarActivities, double rectangleHeight, double rectangleWidth, StackPane stackPane) {
         VBox calendarActivityBox = new VBox();
         for (int k = 0; k < calendarActivities.size(); k++) {
-            if (k >= 2) {
+            if(k >= 2) {
                 Text moreActivities = new Text("...");
                 calendarActivityBox.getChildren().add(moreActivities);
                 moreActivities.setOnMouseClicked(mouseEvent -> {
@@ -125,7 +160,7 @@ public class CalendarController implements Initializable {
                 });
                 break;
             }
-            Text text = new Text(calendarActivities.get(k).getServiceName() + ", " + calendarActivities.get(k).getServiceDate().toLocalTime());
+            Text text = new Text(calendarActivities.get(k).getClientName() + ", " + calendarActivities.get(k).getDateStart().getDayOfMonth());
             calendarActivityBox.getChildren().add(text);
             text.setOnMouseClicked(mouseEvent -> {
                 //On Text clicked
@@ -142,10 +177,10 @@ public class CalendarController implements Initializable {
     private Map<Integer, List<CalendarActivity>> createCalendarMap(List<CalendarActivity> calendarActivities) {
         Map<Integer, List<CalendarActivity>> calendarActivityMap = new HashMap<>();
 
-        for (CalendarActivity activity : calendarActivities) {
-            int activityDate = activity.getServiceDate().getDayOfMonth();
-            if (!calendarActivityMap.containsKey(activityDate)) {
-                calendarActivityMap.put(activityDate, List.of(activity));
+        for (CalendarActivity activity: calendarActivities) {
+            int activityDate = activity.getDateStart().getDayOfMonth();
+            if(!calendarActivityMap.containsKey(activityDate)){
+                calendarActivityMap.put(activityDate, new ArrayList<>(Arrays.asList(activity)));
             } else {
                 List<CalendarActivity> OldListByDate = calendarActivityMap.get(activityDate);
 
@@ -154,20 +189,11 @@ public class CalendarController implements Initializable {
                 calendarActivityMap.put(activityDate, newList);
             }
         }
-        return calendarActivityMap;
+        return  calendarActivityMap;
     }
 
-    private Map<Integer, List<CalendarActivity>> getCalendarActivitiesMonth(ZonedDateTime dateFocus) {
-        List<CalendarActivity> calendarActivities = new ArrayList<>();
-        int year = dateFocus.getYear();
-        int month = dateFocus.getMonth().getValue();
 
-        Random random = new Random();
-        for (int i = 0; i < 50; i++) {
-            ZonedDateTime time = ZonedDateTime.of(year, month, random.nextInt(27) + 1, 16, 0, 0, 0, dateFocus.getZone());
-            calendarActivities.add(new CalendarActivity(time, "Hans", 111111));
-        }
 
-        return createCalendarMap(calendarActivities);
-    }
+
+
 }

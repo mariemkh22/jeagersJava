@@ -66,18 +66,20 @@
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <ComboBox fx:id="categorieBox" layoutX="490.0" layoutY="534.0" prefWidth="150.0" promptText="Select category" />
+            <ComboBox fx:id="categorieBox" layoutX="490.0" layoutY="534.0" prefWidth="150.0" promptText="Select category" style="-fx-background-color: #f2b819;" />
             <Text fill="#f2b819" layoutX="332.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category">
                <font>
                   <Font size="18.0" />
                </font></Text>
-            <ImageView fx:id="imageView" fitHeight="83.0" fitWidth="105.0" layoutX="317.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="insert_image1" layoutX="494.0" layoutY="608.0" mnemonicParsing="false" onAction="#addImage1" text="Insert the service image" />
+            <Button fx:id="insert_image1" layoutX="494.0" layoutY="608.0" mnemonicParsing="false" onAction="#addImage1" style="-fx-background-color: #231fa9;" text="Insert the service image" textFill="WHITE" />
             <ImageView fitHeight="273.0" fitWidth="358.0" layoutX="972.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@categorize3.jpg" />
                </image>
             </ImageView>
+            <TextField fx:id="imgID" layoutX="330.0" layoutY="608.0" />
+            <ImageView fx:id="qRcode" fitHeight="91.0" fitWidth="99.0" layoutX="348.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="494.0" layoutY="717.0" mnemonicParsing="false" onAction="#AjouterqR" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: #231fa9;" text="Insert the QRCode" textFill="WHITE" />
          </children>
       </AnchorPane>
       <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;">
@@ -255,5 +257,6 @@
             </ImageView>
          </children>
       </HBox>
+
    </children>
 </AnchorPane>

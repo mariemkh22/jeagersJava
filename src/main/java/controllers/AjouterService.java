@@ -69,6 +69,9 @@ public class AjouterService {
 
     @FXML
     private ComboBox<categorie_service> categorieBox;
+
+    @FXML
+    private ImageView QRcode;
     private Image selectedImage;
 
 
@@ -110,7 +113,7 @@ public class AjouterService {
         int cat_id= categorieBox.getValue().getId();
         Image imageFile= imageView.getImage();
 
-       /* String imagePath = (imageFile != null) ? imageFile.getUrl() : "";*/
+        /* String imagePath = (imageFile != null) ? imageFile.getUrl() : "";*/
 
 
         boolean erreur = false;
@@ -160,7 +163,7 @@ public class AjouterService {
         String imagePath = selectedImage.getUrl();
 
         try {
-            service s = new service(name_s, description_s, localisation, state, dispo_date, cat_id, imageFile);
+            service s = new service(name_s, description_s, localisation, state, dispo_date, cat_id, imageFile.getUrl());
             s.setCat_id(categorieBox.getValue().getId());
             ss.ajouter(s);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -178,19 +181,31 @@ public class AjouterService {
     @FXML
     void addImage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir une image");
+
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
-            selectedImage = new Image(selectedFile.getName());
+            selectedImage = new Image(selectedFile.toURI().toString());
             imageView.setImage(selectedImage);
         }
     }
 
 
 
+    @FXML
+    void AjouterQR(ActionEvent event) {
+        // Récupérer le chemin du fichier QR Code
+        String qrCodeFilePath = "C:\\Users\\khadi\\IdeaProjects\\Pi\\src\\main\\resources\\test_qr_code1.png";
+
+        // Charger le fichier QR Code dans une Image
+        File qrCodeFile = new File(qrCodeFilePath);
+        Image qrCodeImage = new Image(qrCodeFile.toURI().toString());
+
+        // Afficher l'image du QR Code dans l'ImageView
+        QRcode.setImage(qrCodeImage);
+    }
+
 
 
 
 }
-
-
-

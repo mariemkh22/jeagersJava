@@ -1,48 +1,70 @@
 package calendar;
 
-import java.time.ZonedDateTime;
+/**
+ *
+ * @author HP
+ */
+import java.time.LocalDateTime;
+import java.util.Date;
 
 public class CalendarActivity {
-    private ZonedDateTime serviceDate;
-    private String serviceName;
-    private Integer serviceId;
+    private String title;
+    private LocalDateTime dateStart;
+    private Date dateEnd;
+    private String description;
 
-    public CalendarActivity(ZonedDateTime serviceDate, String serviceName, Integer serviceId) {
-        this.serviceDate = serviceDate;
-        this.serviceName = serviceName;
-        this.serviceId = serviceId;
+    public CalendarActivity() {
+        // Default constructor
     }
 
-    public ZonedDateTime getServiceDate() {
-        return serviceDate;
+    public CalendarActivity(String title, LocalDateTime dateStart, Date dateEnd, String description) {
+        this.title = title;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.description = description;
     }
 
-    public void setServiceDate(ZonedDateTime serviceDate) {
-        this.serviceDate = serviceDate;
+    public String getTitle() {
+        return title;
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
+    public LocalDateTime getDateStart() {
+        return dateStart;
     }
 
-    public Integer getServiceId() {
-        return serviceId;
+    public void setDateStart(LocalDateTime dateStart) {
+        this.dateStart = dateStart;
     }
 
-    public void setServiceId(Integer serviceId) {
-        this.serviceId = serviceId;
+    public Date getDateEnd() {
+        return dateEnd;
+    }
+
+    public void setDateEnd(Date dateEnd) {
+        this.dateEnd = dateEnd;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
-        return "CalendarActivity{" +
-                "serviceDate=" + serviceDate +
-                ", serviceName='" + serviceName + '\'' +
-                ", serviceId=" + serviceId +
-                '}';
+        return "CalendarActivity{" + "title=" + title + ", dateStart=" + dateStart + ", dateEnd=" + dateEnd + ", description=" + description + '}';
+    }
+
+    public void setClientName(String localisation) {
+    }
+
+    public double getClientName() {
+        return 0;
     }
 }

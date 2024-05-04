@@ -27,28 +27,28 @@ import services.ServiceService;
 
 public class AfficherServiceController {
 
-        @FXML
-        private ResourceBundle resources;
+    @FXML
+    private ResourceBundle resources;
 
-        @FXML
-        private URL location;
+    @FXML
+    private URL location;
 
-        @FXML
-        private TableColumn<service, String> datestf;
+    @FXML
+    private TableColumn<service, String> datestf;
 
-        @FXML
-        private TableColumn<service, String> descriptionstf;
+    @FXML
+    private TableColumn<service, String> descriptionstf;
 
-        @FXML
-        private TableColumn<service, String> locationstf;
+    @FXML
+    private TableColumn<service, String> locationstf;
 
-        @FXML
-        private TableColumn<service, String> namestf;
+    @FXML
+    private TableColumn<service, String> namestf;
 
-        @FXML
-        private TableColumn<service, String> statestf;
+    @FXML
+    private TableColumn<service, String> statestf;
 
-        @FXML
+    @FXML
     private TableColumn<categorie_service, Integer> catidtf;
 
 
@@ -163,17 +163,17 @@ public class AfficherServiceController {
     private ImageView img9;
 
 
+
+
     private final ServiceService ss = new ServiceService();
-    ObservableList<service> observableList;
+    private ObservableList<service> observableList;
 
     @FXML
     void initialize() {
         try {
             List<service> serviceList = ss.afficher();
-
             observableList = FXCollections.observableList(serviceList);
 
-            // Assignez l'observableList à la ListView
             listView.setItems(observableList);
 
             listView.setCellFactory(param -> new ListCell<service>() {
@@ -183,33 +183,32 @@ public class AfficherServiceController {
 
                     if (empty || item == null) {
                         setText(null);
-                        setGraphic(null); // Assurez-vous de réinitialiser la représentation graphique de la cellule
+                        setGraphic(null);
                     } else {
-                        // Construire une chaîne avec toutes les informations de l'objet service
                         StringBuilder sb = new StringBuilder();
-                        sb.append("Name : ").append(item.getName_s()).append("\n")
-                                .append("Description : ").append(item.getDescription_s()).append("\n")
-                                .append("Location : ").append(item.getLocalisation()).append("\n")
-                                .append("State : ").append(item.getState()).append("\n")
-                                .append("Availability Date: ").append(item.getDispo_date()).append("\n")
-                                .append("Category Id : ").append(item.getCat_id()).append("\n")
-                                .append("Image : ").append(item.getImageFile()).append("\n");
+                        sb.append("Name :  ").append(item.getName_s()).append("\n")
+                                .append("Description :  ").append(item.getDescription_s()).append("\n")
+                                .append("Location :  ").append(item.getLocalisation()).append("\n")
+                                .append("State :  ").append(item.getState()).append("\n")
+                                .append("Availability Date : ").append(item.getDispo_date()).append("\n")
+                                .append("Category ID : ").append(item.getCat_id()).append("\n")
 
 
-                        // Créer une ImageView pour afficher l'image à partir du chemin d'accès
+                        ;
+
+
+
                         ImageView imageView = new ImageView();
-                        imageView.setFitWidth(50); // Définissez la largeur de l'ImageView selon vos besoins
-                        imageView.setFitHeight(50); // Définissez la hauteur de l'ImageView selon vos besoins
+                        imageView.setFitWidth(100);
+                        imageView.setFitHeight(100);
 
-                        // Chargement de l'image à partir du chemin d'accès
                         try {
-                            Image image = new Image(new FileInputStream(item.getImageFile())); // item.getImageFile() est le chemin d'accès à l'image
+                            Image image = new Image(new FileInputStream(item.getImageFile()));
                             imageView.setImage(image);
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
                         }
 
-                        // Afficher la chaîne et l'ImageView dans la cellule de la ListView
                         setText(sb.toString());
                         setGraphic(imageView);
                     }
@@ -217,13 +216,9 @@ public class AfficherServiceController {
             });
 
         } catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
+            e.printStackTrace();
         }
     }
-
     @FXML
     void supprimerService(ActionEvent event) {
         service selectedService = listView.getSelectionModel().getSelectedItem();
@@ -336,5 +331,3 @@ public class AfficherServiceController {
     }
 
 }
-
-

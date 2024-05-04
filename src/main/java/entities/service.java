@@ -9,6 +9,15 @@ public class service {
 
     private int cat_id;
     private String imageFile;
+    public static String searchValue;
+
+    public static String getSearchValue() {
+        return searchValue;
+    }
+
+    public static void setSearchValue(String searchValue) {
+        service.searchValue = searchValue;
+    }
 
     public String getImageFile() {
         return imageFile;
@@ -88,7 +97,7 @@ public class service {
 
     }
 
-    public service(String name_s, String description_s, String localisation, String state, String dispo_date, int cat_id, Image imageFile
+    public service(String name_s, String description_s, String localisation, String state, String dispo_date, int cat_id, String imageFile
     ) {
 
         this.name_s = name_s;
@@ -98,12 +107,10 @@ public class service {
         this.state = state;
         this.dispo_date = dispo_date;
         this.cat_id=cat_id;
-        this.imageFile= String.valueOf(imageFile);
+        this.imageFile= imageFile;
 
     }
 
     public service() {
     }
-
-
 }

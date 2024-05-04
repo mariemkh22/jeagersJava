@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="424.0" minWidth="800.0" prefHeight="736.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontService">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="424.0" minWidth="800.0" prefHeight="736.0" prefWidth="1502.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontService">
     <left>
         <VBox prefHeight="736.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
     </left>
@@ -71,7 +72,7 @@
                               <Image url="@search.png" />
                            </image>
                         </ImageView>
-                        <TextField prefHeight="26.0" prefWidth="266.0" />
+                        <TextField fx:id="searchS" onKeyTyped="#searchservice" prefHeight="26.0" prefWidth="266.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
@@ -101,6 +102,14 @@
                   </ImageView>
                </children>
             </HBox>
+            <Button mnemonicParsing="false" onAction="#navigatetoAdd1" prefHeight="50.0" style="-fx-background-color: #ffb007;" text="Add new service" textFill="WHITE">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </VBox.margin>
+            </Button>
                 <Label alignment="CENTER" prefHeight="32.0" prefWidth="1575.0" text="My Services" textFill="#25218c">
                     <font>
                         <Font name="Elephant" size="24.0" />
@@ -109,7 +118,7 @@
                   <Insets top="30.0" />
                </VBox.margin>
                 </Label>
-                <ScrollPane prefHeight="638.0" prefWidth="502.0" VBox.vgrow="ALWAYS">
+                <ScrollPane prefHeight="638.0" prefWidth="1316.0" VBox.vgrow="ALWAYS">
                <content>
                   <HBox fx:id="boxservices" alignment="CENTER_LEFT" prefHeight="622.0" prefWidth="3080.0" spacing="20.0" />
                </content>
@@ -117,4 +126,7 @@
             </children>
         </VBox>
     </center>
+   <bottom>
+      <Pagination fx:id="pagination" maxPageIndicatorCount="5" pageCount="10" prefHeight="118.0" prefWidth="1502.0" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

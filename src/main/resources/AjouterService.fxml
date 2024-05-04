@@ -70,14 +70,14 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <ComboBox fx:id="categorieBox" layoutX="490.0" layoutY="534.0" prefWidth="150.0" promptText="Select category" />
+      <ComboBox fx:id="categorieBox" layoutX="490.0" layoutY="534.0" prefWidth="150.0" promptText="Select category" style="-fx-background-color: #f2b819;" />
       <Text fill="#f2b819" layoutX="332.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
       <ImageView fx:id="imageView" fitHeight="83.0" fitWidth="105.0" layoutX="317.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="insert_image" layoutX="494.0" layoutY="608.0" mnemonicParsing="false" onAction="#addImage" text="Insert the service image" />
+      <Button fx:id="insert_image" layoutX="494.0" layoutY="608.0" mnemonicParsing="false" onAction="#addImage" style="-fx-background-color: #231fa9;" text="Insert the service image" textFill="WHITE" />
       <ImageView fitHeight="273.0" fitWidth="358.0" layoutX="972.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@categorize3.jpg" />
@@ -258,6 +258,8 @@
             </ImageView>
          </children>
       </HBox>
+      <ImageView fx:id="QRcode" fitHeight="67.0" fitWidth="77.0" layoutX="331.0" layoutY="677.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="494.0" layoutY="697.0" mnemonicParsing="false" onAction="#AjouterQR" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: #231fa9;" text="Insert the QRCode" textFill="WHITE" />
 
 
    </children>

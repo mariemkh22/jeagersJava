@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class MyDatabase {
 
-    final String URL="jdbc:mysql://localhost:3306/pidev";
+    final String URL="jdbc:mysql://localhost:3306/piiidev";
 
     final String USERNAME="root";
 
