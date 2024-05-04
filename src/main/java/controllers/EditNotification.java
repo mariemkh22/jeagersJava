@@ -5,10 +5,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import services.ServiceNotification;
+
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -71,32 +74,79 @@ public class EditNotification {
         }
 
 
+// Mettez à jour la notification dans la base de données
+        notification.setDate_envoie(date_envoie);
+        notification.setSujet(sujet);
+        notification.setContenue(contenue);
 
+        try {
+            serviceNotification.modifier(notification);
+        } catch (SQLException e) {
 
-            try {
-                serviceNotification.modifier(notification);
-            } catch (SQLException e) {
-
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("error");
-                alert.setContentText(e.getMessage());
-                alert.showAndWait();
-            }
-
-
-        }
-        @FXML
-        public void notiflistAction (ActionEvent actionEvent){
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/AfficherNotifications.fxml"));
-                sujetTF.getScene().setRoot(root);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-
-            }
-
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("error");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
         }
 
 
     }
 
+    @FXML
+    public void notiflistAction(ActionEvent actionEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherNotifications.fxml"));
+            sujetTF.getScene().setRoot(root);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+
+        }
+
+    }
+    @FXML
+    private AfficherNotifications afficherNotificationsController;
+
+    public void setAfficherNotificationsController(AfficherNotifications controller) {
+        this.afficherNotificationsController = controller;
+    }
+    @FXML
+    void modifierNotificationAction(ActionEvent event) {
+        String date_envoie = dateTF.getText();
+        String sujet = sujetTF.getText();
+        String contenue = contenueTF.getText();
+        boolean erreur = false;
+        // Validez les données modifiées (même logique que dans votre code actuel)
+        // ...
+        if (erreur) {
+            return;
+        }
+
+        // Mettez à jour la notification dans la base de données
+        notification.setDate_envoie(date_envoie);
+        notification.setSujet(sujet);
+        notification.setContenue(contenue);
+
+
+        try {
+            serviceNotification.modifier(notification);
+
+            // Mettre à jour la TableView dans AfficherNotifications
+            afficherNotificationsController.updateNotification(notification);
+
+            // Afficher un message de succès
+            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+            successAlert.setTitle("Notification modifiée");
+            successAlert.setHeaderText(null);
+            successAlert.setContentText("La notification a été modifiée avec succès !");
+            successAlert.showAndWait();
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+            return;
+        }
+
+
+    }
+}

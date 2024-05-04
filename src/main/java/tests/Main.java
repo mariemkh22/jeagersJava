@@ -18,7 +18,7 @@ public class Main {
         Notification notification = new Notification("remise", "offre","17/02/2024");
 
         try {
-            serviceNotification.ajouter(notification);
+            serviceNotification.modifier(notification);
         }
         catch (SQLException e) {
             System.out.println(e.getMessage());

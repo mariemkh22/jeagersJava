@@ -31,11 +31,11 @@ public class ServiceNotification implements IService<Notification>{
     }
     @Override
     public void modifier(Notification notification) throws SQLException {
-        String req="update notification set Date-envoie=?,sujet=?,contenue=?, where id=?";
+        String req="update notification  set date_envoie=?,sujet=?,contenue=?, where id=?";
         PreparedStatement preparedStatement= connection.prepareStatement(req);
-        preparedStatement.setString(1,notification.getContenue());
+        preparedStatement.setString(1,notification.getDate_envoie());
         preparedStatement.setString(2,notification.getSujet());
-        preparedStatement.setString(3,  notification.getDate_envoie());
+        preparedStatement.setString(3,  notification.getContenue());
         preparedStatement.setInt(4,notification.getId());
         preparedStatement.executeUpdate();
         System.out.println("updated");
