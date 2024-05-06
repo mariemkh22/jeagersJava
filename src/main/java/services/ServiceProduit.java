@@ -81,4 +81,18 @@ public class ServiceProduit implements IService<Produit> {
             System.out.println("All products deleted");
         }
     }
+
+    public static List<Produit> getProducts() {
+        ServiceProduit serviceProduit = new ServiceProduit();
+        try {
+            return serviceProduit.afficher();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
+
+
+
+
