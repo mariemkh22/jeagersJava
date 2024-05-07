@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -15,26 +14,24 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BackendHome">
    <left>
-      <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #001C60;" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="350.0" spacing="10.0" styleClass="right-side-border">
                <children>
-                  <ImageView fitHeight="65.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="homeButton" fitHeight="121.0" fitWidth="241.0" onMouseClicked="#homeButton" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@LOGO.png" />
+                        <Image url="@finalLogo.png" />
                      </image>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
                   </ImageView>
-                  <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeOnAction" style="-fx-background-color: transparent;" text="SWAPCRAZE" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Button>
                </children>
                <VBox.margin>
-                  <Insets bottom="50.0" left="20.0" top="10.0" />
+                  <Insets bottom="20.0" left="20.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <VBox prefHeight="726.0" prefWidth="389.0" style="-fx-background-color: #10172C;" stylesheets="@style.css">
+            <VBox prefHeight="726.0" prefWidth="389.0" style="-fx-background-color: #001C60;" stylesheets="@style.css">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0" styleClass="selected">
                      <children>
@@ -144,25 +141,12 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #10172C;" styleClass="search-container">
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #001C60;" styleClass="search-container">
                <children>
                   <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="300.0" styleClass="transparent">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="357.0" styleClass="transparent">
-                     <HBox.margin>
-                        <Insets right="50.0" />
-                     </HBox.margin>
-                     <children>
-                        <ImageView fitHeight="51.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@search.png" />
-                           </image>
-                        </ImageView>
-                        <TextField prefHeight="26.0" prefWidth="266.0" />
-                     </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
                      <children>
@@ -178,15 +162,15 @@
                         </Label>
                      </children>
                      <HBox.margin>
-                        <Insets right="20.0" />
+                        <Insets right="10.0" />
                      </HBox.margin>
                   </HBox>
-                  <ImageView fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@profileIcon.png" />
                      </image>
                      <HBox.margin>
-                        <Insets right="20.0" />
+                        <Insets right="30.0" />
                      </HBox.margin>
                   </ImageView>
                </children>

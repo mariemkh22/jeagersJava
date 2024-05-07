@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -41,7 +42,8 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <PasswordField fx:id="passwordTextField" layoutX="23.0" layoutY="200.0" prefHeight="26.0" prefWidth="302.0" promptText="****************" AnchorPane.topAnchor="200.0" />
+            <TextField fx:id="visiblePassTF" editable="false" layoutX="23.0" layoutY="201.0" prefHeight="26.0" prefWidth="302.0" promptText="****************" AnchorPane.bottomAnchor="172.79999999999998" AnchorPane.topAnchor="201.0" />
+            <PasswordField fx:id="passwordTextField" layoutX="23.0" layoutY="201.0" prefHeight="26.0" prefWidth="302.0" promptText="****************" AnchorPane.bottomAnchor="172.79999999999998" AnchorPane.topAnchor="201.0" />
             <Button fx:id="loginB" layoutX="22.0" layoutY="282.0" mnemonicParsing="false" onAction="#loginButton" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: #10172C;" text="Login" textFill="WHITE">
                <font>
                   <Font size="14.0" />
@@ -57,8 +59,9 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button layoutX="214.0" layoutY="240.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Forgot password?" textFill="#0400ff" underline="true" />
+            <Button fx:id="forgotB" layoutX="214.0" layoutY="240.0" mnemonicParsing="false" onAction="#forgotButton" style="-fx-background-color: transparent;" text="Forgot password?" textFill="#0400ff" underline="true" />
             <Button fx:id="signupB" layoutX="47.0" layoutY="337.0" mnemonicParsing="false" onAction="#signupButton" prefHeight="26.0" prefWidth="254.0" style="-fx-background-color: transparent;" text="You don't have an account? Sign up here!" textFill="#0009ff" underline="true" AnchorPane.topAnchor="337.0" />
+            <CheckBox fx:id="showPass" layoutX="25.0" layoutY="244.0" mnemonicParsing="false" onAction="#showPassword" text="Show password" />
          </children>
       </AnchorPane>
    </right>

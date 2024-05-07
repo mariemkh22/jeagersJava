@@ -58,9 +58,29 @@ public class serviceUser implements lService<User>{
             user.setFull_name(rs.getString("full_name"));
             user.setPhone_number(rs.getString("phone_number"));
             user.setDate_of_birth(rs.getString("date_of_birth"));
+            user.setEnabled(rs.getBoolean("enabled"));
+            user.setFeedback(rs.getString("feedback"));
+            user.setFeedbackType(rs.getString("feedbackType"));
+            user.setFeedbackStatus(rs.getString("feedbackStatus"));
             user.setId(rs.getInt("id"));
             users.add(user);
+        }
+        return users;
+    }
 
+    public List<User> displayUserFeedback() throws SQLException {
+        List<User> users= new ArrayList<>();
+        String req ="select * from user";
+        Statement statement= connection.createStatement();
+        ResultSet rs =statement.executeQuery(req);
+        while (rs.next()){
+            User user= new User();
+            user.setFull_name(rs.getString("full_name"));
+            user.setFeedback(rs.getString("feedback"));
+            user.setFeedbackType(rs.getString("feedbackType"));
+            user.setFeedbackStatus(rs.getString("feedbackStatus"));
+            user.setId(rs.getInt("id"));
+            users.add(user);
         }
         return users;
     }

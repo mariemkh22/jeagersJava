@@ -5,7 +5,7 @@
 
 }
 .table-view .column-header-background{
-    -fx-background-color: #10172C;
+    -fx-background-color:   #001C60;
     -fx-background-insets: 0 0 10 0;
 
 
@@ -28,7 +28,7 @@
 }
 
 .primary-color {
-    -fx-background-color: #10172C;
+    -fx-background-color:  #001C60;
 }
 
 .secondary-color {
@@ -47,5 +47,12 @@
 }
 
 .selected:hover {
-    -fx-background-color: #3C3D5B;
+    -fx-background-color: #FEA117   ;
+}
+
+.button {
+    -fx-background-color: #10172C;
+    -fx-text-fill: white;
+    -fx-fill-width: 150px;
+    -fx-alignment: center;
 }

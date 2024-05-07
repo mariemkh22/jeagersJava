@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -22,6 +23,12 @@ import java.sql.Statement;
 import java.util.List;
 
 public class BackendHome {
+
+    @FXML
+    private ImageView profileB;
+
+    @FXML
+    private ImageView homeButton;
 
     @FXML
     private Button showB;
@@ -62,10 +69,9 @@ public class BackendHome {
     private TableColumn<User, String> phoneShow;
 
     @FXML
-    private Button homeButton;
-
-    @FXML
     private TableView<User> tableView;
+
+
 
     @FXML
     void DeliveryButton(ActionEvent event) {
@@ -88,7 +94,7 @@ public class BackendHome {
     }
 
     @FXML
-    void homeOnAction(ActionEvent event) {
+    void homeButton(MouseEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/backendHome.fxml"));
             homeButton.getScene().setRoot(root);
@@ -142,7 +148,7 @@ public class BackendHome {
     void profileButton(MouseEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/profileAdmin.fxml"));
-            UserB.getScene().setRoot(root);
+            profileB.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);
         }

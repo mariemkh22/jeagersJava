@@ -15,26 +15,24 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DisplayBackEnd">
    <left>
-      <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #001C60;" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="350.0" spacing="10.0" styleClass="right-side-border">
                <children>
-                  <ImageView fitHeight="65.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="home" fitHeight="121.0" fitWidth="241.0" onMouseClicked="#homeButton" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@LOGO.png" />
+                        <Image url="@finalLogo.png" />
                      </image>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
                   </ImageView>
-                  <Button fx:id="homeB" mnemonicParsing="false" onAction="#homeButton" style="-fx-background-color: transparent;" text="SWAPCRAZE" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Button>
                </children>
                <VBox.margin>
-                  <Insets bottom="50.0" left="20.0" top="10.0" />
+                  <Insets bottom="30.0" left="20.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <VBox prefHeight="726.0" prefWidth="389.0" style="-fx-background-color: #10172C;" stylesheets="@style.css">
+            <VBox prefHeight="726.0" prefWidth="389.0" style="-fx-background-color: #001C60;" stylesheets="@style.css">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0" styleClass="selected">
                      <children>
@@ -144,7 +142,7 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #10172C;" styleClass="search-container">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #001C60;" styleClass="search-container">
                <children>
                   <Button fx:id="homeBDash" mnemonicParsing="false" onAction="#HomeButton" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
                      <font>
@@ -167,8 +165,13 @@
                         <Font size="18.0" />
                      </font>
                      <HBox.margin>
-                        <Insets right="370.0" />
+                        <Insets right="20.0" />
                      </HBox.margin>
+                  </Button>
+                  <Button fx:id="feedbackB" mnemonicParsing="false" onAction="#feedbackButton" style="-fx-background-color: transparent;" text="Feedbacks" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </Button>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
                      <children>
@@ -187,15 +190,15 @@
                         </Label>
                      </children>
                      <HBox.margin>
-                        <Insets left="30.0" right="20.0" />
+                        <Insets left="300.0" right="10.0" />
                      </HBox.margin>
                   </HBox>
-                  <ImageView fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@profileIcon.png" />
                      </image>
                      <HBox.margin>
-                        <Insets />
+                        <Insets right="10.0" />
                      </HBox.margin>
                   </ImageView>
                </children>
@@ -215,17 +218,14 @@
                               <Font name="System Bold" size="24.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="50.0" />
+                              <Insets left="50.0" right="250.0" />
                            </HBox.margin>
                         </Label>
-                        <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@searchBlue.png" />
-                           </image>
+                        <Label fx:id="messageLabel" alignment="CENTER" prefHeight="18.0" prefWidth="346.0" textAlignment="CENTER" textFill="RED">
                            <HBox.margin>
-                              <Insets left="710.0" />
+                              <Insets right="150.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </Label>
                         <TextField prefHeight="26.0" prefWidth="234.0" />
                      </children>
                      <VBox.margin>
@@ -236,103 +236,17 @@
             </VBox>
             <TableView fx:id="table" editable="true" onMouseClicked="#getData" prefHeight="342.0" prefWidth="1144.0" stylesheets="@style.css">
                <columns>
-                  <TableColumn fx:id="nameShow" prefWidth="240.0" text="Full name" />
-                  <TableColumn fx:id="emailShow" prefWidth="240.0" text="E-mail address" />
-                  <TableColumn fx:id="phoneShow" prefWidth="240.0" text="Phone number" />
-                  <TableColumn fx:id="dateShow" prefWidth="240.0" text="Date of birth" />
-                  <TableColumn fx:id="actionShow" prefWidth="182.39990234375" text="Actions" />
+                  <TableColumn fx:id="nameShow" prefWidth="190.0" text="Full name" />
+                  <TableColumn fx:id="emailShow" prefWidth="190.0" text="E-mail address" />
+                  <TableColumn fx:id="phoneShow" prefWidth="190.0" text="Phone number" />
+                  <TableColumn fx:id="dateShow" prefWidth="190.0" text="Date of birth" />
+                  <TableColumn fx:id="statusShow" prefWidth="150.0" text="Status" />
+                  <TableColumn fx:id="actionShow" prefWidth="229.60009765625" text="Actions" />
                </columns>
                <VBox.margin>
                   <Insets left="50.0" right="50.0" />
                </VBox.margin>
             </TableView>
-            <HBox alignment="CENTER_LEFT" prefHeight="247.0" prefWidth="1245.0">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-               <children>
-                  <VBox prefHeight="247.0" prefWidth="440.0">
-                     <children>
-                        <Label text="Full name">
-                           <VBox.margin>
-                              <Insets left="50.0" top="20.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="editnameTF">
-                           <VBox.margin>
-                              <Insets left="30.0" right="30.0" top="10.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <Label layoutX="60.0" layoutY="30.0" text="E-mail Address">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="50.0" top="20.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="editemailTF" layoutX="40.0" layoutY="68.0">
-                           <VBox.margin>
-                              <Insets left="30.0" right="30.0" top="10.0" />
-                           </VBox.margin>
-                        </TextField>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="247.0" prefWidth="440.0">
-                     <children>
-                        <Label text="Phone number">
-                           <VBox.margin>
-                              <Insets left="50.0" top="20.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="editphoneTF">
-                           <VBox.margin>
-                              <Insets left="30.0" right="30.0" top="10.0" />
-                           </VBox.margin>
-                        </TextField>
-                        <Label layoutX="60.0" layoutY="30.0" text="Date of birth">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="50.0" top="20.0" />
-                           </VBox.margin>
-                        </Label>
-                        <TextField fx:id="editdateTF" layoutX="40.0" layoutY="68.0">
-                           <VBox.margin>
-                              <Insets left="30.0" right="30.0" top="10.0" />
-                           </VBox.margin>
-                        </TextField>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="247.0" prefWidth="350.0">
-                     <children>
-                        <Button fx:id="editB" mnemonicParsing="false" onAction="#editButton" prefHeight="43.0" prefWidth="246.0" style="-fx-background-color: #10172C;" text="Edit" textFill="WHITE">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="50.0" top="50.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button fx:id="deleteB" mnemonicParsing="false" onAction="#deleteButton" prefHeight="43.0" prefWidth="246.0" style="-fx-background-color: #10172C;" text="Delete" textFill="WHITE">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="50.0" top="30.0" />
-                           </VBox.margin>
-                        </Button>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
          </children>
       </VBox>
    </center>

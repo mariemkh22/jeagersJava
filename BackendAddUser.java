@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 import services.serviceUser;
@@ -23,6 +24,9 @@ import java.util.Base64;
 import java.util.List;
 
 public class BackendAddUser {
+
+    @FXML
+    private ImageView home;
 
     @FXML
     private Button DeliveryB;
@@ -84,6 +88,8 @@ public class BackendAddUser {
     @FXML
     private Button resetB;
 
+    @FXML
+    private Button feedbackB;
 
     @FXML
     private Label labelErrorMessage;
@@ -101,7 +107,7 @@ public class BackendAddUser {
     void HomeButton(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/backendHome.fxml"));
-            homeB.getScene().setRoot(root);
+            homeBDash.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);
         }
@@ -189,10 +195,20 @@ public class BackendAddUser {
     }
 
     @FXML
+    void homeButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/backendHome.fxml"));
+            home.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     void listButton(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/displayBackEnd.fxml"));
-            homeBDash.getScene().setRoot(root);
+            listB.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);
         }
@@ -229,6 +245,16 @@ public class BackendAddUser {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/profileAdmin.fxml"));
             UserB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void feedbackButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/feedback.fxml"));
+            feedbackB.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);
         }

@@ -1,5 +1,6 @@
 package controllers;
 
+import entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import utils.myDatabase;
@@ -18,6 +21,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ProfileAdminEdit {
+
+    @FXML
+    private ImageView home;
+
     @FXML
     private Button cancelB;
 
@@ -78,6 +85,16 @@ public class ProfileAdminEdit {
     }
 
     @FXML
+    void HomeButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/backendHome.fxml"));
+            home.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     void logoutButton(ActionEvent event) {
         try {
             Parent root= FXMLLoader.load(getClass().getResource("/login.fxml"));
@@ -117,11 +134,13 @@ public class ProfileAdminEdit {
             preparedStatement.setString(4, editdateTF.getText());
             preparedStatement.setInt(5, Login.getCurrentUser().getId());
             preparedStatement.executeUpdate();
-            initialize();
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("/profileAdmin.fxml"));
+                User editedUser = new User(Login.getCurrentUser().getId(),editemailTF.getText(), editnameTF.getText(),editphoneTF.getText(),editdateTF.getText()); // Get the edited user from the form fields
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/profileAdmin.fxml"));
+                Parent root = loader.load();
+                ProfileAdmin profileAdmin = loader.getController();
+                profileAdmin.updateUserInfo(editedUser);
                 saveB.getScene().setRoot(root);
-                initialize();
             } catch (IOException e){
                 throw new RuntimeException(e);
             }

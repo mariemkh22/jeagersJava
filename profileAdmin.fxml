@@ -13,28 +13,26 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProfileAdmin">
    <left>
-      <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #001C60;" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="350.0" spacing="10.0" styleClass="right-side-border">
                <children>
-                  <ImageView fitHeight="65.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="home" fitHeight="121.0" fitWidth="241.0" onMouseClicked="#HomeButton" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@LOGO.png" />
+                        <Image url="@finalLogo.png" />
                      </image>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="SWAPCRAZE" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Button>
                </children>
                <VBox.margin>
-                  <Insets bottom="50.0" left="20.0" top="10.0" />
+                  <Insets bottom="30.0" left="20.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <VBox prefHeight="726.0" prefWidth="389.0" style="-fx-background-color: #10172C;" stylesheets="@style.css">
+            <VBox prefHeight="726.0" prefWidth="389.0" style="-fx-background-color: #001C60;" stylesheets="@style.css">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0" styleClass="selected">
                      <children>
                         <ImageView fitHeight="54.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -102,7 +100,7 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #10172C;" styleClass="search-container" stylesheets="@style.css">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #001C60;" styleClass="search-container" stylesheets="@style.css">
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
                      <children>
@@ -230,7 +228,7 @@
                         <Insets top="50.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="editB" mnemonicParsing="false" onAction="#editButton" prefHeight="51.0" prefWidth="315.0" style="-fx-background-color: #10172C;" text="Edit" textFill="WHITE">
+                        <Button fx:id="editB" mnemonicParsing="false" onAction="#editButton" prefHeight="51.0" prefWidth="315.0" style="-fx-background-color: #001C60;" text="Edit" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font>

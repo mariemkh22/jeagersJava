@@ -11,6 +11,7 @@ import javafx.util.Duration;
 import services.serviceUser;
 import utils.myDatabase;
 import org.mindrot.jbcrypt.BCrypt;
+import javafx.scene.control.CheckBox;
 
 import entities.User;
 import javafx.event.ActionEvent;
@@ -21,6 +22,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
+import javax.speech.EngineException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,6 +33,9 @@ public class Login {
 
     @FXML
     private Button cancelB;
+
+    @FXML
+    private Button forgotB;
 
     @FXML
     private TextField emailTextField;
@@ -51,6 +56,16 @@ public class Login {
     private Button signupB;
 
     @FXML
+    private CheckBox showPass;
+
+    @FXML
+    private TextField visiblePassTF;
+
+    static Connection connection;
+    Boolean result;
+
+
+    @FXML
     void cancelButton(ActionEvent event) {
         emailTextField.clear();
         passwordTextField.clear();
@@ -61,7 +76,8 @@ public class Login {
         if(emailTextField.getText().isBlank() == false && passwordTextField.getText().isBlank() == false){
             validateLogin();
             try {
-                if (currentUser!=null) {
+                if (currentUser!=null && !isUserBlocked(emailTextField.getText())) {
+                    TextToSpeech.main(new String[]{});
                     Parent root = FXMLLoader.load(getClass().getResource("/backendHome.fxml"));
                     Stage stage = new Stage();
                     stage.initStyle(StageStyle.UNDECORATED);
@@ -69,8 +85,13 @@ public class Login {
                     stage.show();
                     ((Stage) (((Button) event.getSource()).getScene().getWindow())).close();
                 }
+                else if (isUserBlocked(emailTextField.getText())){
+                    loginMessageLabel.setText("Your account is blocked");
+                }
                 }
             catch (IOException e){
+                throw new RuntimeException(e);
+            } catch (EngineException e) {
                 throw new RuntimeException(e);
             }
         } else {
@@ -95,7 +116,6 @@ public class Login {
                 String hashedInputPassword = passwordTextField.getText();
 
                 if (BCrypt.checkpw(hashedInputPassword,hashedPasswordFromDB)) {
-                    // Set the current user
                     currentUser = new User(
                             queryResult.getInt("id"),
                             queryResult.getString("email"),
@@ -113,17 +133,6 @@ public class Login {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-    private String hashPassword(String password,int costFactor) {
-        /*try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(password.getBytes());
-            return Base64.getEncoder().encodeToString(hash);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return null;
-        }*/
-        return BCrypt.hashpw(password, BCrypt.gensalt(costFactor));
     }
 
     public static User getCurrentUser() {
@@ -154,4 +163,51 @@ public class Login {
         }
     }
 
+    @FXML
+    void showPassword(ActionEvent event) {
+        if(showPass.isSelected()){
+            visiblePassTF.setText(passwordTextField.getText());
+            visiblePassTF.setVisible(true);
+            passwordTextField.setVisible(false);
+        }
+        else {
+            passwordTextField.setText(visiblePassTF.getText());
+            passwordTextField.setVisible(true);
+            visiblePassTF.setVisible(false);
+        }
+    }
+
+    @FXML
+    void forgotButton(ActionEvent event) {
+        try {
+            Parent root= FXMLLoader.load(getClass().getResource("/sendEmail.fxml"));
+            Stage stage=new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(new Scene(root,412,450));
+            stage.show();
+            ((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean isUserBlocked(String email) {
+        try  {
+            myDatabase.getInstance().getConnection();
+            connection = myDatabase.getInstance().getConnection();
+            String query = "SELECT enabled FROM user WHERE email = ?";
+            try (PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setString(1, email);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (resultSet.next()) {
+                        int enabled = resultSet.getInt("enabled");
+                        return (enabled == 1);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

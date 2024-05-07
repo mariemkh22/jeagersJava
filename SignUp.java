@@ -139,9 +139,8 @@ public class SignUp {
     }
 
     private void clearErrorMessageAfterDelay() {
-        // Set a timeline to clear the label after 5 seconds
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), e -> labelErrorMessage.setText("")));
-        timeline.play(); // Start the timeline
+        timeline.play();
     }
 
     @FXML
