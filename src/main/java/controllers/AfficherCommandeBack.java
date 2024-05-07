@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-public class AfficherCommande {
+public class AfficherCommandeBack {
 
     @FXML
     private Button AjoutCmdbtn;
@@ -178,22 +178,15 @@ public class AfficherCommande {
     }
 
     @FXML
-    public void shop(javafx.scene.input.MouseEvent mouseEvent) {
+    void telechargerPDF1(javafx.scene.input.MouseEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cardListView.fxml"));
-            Parent root = loader.load();
-
-            // Obtenez la fenêtre actuelle à partir de l'image cliquée
-            Stage currentStage = (Stage) ((ImageView) mouseEvent.getSource()).getScene().getWindow();
-
-            // Changez la scène de la fenêtre actuelle
-            currentStage.setScene(new Scene(root));
-
-        } catch (IOException e) {
+            List<Commande> cmds = sc.afficher();
+            pdfGenerator.generateCmdPDF(cmds);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
 
-
 }
+

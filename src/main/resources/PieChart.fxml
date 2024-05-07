@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -12,10 +11,10 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PieChartController">
-   <left>
-      <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;" BorderPane.alignment="CENTER">
+   <center>
+      <VBox prefHeight="756.0" prefWidth="1148.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="350.0" spacing="10.0" styleClass="right-side-border">
+            <HBox alignment="CENTER_RIGHT" prefHeight="87.0" prefWidth="1451.0" style="-fx-background-color: #10172C;" styleClass="search-container">
                <children>
                   <ImageView fitHeight="65.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -30,140 +29,22 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="50.0" left="20.0" top="10.0" />
-               </VBox.margin>
-            </HBox>
-            <VBox prefHeight="726.0" prefWidth="389.0" style="-fx-background-color: #10172C;">
-               <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="54.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@user.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label prefHeight="27.0" prefWidth="231.0" text="User managment" textFill="WHITE">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@product.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Product managment" textFill="WHITE">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="54.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@service.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Service managment" textFill="WHITE">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="317.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="39.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@contact.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Messaging managment" textFill="WHITE">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="271.0" spacing="10.0">
-                     <children>
-                        <ImageView fitHeight="36.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@delivery.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="Delivery managment" textFill="WHITE">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </HBox>
-               </children>
-            </VBox>
-         </children>
-      </VBox>
-   </left>
-   <center>
-      <VBox prefHeight="756.0" prefWidth="1148.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #10172C;" styleClass="search-container">
-               <children>
                   <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="300.0" styleClass="transparent">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
+                     <children>
+                        <ImageView fitHeight="79.0" fitWidth="109.0" onMouseClicked="#shop" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@store.png" />
+                           </image>
+                        </ImageView>
+                     </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="357.0" styleClass="transparent">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
-                     <children>
-                        <ImageView fitHeight="51.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@search.png" />
-                           </image>
-                        </ImageView>
-                        <TextField prefHeight="26.0" prefWidth="266.0" />
-                     </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
                      <children>
@@ -195,7 +76,7 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <PieChart fx:id="chart" prefHeight="737.0" prefWidth="1245.0" title="Products By Category" />
+            <PieChart fx:id="chart" prefHeight="737.0" prefWidth="1366.0" title="Products By Category" />
          </children>
       </VBox>
    </center>

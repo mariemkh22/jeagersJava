@@ -1,7 +1,7 @@
 package services;
 
-
 import entities.Produit;
+import services.IService;
 import utils.MyDatabase;
 
 import java.sql.*;
@@ -17,39 +17,40 @@ public class ServiceProduit implements IService<Produit> {
 
     @Override
     public void ajouter(Produit produit) throws SQLException {
-        String req = "insert into produit (nom_produit,type,description,equiv)" +
-                "values('" + produit.getNomProduit() + "','" + produit.getType() + "','" + produit.getDescription() + "'," + produit.getEquiv() + ")";
-        Statement statement = connection.createStatement();
-        statement.executeUpdate(req);
+        String req = "insert into produit (nom_produit,type,description,equiv,imageFile)" +
+                "values(?,?,?,?,?)";
+        PreparedStatement statement = connection.prepareStatement(req);
+        statement.setString(1, produit.getNomProduit());
+        statement.setString(2, produit.getType());
+        statement.setString(3, produit.getDescription());
+        statement.setFloat(4, produit.getEquiv());
+        statement.setString(5, produit.getImageFile());
+
+        statement.executeUpdate();
         System.out.println("Product added");
     }
 
     @Override
     public void modifier(Produit produit) throws SQLException {
-        String req = "update produit set nom_produit=?,type=?,description=?,equiv=? where id=?";
-
+        String req = "update produit set nom_produit=?,type=?,description=?,equiv=?,imageFile=? where id=?";
         PreparedStatement preparedStatement = connection.prepareStatement(req);
         preparedStatement.setString(1, produit.getNomProduit());
         preparedStatement.setString(2, produit.getType());
         preparedStatement.setString(3, produit.getDescription());
         preparedStatement.setFloat(4, produit.getEquiv());
-        preparedStatement.setInt(5, produit.getId());
-
+        preparedStatement.setString(5, produit.getImageFile());
+        preparedStatement.setInt(6, produit.getId());
 
         preparedStatement.executeUpdate();
-
-
     }
 
     @Override
     public void supprimer(int id) throws SQLException {
-
-        String req = "delete from produit where id=" + id;
-        Statement statement = connection.createStatement();
-        statement.executeUpdate(req);
-
+        String req = "delete from produit where id=?";
+        PreparedStatement preparedStatement = connection.prepareStatement(req);
+        preparedStatement.setInt(1, id);
+        preparedStatement.executeUpdate();
     }
-
 
     @Override
     public List<Produit> afficher() throws SQLException {
@@ -64,15 +65,13 @@ public class ServiceProduit implements IService<Produit> {
                 produit.setType(rs.getString("type"));
                 produit.setDescription(rs.getString("description"));
                 produit.setEquiv(rs.getFloat("equiv"));
+                produit.setImageFile(rs.getString("imageFile"));
 
                 produits.add(produit);
             }
         }
         return produits;
     }
-
-
-
 
     public void deleteAll() throws SQLException {
         String req = "DELETE FROM produit";
@@ -92,7 +91,3 @@ public class ServiceProduit implements IService<Produit> {
         }
     }
 }
-
-
-
-

@@ -8,6 +8,16 @@ public class Produit {
     private String description;
     private float equiv;
 
+    private String imageFile;
+
+    public  String getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(String imageFile) {
+        this.imageFile = imageFile;
+    }
+
     public int getId() {
         return id;
     }
@@ -49,23 +59,25 @@ public class Produit {
     }
 
 
-    public Produit(int id, String nom_produit, String type, String description, float equiv) {
+    public Produit(String nom_produit, String type, String description, float equiv) {
         this.id = id;
         this.nom_produit = nom_produit;
         this.type = type;
         this.description = description;
         this.equiv = equiv;
+        this.imageFile=imageFile;
     }
 
     public Produit() {
     }
 
 
-    public Produit(String nom_produit, String type, String description, float equiv) {
+    public Produit(String nom_produit, String type, String description, float equiv,String imageFile) {
         this.nom_produit = nom_produit;
         this.type = type;
         this.description = description;
         this.equiv = equiv;
+        this.imageFile= imageFile;
     }
 
 
@@ -77,6 +89,9 @@ public class Produit {
                 ", type='" + type + '\'' +
                 ", description='" + description + '\'' +
                 ", equiv=" + equiv +
+                ", imageFile='" + imageFile + '\'' +
                 '}';
     }
+
+
 }

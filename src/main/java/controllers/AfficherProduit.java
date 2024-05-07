@@ -9,16 +9,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.ServiceProduit;
 
 import java.awt.*;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -40,6 +39,9 @@ public class AfficherProduit {
     private TableColumn<Produit, String> TypeCol;
 
     @FXML
+    private TableColumn<Produit, String> PicCol;
+
+    @FXML
     private TableView<Produit> tableviewP;
 
     ObservableList<Produit> observableList;
@@ -49,18 +51,17 @@ public class AfficherProduit {
 
     @FXML
     void initialize() {
-
         try {
             List<Produit> produitList = sp.afficher();
             observableList = FXCollections.observableList(produitList);
 
             tableviewP.setItems(observableList);
 
-            NomCol.setCellValueFactory(new PropertyValueFactory<>("NomProduit"));
+            NomCol.setCellValueFactory(new PropertyValueFactory<>("nomProduit"));
             TypeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
             DescriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
             EquivCol.setCellValueFactory(new PropertyValueFactory<>("equiv"));
-
+            PicCol.setCellValueFactory(new PropertyValueFactory<>("imageFile")); // Bind image file path to TableColumn
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }

@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherCommande">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherCommandeBack">
    <left>
       <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;" BorderPane.alignment="CENTER">
          <children>
@@ -159,14 +158,6 @@
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
-                     <children>
-                        <ImageView fitHeight="51.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@search.png" />
-                           </image>
-                        </ImageView>
-                        <TextField prefHeight="26.0" prefWidth="266.0" />
-                     </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
                      <children>
@@ -213,21 +204,21 @@
                         <Font name="System Bold" size="45.0" />
                      </font>
                   </Label>
-                  <Button fx:id="AjoutCmdbtn" layoutX="252.0" layoutY="653.0" mnemonicParsing="false" onAction="#AjoutCmdbtn" prefHeight="60.0" prefWidth="148.0" style="-fx-background-color: #10172C;" text="Add Order" textFill="#fffbfb">
+                  <Button fx:id="SupprimerCmdbtn" layoutX="251.0" layoutY="637.0" mnemonicParsing="false" onAction="#SupprimerCmdbtn" prefHeight="60.0" prefWidth="148.0" style="-fx-background-color: #10172C;" text="Cancel Order" textFill="#fff9f9">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="SupprimerCmdbtn" layoutX="549.0" layoutY="653.0" mnemonicParsing="false" onAction="#SupprimerCmdbtn" prefHeight="60.0" prefWidth="148.0" style="-fx-background-color: #10172C;" text="Cancel Order" textFill="#fff9f9">
+                  <Button fx:id="ClearCmdbtn" layoutX="792.0" layoutY="637.0" mnemonicParsing="false" onAction="#ClearCmdbtn" prefHeight="60.0" prefWidth="148.0" style="-fx-background-color: #10172C;" text="Cancel All" textFill="#fcfafa">
                      <font>
                         <Font name="System Bold Italic" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="ClearCmdbtn" layoutX="820.0" layoutY="653.0" mnemonicParsing="false" onAction="#ClearCmdbtn" prefHeight="60.0" prefWidth="148.0" style="-fx-background-color: #10172C;" text="Cancel All" textFill="#fcfafa">
-                     <font>
-                        <Font name="System Bold Italic" size="20.0" />
-                     </font>
-                  </Button>
+                  <ImageView fx:id="telechargerPDFImage" fitHeight="86.0" fitWidth="86.0" layoutX="580.0" layoutY="624.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pdf.png" />
+                     </image>
+                  </ImageView>
 
                </children>
             </AnchorPane>

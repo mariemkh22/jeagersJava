@@ -10,10 +10,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.ServiceProduit;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -30,6 +34,11 @@ public class AjouterProduitFront {
 
     @FXML
     private ComboBox<String> typeTF;
+
+    @FXML
+    private ImageView imageView;
+
+    private Image selectedImage;
 
     @FXML
     void initialize() {
@@ -128,8 +137,17 @@ public class AjouterProduitFront {
                     return; // Arrête l'exécution de la méthode si le prix équivalent est invalide
                 }
 
+                // Ajout de l'image
+                if (selectedImage == null) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setContentText("Please select an image.");
+                    alert.show();
+                    return;
+                }
+
                 // Création de l'objet Produit
-                Produit p = new Produit(nomProduit, typeProduit, descriptionProduit, equivPrice);
+                Produit p = new Produit(nomProduit, typeProduit, descriptionProduit, equivPrice, selectedImage.getUrl());
 
                 // Utilisation du service pour ajouter le produit à la base de données
                 ServiceProduit sp = new ServiceProduit();
@@ -156,6 +174,7 @@ public class AjouterProduitFront {
             e.printStackTrace();
         }
     }
+
     @FXML
     void Navigate(ActionEvent event) {
         try {
@@ -165,4 +184,38 @@ public class AjouterProduitFront {
             throw new RuntimeException(e);
         }
     }
+
+    @FXML
+    void addImage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose an image");
+
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            selectedImage = new Image(selectedFile.toURI().toString());
+            imageView.setImage(selectedImage);
+        }
+    }
+
+
+
+    @FXML
+    public void shop(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cardListView.fxml"));
+            Parent root = loader.load();
+
+            // Obtenez la fenêtre actuelle à partir de l'image cliquée
+            Stage currentStage = (Stage) ((ImageView) mouseEvent.getSource()).getScene().getWindow();
+
+            // Changez la scène de la fenêtre actuelle
+            currentStage.setScene(new Scene(root));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 }
