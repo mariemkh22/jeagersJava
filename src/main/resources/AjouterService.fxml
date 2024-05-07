@@ -258,9 +258,7 @@
             </ImageView>
          </children>
       </HBox>
-      <ImageView fx:id="QRcode" fitHeight="67.0" fitWidth="77.0" layoutX="331.0" layoutY="677.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="494.0" layoutY="697.0" mnemonicParsing="false" onAction="#AjouterQR" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: #231fa9;" text="Insert the QRCode" textFill="WHITE" />
-
+      <ImageView fx:id="qrCodeImageView" fitHeight="200.0" fitWidth="200.0" layoutX="484.0" layoutY="570.0" />
 
    </children>
 </AnchorPane>

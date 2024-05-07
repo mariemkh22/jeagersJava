@@ -1,6 +1,5 @@
 package controllers;
 
-import API.GenerateQRCode;
 import com.google.zxing.WriterException;
 import entities.categorie_service;
 import entities.service;
@@ -26,6 +25,8 @@ import org.controlsfx.control.Rating;
 import services.ServiceCategorie;
 import services.ServiceService;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -65,6 +66,8 @@ public class CardController {
 
 
     private service service;
+    @FXML
+    private ImageView qrCodeImageView;
 
     private String[] Colors = {"#abb3ff", "#bfc5ff", "#b0beff"};
 
@@ -105,19 +108,23 @@ public class CardController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+    private String generateQRData(service service) {
+        // Concaténer toutes les données du service dans une chaîne
+        return "Name: " + service.getName_s() +
+                "\nDescription: " + service.getDescription_s() +
+                "\nLocation: " + service.getLocalisation() +
+                "\nState: " + service.getState() +
+                "\nAvailability Date: " + service.getDispo_date() +
+                "\nCategory ID: " + service.getCat_id();
+    }
 
     public void setService(service service) {
         this.service = service;
         if (service != null) {
             Image imageFile = new Image(new File(service.getImageFile()).toURI().toString());
-
             imgSRC.setImage(imageFile);
 
             SERname.setText(service.getName_s());
-            SERlocation.setText(service.getLocalisation());
-            SERdescription.setText(service.getDescription_s());
-            SERstate.setText(service.getState());
-            SERdate.setText(service.getDispo_date());
 
 
             String randomColor = Colors[(int) (Math.random() * Colors.length)];
@@ -137,13 +144,21 @@ public class CardController {
                     // Si la catégorie n'est pas trouvée, afficher un message générique ou vide
                     SERcategorie.setText("Unknown");
                 }
-            } catch (SQLException e) {
+
+                // Générer et afficher le QRCode avec les données du service
+                String qrData = generateQRData(service);
+                AjouterService ajouterServiceController = new AjouterService(); // Créer une instance du contrôleur AjouterService
+                ByteArrayOutputStream outputStream = ajouterServiceController.generateQRCode(qrData); // Appeler la méthode generateQRCode() depuis cette instance
+                byte[] qrCodeBytes = outputStream.toByteArray();
+                qrCodeImageView.setImage(new Image(new ByteArrayInputStream(qrCodeBytes)));
+
+            } catch (SQLException | WriterException | IOException e) {
                 e.printStackTrace(); // Gérer les exceptions appropriées
             }
         }
-
-
     }
+
+
 
     @FXML
     public void supprimerCard(javafx.event.ActionEvent event) {

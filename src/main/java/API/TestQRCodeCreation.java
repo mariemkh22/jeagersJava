@@ -1,4 +1,4 @@
-package API;
+/*package API;
 
 import entities.service;
 
@@ -19,4 +19,4 @@ public class TestQRCodeCreation {
             System.err.println("Erreur lors de la création du QR Code : " + e.getMessage());
         }
     }
-}
+}*/

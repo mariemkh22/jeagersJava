@@ -78,8 +78,8 @@
                </image>
             </ImageView>
             <TextField fx:id="imgID" layoutX="330.0" layoutY="608.0" />
-            <ImageView fx:id="qRcode" fitHeight="91.0" fitWidth="99.0" layoutX="348.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="494.0" layoutY="717.0" mnemonicParsing="false" onAction="#AjouterqR" prefHeight="26.0" prefWidth="142.0" style="-fx-background-color: #231fa9;" text="Insert the QRCode" textFill="WHITE" />
+            <ImageView fx:id="qrCodeImageView" fitHeight="116.0" fitWidth="137.0" layoutX="496.0" layoutY="660.0" />
+
          </children>
       </AnchorPane>
       <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;">

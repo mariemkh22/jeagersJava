@@ -91,13 +91,42 @@ public class ServiceService implements IService <service> {
 
     public List<service> searchService(String search) throws SQLException {
         List<service> services = new ArrayList<>();
-        String query = "SELECT * FROM service WHERE name_s LIKE ? OR description_s LIKE ? OR localisation LIKE ? OR state LIKE ?";
+        String query = "SELECT * FROM service WHERE name_s LIKE ? OR description_s LIKE ? OR localisation LIKE ? OR state LIKE ? OR dispo_date LIKE ?";
 
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1, "%" + search + "%");
         preparedStatement.setString(2, "%" + search + "%");
         preparedStatement.setString(3, "%" + search + "%");
         preparedStatement.setString(4, "%" + search + "%");
+        preparedStatement.setString(5, "%" + search + "%");
+
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        // Parcours du résultat de la requête
+        while (resultSet.next()) {
+            service service = new service();
+            service.setId(resultSet.getInt("id"));
+            service.setName_s(resultSet.getString("name_s"));
+            service.setDescription_s(resultSet.getString("description_s"));
+            service.setLocalisation(resultSet.getString("localisation"));
+            service.setState(resultSet.getString("state"));
+            service.setDispo_date(resultSet.getString("dispo_date"));
+            service.setCat_id(resultSet.getInt("categorie_id"));
+            service.setImageFile(resultSet.getString("imageFile"));
+
+            services.add(service);
+        }
+        preparedStatement.close();
+
+        return services;
+    }
+    public List<service> getServiceByCategorie(int cat_id) throws SQLException {
+        List<service> services = new ArrayList<>();
+        String query = "SELECT * FROM service WHERE categorie_id = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, cat_id);
 
         ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -120,7 +149,9 @@ public class ServiceService implements IService <service> {
         return services;
     }
 
-    
+
+
+
 
 
 

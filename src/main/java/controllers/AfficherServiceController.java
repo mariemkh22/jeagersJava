@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.AnchorPane;
@@ -324,6 +325,8 @@ public class AfficherServiceController {
             e.printStackTrace();
         }
     }
+
+
 
 
     void setData(String param) {

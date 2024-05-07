@@ -1,4 +1,4 @@
-package API;
+/*package API;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -70,4 +70,4 @@ public class GenerateQRCode {
         System.out.println("QR Code créé avec succès : " + filePath);
     }
 
-}
+}*/

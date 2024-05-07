@@ -1,19 +1,23 @@
 package controllers;
 
+import entities.categorie_service;
 import entities.service;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import menusandcharts.MenuAppWithChartController;
+import services.ServiceCategorie;
 import services.ServiceService;
 
 import java.io.IOException;
@@ -29,9 +33,16 @@ public class FrontService implements Initializable {
 
     @FXML
     private Pagination pagination;
+    @FXML
+    private ComboBox<categorie_service> filter;
 
     @FXML
     private TextField searchS;
+
+    @FXML
+    private ComboBox<String> roleInput;
+    categorie_service selectedValue=null;
+
 
 
 
@@ -46,23 +57,50 @@ public class FrontService implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        ServiceCategorie serviceCategorie = new ServiceCategorie();
+
+        try {
+            List<categorie_service> categorieServices = serviceCategorie.afficher();
+            filter.setItems(FXCollections.observableList(categorieServices));
+            filter.getItems().add(new categorie_service("ALL","ALL"));
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void loadServices() throws SQLException {
-        List<service> services = serviceService.afficher();
+
+        List<service> services =null;
+
+        if(selectedValue!=null){
+            if(selectedValue.toString().equals("ALL")){
+                services=serviceService.afficher();
+            }else{
+            int id = selectedValue.getId();
+            services=serviceService.getServiceByCategorie(id);
+            selectedValue=null;}
+        }else{
+            services=serviceService.afficher();
+        }
+
+
         int pageCount = (int) Math.ceil((double) services.size() / ITEMS_PER_PAGE);
         pagination.setPageCount(pageCount);
         pagination.setCurrentPageIndex(0); // Définir la page actuelle sur la première page
 
+        List<service> finalServices = services;
         pagination.currentPageIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                loadPage(newValue.intValue(), services);
+                loadPage(newValue.intValue(), finalServices);
             }
         });
 
         loadPage(0, services);
     }
+
 
     private void loadPage(int pageIndex, List<service> services) {
         boxservices.getChildren().clear();
@@ -83,6 +121,7 @@ public class FrontService implements Initializable {
             }
         }
     }
+
     @FXML
     void navigatetoAdd1(ActionEvent event) {
         try {
@@ -117,6 +156,15 @@ public class FrontService implements Initializable {
         services = serviceService.searchService(service.getSearchValue());
         loadPage(0, services);
 
+
+
+
+
+    }
+    @FXML
+    void filterS(ActionEvent event) throws SQLException {
+        selectedValue=filter.getValue();
+        this.loadServices();
 
 
 

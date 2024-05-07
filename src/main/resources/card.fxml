@@ -36,46 +36,20 @@
                         <Insets right="150.0" />
                     </VBox.margin>
                 </Label>
-                <Label fx:id="SERdescription" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="22.0" prefWidth="225.0" text="Description" VBox.vgrow="ALWAYS">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                    <VBox.margin>
-                        <Insets right="150.0" />
-                    </VBox.margin>
-                </Label>
-                <Label fx:id="SERlocation" contentDisplay="CENTER" prefHeight="22.0" prefWidth="225.0" text="Location">
-                    <font>
-                        <Font name="System Bold" size="15.0" />
-                    </font>
-                    <VBox.margin>
-                        <Insets right="150.0" />
-                    </VBox.margin>
-                </Label>
-            <Label fx:id="SERstate" prefHeight="22.0" prefWidth="227.0" text="State">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-               <VBox.margin>
-                  <Insets right="150.0" />
-               </VBox.margin>
-            </Label>
-            <Label fx:id="SERdate" prefHeight="22.0" prefWidth="227.0" text="Availability Date">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-               <VBox.margin>
-                  <Insets right="150.0" />
-               </VBox.margin>
-            </Label>
+
+
+                <ImageView fx:id="qrCodeImageView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
             </children>
 
+
         </VBox>
-        <VBox alignment="CENTER" minHeight="70.0" minWidth="60.0" prefHeight="395.0" prefWidth="60.0" spacing="15.0">
+
+        <VBox alignment="TOP_RIGHT" minHeight="10.0" minWidth="10.0" prefHeight="50.0" prefWidth="40.0" spacing="10.0">
 
             <VBox>
-                <Rating fx:id="serviceRating" max="5" scaleX="0.5" scaleY="0.5"/>            </VBox>
+                <Rating fx:id="serviceRating" max="5" scaleX="0.35" scaleY="0.5"/>            </VBox>
         </VBox>
     </children>
+
 
 </HBox>

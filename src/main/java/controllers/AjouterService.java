@@ -1,12 +1,20 @@
 package controllers;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import entities.categorie_service;
 import entities.service;
 import javafx.collections.FXCollections;
@@ -71,7 +79,7 @@ public class AjouterService {
     private ComboBox<categorie_service> categorieBox;
 
     @FXML
-    private ImageView QRcode;
+    private ImageView qrCodeImageView;
     private Image selectedImage;
 
 
@@ -85,8 +93,6 @@ public class AjouterService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
 
@@ -99,8 +105,6 @@ public class AjouterService {
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
-
-
     }
 
     @FXML
@@ -176,6 +180,37 @@ public class AjouterService {
             alert.setContentText(e.getMessage());
             alert.show();
         }
+
+        // Générer le code QR
+        try {
+            String qrData = generateQRData(name_s, description_s, localisation, state, dispo_date, cat_id);
+            ByteArrayOutputStream outputStream = generateQRCode(qrData);
+            byte[] qrCodeBytes = outputStream.toByteArray();
+
+            // Convertir les octets du code QR en une chaîne Base64
+            String qrCodeBase64 = Base64.getEncoder().encodeToString(qrCodeBytes);
+
+            // Charger l'image du code QR dans l'ImageView qrCodeImageView
+            qrCodeImageView.setImage(new Image(new ByteArrayInputStream(qrCodeBytes)));
+        } catch (IOException | WriterException e) {
+            e.printStackTrace();
+            // Gérer l'erreur
+        }
+    }
+    private String generateQRData(String name_s, String description_s, String localisation, String state, String dispo_date, int cat_id) {
+        return "Name: " + name_s + "\nDescription: " + description_s + "\nLocation: " + localisation + "\nState: " + state + "\nAvailability Date: " + dispo_date + "\nCategory ID: " + cat_id;
+    }
+    ByteArrayOutputStream generateQRCode(String data) throws WriterException, IOException {
+        Map<EncodeHintType, ErrorCorrectionLevel> hintMap = new HashMap<>();
+        hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        BitMatrix bitMatrix = qrCodeWriter.encode(data, BarcodeFormat.QR_CODE, 1000, 1000, hintMap);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        MatrixToImageWriter.writeToStream(bitMatrix, "PNG", outputStream);
+
+        return outputStream;
     }
 
     @FXML
@@ -189,23 +224,4 @@ public class AjouterService {
             imageView.setImage(selectedImage);
         }
     }
-
-
-
-    @FXML
-    void AjouterQR(ActionEvent event) {
-        // Récupérer le chemin du fichier QR Code
-        String qrCodeFilePath = "C:\\Users\\khadi\\IdeaProjects\\Pi\\src\\main\\resources\\test_qr_code1.png";
-
-        // Charger le fichier QR Code dans une Image
-        File qrCodeFile = new File(qrCodeFilePath);
-        Image qrCodeImage = new Image(qrCodeFile.toURI().toString());
-
-        // Afficher l'image du QR Code dans l'ImageView
-        QRcode.setImage(qrCodeImage);
-    }
-
-
-
-
 }
