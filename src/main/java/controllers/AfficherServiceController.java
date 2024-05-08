@@ -208,6 +208,7 @@ public class AfficherServiceController {
                             imageView.setImage(image);
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
+                            System.err.println("Erreur lors de la lecture de l'image : " + e.getMessage());
                         }
 
                         setText(sb.toString());
@@ -325,6 +326,8 @@ public class AfficherServiceController {
             e.printStackTrace();
         }
     }
+
+
 
 
 

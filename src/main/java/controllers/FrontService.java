@@ -5,6 +5,7 @@ import entities.service;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,8 +40,7 @@ public class FrontService implements Initializable {
     @FXML
     private TextField searchS;
 
-    @FXML
-    private ComboBox<String> roleInput;
+
     categorie_service selectedValue=null;
 
 
@@ -54,6 +54,7 @@ public class FrontService implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             loadServices();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -167,8 +168,9 @@ public class FrontService implements Initializable {
         this.loadServices();
 
 
-
-
     }
+
+
+
 
 }

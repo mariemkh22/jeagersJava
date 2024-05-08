@@ -13,31 +13,33 @@ public class ServiceService implements IService <service> {
 
 
     Connection connection;
+
     public ServiceService() {
-        connection= MyDatabase.getInstance().getConnection();
+        connection = MyDatabase.getInstance().getConnection();
     }
+
     @Override
     public void ajouter(service service) throws SQLException {
-        String req ="insert into service (name_s,description_s,localisation,state,dispo_date,categorie_id, imageFile)"+
+        String req = "insert into service (name_s,description_s,localisation,state,dispo_date,categorie_id, imageFile)" +
                 "values(?,?,?,?,?,?,?)";
 
-        PreparedStatement statement= connection.prepareStatement(req);
-        statement.setString(1,service.getName_s());
-        statement.setString(2,service.getDescription_s());
-        statement.setString(3,service.getLocalisation());
-        statement.setString(4,service.getState());
-        statement.setString(5,service.getDispo_date());
-        statement.setInt(6,service.getCat_id());
-        statement.setString(7,service.getImageFile());
+        PreparedStatement statement = connection.prepareStatement(req);
+        statement.setString(1, service.getName_s());
+        statement.setString(2, service.getDescription_s());
+        statement.setString(3, service.getLocalisation());
+        statement.setString(4, service.getState());
+        statement.setString(5, service.getDispo_date());
+        statement.setInt(6, service.getCat_id());
+        statement.setString(7, service.getImageFile());
         statement.executeUpdate(); //exécuter requete
         System.out.println("service ajoute");
     }
 
     @Override
     public void modifier(service service) throws SQLException {
-        String req ="update service set name_s=?, description_s=?, localisation=?, state=?, dispo_date=?, categorie_id=?, imageFile=? where id=?";
+        String req = "update service set name_s=?, description_s=?, localisation=?, state=?, dispo_date=?, categorie_id=?, imageFile=? where id=?";
 
-        PreparedStatement preparedStatement= connection.prepareStatement(req);
+        PreparedStatement preparedStatement = connection.prepareStatement(req);
         preparedStatement.setString(1, service.getName_s());
         preparedStatement.setString(2, service.getDescription_s());
         preparedStatement.setString(3, service.getLocalisation());
@@ -46,7 +48,7 @@ public class ServiceService implements IService <service> {
         preparedStatement.setInt(6, service.getCat_id());
         preparedStatement.setString(7, service.getImageFile());
 
-        preparedStatement.setInt(8,service.getId());
+        preparedStatement.setInt(8, service.getId());
         preparedStatement.executeUpdate();
         System.out.println("updated");
 
@@ -55,19 +57,19 @@ public class ServiceService implements IService <service> {
     @Override
     public void supprimer(int id) throws SQLException {
 
-        String req ="delete from service where id="+id;
-        Statement statement= connection.createStatement();
+        String req = "delete from service where id=" + id;
+        Statement statement = connection.createStatement();
         statement.executeUpdate(req);
 
     }
 
     @Override
     public List<service> afficher() throws SQLException {
-        List<service> servicesL= new ArrayList<>();
-        String req ="select * from service";
-        Statement statement= connection.createStatement();
+        List<service> servicesL = new ArrayList<>();
+        String req = "select * from service";
+        Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(req);
-        while (rs.next()){
+        while (rs.next()) {
             service service = new service();
             service.setId(rs.getInt("id"));
             service.setName_s(rs.getString("name_s"));
@@ -78,8 +80,6 @@ public class ServiceService implements IService <service> {
 
             service.setCat_id(rs.getInt("categorie_id"));
             service.setImageFile(rs.getString("imageFile"));
-
-
 
 
             servicesL.add(service);
@@ -121,6 +121,7 @@ public class ServiceService implements IService <service> {
 
         return services;
     }
+
     public List<service> getServiceByCategorie(int cat_id) throws SQLException {
         List<service> services = new ArrayList<>();
         String query = "SELECT * FROM service WHERE categorie_id = ?";
@@ -148,11 +149,11 @@ public class ServiceService implements IService <service> {
 
         return services;
     }
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+

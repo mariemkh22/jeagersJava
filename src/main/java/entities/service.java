@@ -2,6 +2,8 @@ package entities;
 
 import javafx.scene.image.Image;
 
+import java.util.Calendar;
+
 public class service {
 
     private int id;
@@ -10,6 +12,7 @@ public class service {
     private int cat_id;
     private String imageFile;
     public static String searchValue;
+    private Calendar date;
 
     public static String getSearchValue() {
         return searchValue;
@@ -112,5 +115,9 @@ public class service {
     }
 
     public service() {
+    }
+
+    public Calendar getDate() {
+        return date;
     }
 }

@@ -76,7 +76,7 @@
                <image>
                   <Image url="@categorize3.jpg" />
                </image>
-               
+
             </ImageView>
             <TextField fx:id="imgID" layoutX="330.0" layoutY="608.0" />
             <ImageView fx:id="qrCodeImageView" fitHeight="116.0" fitWidth="137.0" layoutX="496.0" layoutY="660.0" />
