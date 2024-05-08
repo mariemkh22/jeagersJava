@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="631.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SignUpAdmin">
+   <center>
+      <AnchorPane prefHeight="430.0" prefWidth="631.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="437.0" fitWidth="670.0" layoutX="-4.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@signUpAdmin.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="messageLabel" alignment="CENTER" layoutX="206.0" layoutY="85.0" prefHeight="18.0" prefWidth="214.0" textFill="RED" />
+            <Label fx:id="fullNameLabel" layoutX="167.0" layoutY="110.0" text="Full name" AnchorPane.leftAnchor="167.0" />
+            <TextField fx:id="nameTF" layoutX="158.0" layoutY="128.0" prefHeight="26.0" prefWidth="309.0" AnchorPane.leftAnchor="158.0" />
+            <Label fx:id="emailLabel" layoutX="166.0" layoutY="164.0" text="E-mail Address" AnchorPane.leftAnchor="166.0" />
+            <TextField fx:id="emailTF" layoutX="158.0" layoutY="182.0" prefHeight="26.0" prefWidth="309.0" AnchorPane.leftAnchor="158.0" AnchorPane.topAnchor="182.0" />
+            <Label fx:id="phoneLabel" layoutX="166.0" layoutY="216.0" text="Phone number" AnchorPane.leftAnchor="166.0" AnchorPane.topAnchor="216.0" />
+            <TextField fx:id="phoneTF" layoutX="159.0" layoutY="234.0" prefHeight="26.0" prefWidth="309.0" AnchorPane.leftAnchor="158.0" AnchorPane.topAnchor="234.0" />
+            <Label fx:id="dateLabel" layoutX="170.0" layoutY="272.0" prefHeight="18.0" prefWidth="71.0" text="Date of birth" AnchorPane.leftAnchor="170.0" />
+            <TextField fx:id="dateTF" layoutX="161.0" layoutY="290.0" prefHeight="26.0" prefWidth="309.0" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="167.2" />
+            <Label fx:id="passLabel" layoutX="168.0" layoutY="324.0" text="Password" AnchorPane.leftAnchor="168.0" AnchorPane.topAnchor="324.0" />
+            <TextField fx:id="passwordTF" layoutX="161.0" layoutY="342.0" prefHeight="26.0" prefWidth="309.0" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="167.20000000000005" />
+            <Button fx:id="signUpB" layoutX="157.0" layoutY="381.0" mnemonicParsing="false" onAction="#SignUpOnAction" prefHeight="26.0" prefWidth="124.0" style="-fx-background-color: #10172C;" text="Sign up" textFill="WHITE" AnchorPane.leftAnchor="158.0" />
+            <Button fx:id="resetB" layoutX="419.0" layoutY="381.0" mnemonicParsing="false" onAction="#ResetOnAction" prefHeight="26.0" prefWidth="124.0" style="-fx-background-color: #10172C;" text="Reset" textFill="WHITE" AnchorPane.rightAnchor="167.20000000000005" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

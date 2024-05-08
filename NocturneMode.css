@@ -1,0 +1,11 @@
+.nocturne-primary-color {
+    -fx-background-color: #383838;
+}
+
+.nocturne-secondary-color {
+    -fx-background-color: #282828 ;
+}
+
+.round-color {
+    -fx-background-radius: 100;
+}

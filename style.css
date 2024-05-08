@@ -1,0 +1,58 @@
+.table-view {
+    -fx-background-color:#ffffff;
+    -fx-background-radius:15;
+    -fx-border-width: 10px;
+
+}
+.table-view .column-header-background{
+    -fx-background-color:   #001C60;
+    -fx-background-insets: 0 0 10 0;
+
+
+
+}
+.table-view .column-header, .table-view .filler{
+    -fx-size:50px;
+    -fx-border-width: 0 0 10 0;
+    -fx-background-color:transparent;
+
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white ;
+    -fx-font-size: 15px;
+}
+
+.table-view .column-header .label .td {
+    -fx-text-alignment: center;
+}
+
+.primary-color {
+    -fx-background-color:  #001C60;
+}
+
+.secondary-color {
+    -fx-background-color: #00002C;
+}
+
+.text-input {
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #242571;
+}
+
+.selected-border {
+    -fx-border-color: #fff;
+    -fx-border-width: 0 3 0 0;
+}
+
+.selected:hover {
+    -fx-background-color: #FEA117   ;
+}
+
+.button {
+    -fx-background-color: #10172C;
+    -fx-text-fill: white;
+    -fx-fill-width: 150px;
+    -fx-alignment: center;
+}
