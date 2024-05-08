@@ -5,10 +5,18 @@ import Services.Servicelocation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -35,6 +43,9 @@ public class AjouterLocationController {
 
     @FXML
     private Label IntPostalcodetfcont;
+
+    @FXML
+    private Button adddeliverybtn;
 
     private final Servicelocation sl = new Servicelocation();
 
@@ -108,6 +119,26 @@ public class AjouterLocationController {
 
         }catch (IOException e){
             throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    void adddeliverybtn(ActionEvent event) {
+
+        try {
+            // Charger le fichier FXML de la fenêtre ajoutLocation
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherLivraison.fxml"));
+            Parent root = loader.load();
+
+            // Récupérer la fenêtre actuelle à partir de l'événement
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Créer une nouvelle scène avec la racine chargée
+            Scene scene = new Scene(root);
+
+            // Changer la scène de la fenêtre actuelle
+            currentStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace(); // Gérer l'exception s'il y a une erreur de chargement du fichier FXML
         }
     }
 

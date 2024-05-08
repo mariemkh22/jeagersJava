@@ -12,10 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,6 +30,9 @@ public class AjouterLivraisonFront {
 
     @FXML
     private ComboBox<String> RegionTf;
+
+    @FXML
+    private Button Ratingbtn;
 
     @FXML
     private ComboBox<String> StatusTf1;
@@ -59,6 +59,12 @@ public class AjouterLivraisonFront {
 
     @FXML
     private Label statustfcont;
+    @FXML
+    private Button Discountbtn;
+    @FXML
+    private Button Remboursementbtn;
+    @FXML
+    private Button addlocationbtn;
 
     private final Servicelocation sl = new Servicelocation(); // Instance du service de localisation
     private final Servicelivraison serviceLivraison = new Servicelivraison(); // Instance du service de livraison
@@ -191,6 +197,7 @@ public class AjouterLivraisonFront {
             alert.setTitle("Confirmation");
             alert.setContentText("La livraison a été enregistrée avec succès.");
             alert.showAndWait();
+
         } catch (SQLException e) {
             // Gérer les exceptions liées à l'enregistrement de la livraison
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -217,21 +224,65 @@ public class AjouterLivraisonFront {
     @FXML
     void paybtn(ActionEvent event) {
         try {
-            // Charger le fichier FXML de la fenêtre ajoutLocation
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/TicketPayment.fxml"));
             Parent root = loader.load();
 
-            // Récupérer la fenêtre actuelle à partir de l'événement
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            // Créer une nouvelle scène avec la racine chargée
             Scene scene = new Scene(root);
 
-            // Changer la scène de la fenêtre actuelle
             currentStage.setScene(scene);
         } catch (IOException e) {
-            e.printStackTrace(); // Gérer l'exception s'il y a une erreur de chargement du fichier FXML
+            e.printStackTrace();
         }
     }
-
+    @FXML
+    void Discountbtn(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/DiscountLivraison.fxml"));
+            Parent root = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            currentStage.setScene(scene);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void Remboursementbtn(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Remboursement.fxml"));
+            Parent root = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            currentStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void Ratingbtn(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Rating.fxml"));
+            Parent root = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            currentStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void addlocationbtn(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterLocationFront.fxml"));
+            Parent root = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            currentStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

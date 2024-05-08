@@ -158,7 +158,7 @@
                         <Font name="System Italic" size="12.0" />
                      </font>
                   </Label>
-                  <Button layoutX="1221.0" layoutY="578.0" mnemonicParsing="false" onAction="#SaveDeliveryBtn" prefHeight="62.0" prefWidth="215.0" style="-fx-background-color: #10172C;" text="Save Delivery" textFill="WHITE">
+                  <Button layoutX="1219.0" layoutY="520.0" mnemonicParsing="false" onAction="#SaveDeliveryBtn" prefHeight="62.0" prefWidth="215.0" style="-fx-background-color: #10172C;" text="Save Delivery" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -183,7 +183,27 @@
                         <Image url="@footer-logo.png" />
                      </image>
                   </ImageView>
-                  <Button layoutX="1221.0" layoutY="495.0" mnemonicParsing="false" onAction="#paybtn" prefHeight="62.0" prefWidth="215.0" style="-fx-background-color: #10172C;" text="Pay" textFill="WHITE">
+                  <Button fx:id="paybtn" layoutX="1219.0" layoutY="437.0" mnemonicParsing="false" onAction="#paybtn" prefHeight="62.0" prefWidth="215.0" style="-fx-background-color: #10172C;" text="Pay" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Discountbtn" layoutX="986.0" layoutY="520.0" mnemonicParsing="false" onAction="#Discountbtn" prefHeight="62.0" prefWidth="215.0" style="-fx-background-color: #10172C;" text="Discount" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Remboursementbtn" layoutX="986.0" layoutY="437.0" mnemonicParsing="false" onAction="#Remboursementbtn" prefHeight="62.0" prefWidth="215.0" style="-fx-background-color: #10172C;" text="refund" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Ratingbtn" layoutX="1118.0" layoutY="601.0" mnemonicParsing="false" onAction="#Ratingbtn" prefHeight="62.0" prefWidth="215.0" style="-fx-background-color: #10172C;" text="Rating" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="addlocationbtn" layoutX="80.0" layoutY="591.0" mnemonicParsing="false" onAction="#addlocationbtn" prefHeight="62.0" prefWidth="215.0" style="-fx-background-color: #10172C;" text="ADD Location" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>

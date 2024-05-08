@@ -291,6 +291,11 @@
                         <Image url="@OIP.jpg" />
                      </image>
                   </ImageView>
+                  <Button fx:id="addlocation" layoutX="930.0" layoutY="618.0" mnemonicParsing="false" onAction="#addlocation" prefHeight="62.0" prefWidth="215.0" text="ADD Location">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </children>

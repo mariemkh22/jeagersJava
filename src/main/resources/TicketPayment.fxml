@@ -1,57 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="368.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PayementlivraisonController">
-   <children>
-      <TextField fx:id="cardNumberField" layoutX="18.0" layoutY="144.0" prefHeight="34.0" prefWidth="421.0" promptText="Enter your card number" />
-      <Text layoutX="17.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have to Pay" wrappingWidth="249.6569366455078">
-         <font>
-            <Font name="Leelawadee UI Semilight" size="33.0" />
-         </font>
-      </Text>
-      <Text layoutX="17.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Remplissez le formulaire suivant afin d'acheter un ticket pour l'événement.">
-         <font>
-            <Font name="Leelawadee UI Semilight" size="15.0" />
-         </font>
-      </Text>
-      <Label layoutX="19.0" layoutY="116.0" text="Numéro de carte">
-         <font>
-            <Font name="Leelawadee UI Semilight" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="19.0" layoutY="185.0" text="Date d'expiration">
-         <font>
-            <Font name="Leelawadee UI Semilight" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="cvvField" layoutX="466.0" layoutY="144.0" prefHeight="34.0" prefWidth="74.0" promptText="111" />
-      <Label layoutX="467.0" layoutY="116.0" text="CVV/CVC">
-         <font>
-            <Font name="Leelawadee UI Semilight" size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="PurchaseBtn" layoutX="19.0" layoutY="293.0" mnemonicParsing="false" onAction="#handlePayment" prefHeight="34.0" prefWidth="103.0" styleClass="GeneralButton" text="Payer">
-         <font>
-            <Font name="Leelawadee UI Semilight" size="14.0" />
-         </font>
-      </Button>
-      <TextField fx:id="exprMonthField" layoutX="20.0" layoutY="236.0" prefHeight="34.0" prefWidth="74.0" promptText="MM" />
-      <Label layoutX="20.0" layoutY="216.0" text="Mois">
-         <font>
-            <Font name="Leelawadee UI Semilight" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="exprYearField" layoutX="105.0" layoutY="236.0" prefHeight="34.0" prefWidth="74.0" promptText="AAAA" />
-      <Label layoutX="105.0" layoutY="216.0" text="Année">
-         <font>
-            <Font name="Leelawadee UI Semilight" size="14.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PayementlivraisonController">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #10172C;" styleClass="search-container">
+               <children>
+                  <ImageView fitHeight="65.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@LOGO.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="600.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="300.0" styleClass="transparent">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="357.0" styleClass="transparent">
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                     <children>
+                        <ImageView fitHeight="51.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@search.png" />
+                           </image>
+                        </ImageView>
+                        <TextField prefHeight="26.0" prefWidth="266.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@english.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="EN" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@profileIcon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="1245.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <AnchorPane id="AnchorPane" prefHeight="792.0" prefWidth="1082.0">
+               <children>
+                  <TextField fx:id="cardNumberField" layoutX="460.0" layoutY="411.0" prefHeight="34.0" prefWidth="421.0" promptText="Enter your card number" />
+                  <Text fill="#10172c" layoutX="459.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have to Pay" wrappingWidth="249.6569366455078">
+                     <font>
+                        <Font name="Leelawadee UI Semilight" size="33.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="459.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fill the formula before getting the ticket">
+                     <font>
+                        <Font name="Leelawadee UI Semilight" size="15.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="461.0" layoutY="383.0" text="Card Number" textFill="#10172c">
+                     <font>
+                        <Font name="Leelawadee UI Semilight" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="461.0" layoutY="452.0" text="Expiration Date" textFill="#10172c">
+                     <font>
+                        <Font name="Leelawadee UI Semilight" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cvvField" layoutX="908.0" layoutY="411.0" prefHeight="34.0" prefWidth="74.0" promptText="111" />
+                  <Label layoutX="909.0" layoutY="383.0" text="CVV/CVC" textFill="#10172c">
+                     <font>
+                        <Font name="Leelawadee UI Semilight" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="PurchaseBtn" layoutX="459.0" layoutY="559.0" mnemonicParsing="false" onAction="#handlePayment" prefHeight="34.0" prefWidth="164.0" style="-fx-background-color: #10172C;" styleClass="GeneralButton" text="PAY" textFill="#eaebef">
+                     <font>
+                        <Font name="Leelawadee UI Semilight" size="18.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="exprMonthField" layoutX="462.0" layoutY="503.0" prefHeight="34.0" prefWidth="74.0" promptText="MM" />
+                  <Label layoutX="462.0" layoutY="483.0" text="Month" textFill="#10172c">
+                     <font>
+                        <Font name="Leelawadee UI Semilight" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="exprYearField" layoutX="547.0" layoutY="503.0" prefHeight="34.0" prefWidth="74.0" promptText="AAAA" />
+                  <Label layoutX="547.0" layoutY="483.0" text="Year" textFill="#10172c">
+                     <font>
+                        <Font name="Leelawadee UI Semilight" size="14.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="paymentMethodChoiceBox" layoutX="654.0" layoutY="503.0" prefHeight="34.0" prefWidth="150.0">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Mastercard" />
+                           <String fx:value="PayPal" />
+                           <String fx:value="Visa" />
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+                  <ImageView fitHeight="89.0" fitWidth="150.0" layoutX="865.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@65272d5e5928b9332593fef3_Payment%20methods%20blog%203.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="backbtn" layoutX="839.0" layoutY="559.0" mnemonicParsing="false" onAction="#backbtn" prefHeight="34.0" prefWidth="164.0" style="-fx-background-color: #10172C;" styleClass="GeneralButton" text="Back" textFill="#eaebef">
+                     <font>
+                        <Font name="Leelawadee UI Semilight" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

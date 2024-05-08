@@ -133,26 +133,12 @@
                         <Font name="System Italic" size="12.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="204.0" fitWidth="383.0" layoutX="788.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@OIP (3).jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="398.0" fitWidth="316.0" layoutX="855.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@home-1-feature-slider-1.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="184.0" fitWidth="234.0" layoutX="1171.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@vecteezy_flat-isometric-illustration-concept-logistics-delivery_6202282-1.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="177.0" fitWidth="273.0" layoutX="1171.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@OIP (2).jpg" />
-                     </image>
-                  </ImageView>
+                  <VBox fx:id="address" layoutX="615.0" layoutY="124.0" prefHeight="500.0" prefWidth="767.0" />
+                  <Button fx:id="adddeliverybtn" layoutX="270.0" layoutY="544.0" mnemonicParsing="false" onAction="#adddeliverybtn" prefHeight="62.0" prefWidth="234.0" style="-fx-background-color: #10172C;" text="Add Delivery" textFill="#f2eded">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </children>

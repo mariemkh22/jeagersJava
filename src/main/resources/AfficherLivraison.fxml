@@ -246,11 +246,16 @@
                               <Image url="@OIP%20(1).jpg" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="193.0" fitWidth="256.0" layoutX="957.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="193.0" fitWidth="256.0" layoutX="944.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@OIP%20(2).jpg" />
                            </image>
                         </ImageView>
+                        <Button fx:id="Statisticbtn" layoutX="1002.0" layoutY="584.0" mnemonicParsing="false" onAction="#Statisticbtn" prefHeight="59.0" prefWidth="167.0" text="Statistic">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
                </children>

@@ -1,5 +1,12 @@
 package controllers;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+
 import Entity.Livraison;
 import Entity.LocalisationGeographique;
 import Services.Servicelivraison;
@@ -60,6 +67,8 @@ public class AjouterLivraisonController {
 
     @FXML
     private Label statustfcont;
+    @FXML
+    private Button addlocation;
 
     private final Servicelocation sl = new Servicelocation(); // Instance du service de localisation
     private final Servicelivraison serviceLivraison = new Servicelivraison(); // Instance du service de livraison
@@ -235,5 +244,24 @@ public class AjouterLivraisonController {
         LocalDate selectedDate = lastdate.getValue();
         System.out.println("Last Date Selected: " + selectedDate);
     }
+    @FXML
+    void addlocation(ActionEvent event) {
 
+        try {
+            // Charger le fichier FXML de la fenêtre ajoutLocation
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherLocation.fxml"));
+            Parent root = loader.load();
+
+            // Récupérer la fenêtre actuelle à partir de l'événement
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Créer une nouvelle scène avec la racine chargée
+            Scene scene = new Scene(root);
+
+            // Changer la scène de la fenêtre actuelle
+            currentStage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace(); // Gérer l'exception s'il y a une erreur de chargement du fichier FXML
+        }
+    }
 }
