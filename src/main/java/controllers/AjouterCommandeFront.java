@@ -16,6 +16,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.ServiceCommande;
@@ -39,6 +40,9 @@ public class AjouterCommandeFront {
 
     @FXML
     private Label nomProduitLabel;
+
+    @FXML
+    private ImageView profileB;
 
     public void setProductName(String productName) {
         nomProduitLabel.setText(productName);
@@ -170,7 +174,7 @@ public class AjouterCommandeFront {
     @FXML
     public void shop(javafx.scene.input.MouseEvent mouseEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cardListView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home.fxml"));
             Parent root = loader.load();
 
             // Obtenez la fenêtre actuelle à partir de l'image cliquée
@@ -185,6 +189,12 @@ public class AjouterCommandeFront {
     }
 
 
-
-
+    public void profileButton(MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/profile.fxml"));
+            profileB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.ServiceCommande;
 import services.ServiceProduit;
@@ -23,6 +24,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class AfficherCommande {
+    @FXML
+    private ImageView profileB;
+
+    @FXML
+    private ImageView userB;
 
     @FXML
     private Button AjoutCmdbtn;
@@ -180,7 +186,7 @@ public class AfficherCommande {
     @FXML
     public void shop(javafx.scene.input.MouseEvent mouseEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cardListView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home.fxml"));
             Parent root = loader.load();
 
             // Obtenez la fenêtre actuelle à partir de l'image cliquée
@@ -195,5 +201,12 @@ public class AfficherCommande {
     }
 
 
-
+    public void profileButton(MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/profile.fxml"));
+            profileB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
 }

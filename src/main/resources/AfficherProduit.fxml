@@ -49,7 +49,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="27.0" prefWidth="231.0" text="User managment" textFill="WHITE">
+                        <Label fx:id="userB" onMouseClicked="#userManagment" prefHeight="27.0" prefWidth="231.0" text="User managment" textFill="WHITE">
                            <font>
                               <Font size="21.0" />
                            </font>
@@ -69,7 +69,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Product managment" textFill="WHITE">
+                        <Label fx:id="productB" onMouseClicked="#productButton" text="Product managment" textFill="WHITE">
                            <font>
                               <Font size="21.0" />
                            </font>
@@ -89,7 +89,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Service managment" textFill="WHITE">
+                        <Label fx:id="serviceB" onMouseClicked="#serviceButton" text="Service managment" textFill="WHITE">
                            <font>
                               <Font size="21.0" />
                            </font>
@@ -109,7 +109,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Messaging managment" textFill="WHITE">
+                        <Label fx:id="messageB" onMouseClicked="#messageButton" text="Messaging managment" textFill="WHITE">
                            <font>
                               <Font size="21.0" />
                            </font>
@@ -129,7 +129,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Delivery managment" textFill="WHITE">
+                        <Label fx:id="deliveryB" onMouseClicked="#deliveryButton" text="Delivery managment" textFill="WHITE">
                            <font>
                               <Font size="21.0" />
                            </font>
@@ -176,7 +176,7 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </HBox>
-                  <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@profileIcon.png" />
                      </image>
@@ -205,19 +205,19 @@
                               <TableColumn fx:id="PicCol" minWidth="0.0" prefWidth="349.0" text="Picture Path" />
                            </columns>
                         </TableView>
-                        <Button layoutX="941.0" layoutY="521.0" mnemonicParsing="false" onAction="#Delete" prefHeight="59.0" prefWidth="153.0" style="-fx-background-color: #10172C;" text="Delete" textFill="#f2eded">
+                        <Button layoutX="636.0" layoutY="477.0" mnemonicParsing="false" onAction="#Delete" prefHeight="40.0" prefWidth="153.0" style="-fx-background-color: #10172C;" text="Delete" textFill="#f2eded">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font></Button>
-                        <Button layoutX="190.0" layoutY="601.0" mnemonicParsing="false" onAction="#modifierProduit" prefHeight="59.0" prefWidth="154.0" style="-fx-background-color: #10172C;" text="Update" textFill="#f8f6f6">
+                        <Button layoutX="428.0" layoutY="477.0" mnemonicParsing="false" onAction="#modifierProduit" prefHeight="37.0" prefWidth="154.0" style="-fx-background-color: #10172C;" text="Update" textFill="#f8f6f6">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font></Button>
-                        <Button layoutX="190.0" layoutY="522.0" mnemonicParsing="false" onAction="#NavigateA" prefHeight="57.0" prefWidth="154.0" style="-fx-background-color: #10172C;" stylesheets="@style.css" text="Add" textFill="#f5ecec">
+                        <Button layoutX="209.0" layoutY="477.0" mnemonicParsing="false" onAction="#NavigateA" prefHeight="31.0" prefWidth="154.0" style="-fx-background-color: #10172C;" stylesheets="@style.css" text="Add" textFill="#f5ecec">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font></Button>
-                        <Button layoutX="940.0" layoutY="601.0" mnemonicParsing="false" onAction="#deletAll" prefHeight="60.0" prefWidth="154.0" style="-fx-background-color: #10172C;" text="Delete All " textFill="#f8f4f4">
+                        <Button layoutX="866.0" layoutY="477.0" mnemonicParsing="false" onAction="#deletAll" prefHeight="44.0" prefWidth="154.0" style="-fx-background-color: #10172C;" text="Delete All " textFill="#f8f4f4">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font></Button>
@@ -226,15 +226,11 @@
                               <Font name="System Bold" size="35.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="194.0" fitWidth="296.0" layoutX="477.0" layoutY="466.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@head.png" />
-                           </image>
-                        </ImageView>
-                        <Button layoutX="536.0" layoutY="667.0" mnemonicParsing="false" onAction="#NavigateO" prefHeight="43.0" prefWidth="172.0" style="-fx-background-color: #10172C;" text="Client's Orders" textFill="#fffefe">
+                        <Button layoutX="453.0" layoutY="575.0" mnemonicParsing="false" onAction="#navigateTo" prefHeight="50.0" prefWidth="311.0" style="-fx-background-color: #10172C;" text="Client's orders" textFill="WHITE">
                            <font>
-                              <Font name="System Bold Italic" size="20.0" />
-                           </font></Button>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
                </children>

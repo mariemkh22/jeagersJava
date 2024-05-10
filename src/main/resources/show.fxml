@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Show">
+   <children>
+      <Label fx:id="likesLabel" layoutX="69.0" layoutY="98.0" prefHeight="36.0" prefWidth="250.0" text="Number of likes :" textFill="#12f738">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="dislikesLabel" layoutX="69.0" layoutY="164.0" text="Number of dislikes :" textFill="#f54414">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="188.0" fitWidth="356.0" layoutX="110.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@like.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="233.0" layoutY="14.0" text="Your Reacts ">
+         <font>
+            <Font name="System Bold Italic" size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

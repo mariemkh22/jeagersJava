@@ -11,7 +11,7 @@
     <children>
         <VBox alignment="CENTER" minHeight="185.0" minWidth="308.0" prefHeight="714.0" prefWidth="733.0" spacing="15.0">
             <children>
-                <Label fx:id="Pname" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="44.0" prefWidth="462.0" text="                                  Name" textFill="#181718" VBox.vgrow="ALWAYS">
+                <Label fx:id="Pname" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="44.0" prefWidth="462.0" text="Name" textFill="#181718" VBox.vgrow="ALWAYS">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
@@ -22,7 +22,7 @@
                         <Font size="25.0" />
                     </font>
                 </Label>
-                <Label fx:id="Ptype" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="21.0" prefWidth="279.0" text="  Type" VBox.vgrow="ALWAYS">
+                <Label fx:id="Ptype" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="21.0" prefWidth="279.0" text="  Type" VBox.vgrow="ALWAYS">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
@@ -32,12 +32,12 @@
                         <Font size="25.0" />
                     </font>
                 </Label>
-                <Label fx:id="Pdescription" contentDisplay="CENTER" prefHeight="30.0" prefWidth="479.0" text="                                   Description">
+                <Label fx:id="Pdescription" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="479.0" text="Description">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
                 </Label>
-                <Label fx:id="PEquiv" prefHeight="30.0" prefWidth="479.0" text="                               Equivalent Price  ">
+                <Label fx:id="PEquiv" alignment="CENTER" prefHeight="30.0" prefWidth="479.0" text="Equivalent Price  ">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>

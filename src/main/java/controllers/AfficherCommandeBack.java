@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.ServiceCommande;
 import services.ServiceProduit;
@@ -23,6 +24,24 @@ import java.util.List;
 import java.util.Optional;
 
 public class AfficherCommandeBack {
+
+    @FXML
+    private Label userB;
+
+    @FXML
+    private ImageView profileB;
+
+    @FXML
+    private Label productB;
+
+    @FXML
+    private ImageView messageB;
+
+    @FXML
+    private ImageView serviceB;
+
+    @FXML
+    private Label deliveryB;
 
     @FXML
     private Button AjoutCmdbtn;
@@ -187,6 +206,66 @@ public class AfficherCommandeBack {
         }
     }
 
+    public void userManagment(MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/displayBackEnd.fxml"));
+            userB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
 
+    public void profileButton(MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/profileAdmin.fxml"));
+            profileB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void messageButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherNotifications.fxml"));
+            messageB.getScene().setRoot(root);
+            System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void productButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/afficherProduit.fxml"));
+            productB.getScene().setRoot(root);
+            System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void serviceButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherService.fxml"));
+            serviceB.getScene().setRoot(root);
+            System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void deliveryButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/afficherLivraison.fxml"));
+            deliveryB.getScene().setRoot(root);
+            System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
 }
 

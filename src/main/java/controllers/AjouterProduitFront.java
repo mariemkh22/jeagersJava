@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -39,6 +40,9 @@ public class AjouterProduitFront {
     private ImageView imageView;
 
     private Image selectedImage;
+
+    @FXML
+    private ImageView profileB;
 
     @FXML
     void initialize() {
@@ -202,7 +206,7 @@ public class AjouterProduitFront {
     @FXML
     public void shop(javafx.scene.input.MouseEvent mouseEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/cardListView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home.fxml"));
             Parent root = loader.load();
 
             // Obtenez la fenêtre actuelle à partir de l'image cliquée
@@ -217,5 +221,12 @@ public class AjouterProduitFront {
     }
 
 
-
+    public void profileButton(MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/profile.fxml"));
+            profileB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
 }

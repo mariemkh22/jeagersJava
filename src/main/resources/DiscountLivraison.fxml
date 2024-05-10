@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="824.0" prefWidth="1547.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DiscountController">
+   <children>
+      <BorderPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0">
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="94.0" prefWidth="1559.0" style="-fx-background-color: #10172C;" styleClass="search-container">
+                     <children>
+                        <HBox prefHeight="94.0" prefWidth="1332.0">
+                           <children>
+                              <ImageView fitHeight="79.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@LOGO.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets bottom="1.0" left="30.0" right="500.0" top="10.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="homeB" fitHeight="74.0" fitWidth="82.0" onMouseClicked="#homeButton" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets top="10.0" />
+                                 </HBox.margin>
+                                 <image>
+                                    <Image url="@store.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="94.0" prefWidth="119.0">
+                           <children>
+                              <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@english.png" />
+                                 </image>
+                              </ImageView>
+                              <Label text="EN" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </HBox>
+                        <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@profileIcon.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox prefHeight="722.0" prefWidth="1217.0">
+                     <children>
+                        <Label text="Regions with 30% off:">
+                           <font>
+                              <Font name="System Bold" size="44.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="regionWith30PercentOff" prefHeight="107.0" prefWidth="1246.0">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font></Label>
+                        <Label text="Regions with 20% off:">
+                           <font>
+                              <Font name="System Bold" size="44.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="regionWith20PercentOff" prefHeight="132.0" prefWidth="1247.0">
+                           <font>
+                              <Font name="System Bold Italic" size="21.0" />
+                           </font></Label>
+                        <Button fx:id="backbtn" alignment="CENTER" mnemonicParsing="false" onAction="#backbtn" prefHeight="61.0" prefWidth="138.0" style="-fx-background-color: #0c035b;" text="Back" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

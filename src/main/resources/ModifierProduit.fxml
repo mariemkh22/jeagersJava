@@ -49,7 +49,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label prefHeight="27.0" prefWidth="231.0" text="User managment" textFill="WHITE">
+                        <Label fx:id="userB" onMouseClicked="#userButton" prefHeight="27.0" prefWidth="231.0" text="User managment" textFill="WHITE">
                            <font>
                               <Font size="21.0" />
                            </font>
@@ -69,7 +69,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Label text="Product managment" textFill="WHITE">
+                        <Label fx:id="productB" onMouseClicked="#productButton" text="Product managment" textFill="WHITE">
                            <font>
                               <Font size="21.0" />
                            </font>

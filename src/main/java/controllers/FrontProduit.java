@@ -16,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import services.ServiceProduit;
 
+
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -34,6 +35,9 @@ public class FrontProduit implements Initializable {
 
     @FXML
     private TextField searchField;
+
+    @FXML
+    private ImageView profileB;
 
     private final ServiceProduit serviceProduit = new ServiceProduit();
     private List<Produit> allProducts;
@@ -176,6 +180,12 @@ public class FrontProduit implements Initializable {
         }
     }
 
-
-
+    public void profileButton(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/profile.fxml"));
+            profileB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
 }

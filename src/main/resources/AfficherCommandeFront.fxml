@@ -13,43 +13,38 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherCommande">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="854.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherCommande">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="127.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container">
+            <HBox alignment="CENTER_RIGHT" prefHeight="161.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="127.0" prefWidth="339.0" spacing="10.0" styleClass="right-side-border">
-                     <children>
-                        <ImageView fitHeight="83.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@LOGO.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <HBox.margin>
-                        <Insets right="250.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="300.0" styleClass="transparent">
+                  <ImageView fitHeight="83.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@LOGO.png" />
+                     </image>
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
-                     <children>
-                        <ImageView fitHeight="79.0" fitWidth="109.0" onMouseClicked="#shop" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@store.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="81.0" fitWidth="149.0" onMouseClicked="#StatB" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@graph.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
+                  </ImageView>
+                  <ImageView fitHeight="79.0" fitWidth="109.0" onMouseClicked="#shop" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@store.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="300.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="81.0" fitWidth="149.0" onMouseClicked="#StatB" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@graph.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" right="700.0" />
+                     </HBox.margin>
+                  </ImageView>
 
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
+                        <HBox alignment="CENTER" prefHeight="110.0" prefWidth="96.0">
                      <children>
                         <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -66,7 +61,7 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </HBox>
-                  <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@profileIcon.png" />
                      </image>

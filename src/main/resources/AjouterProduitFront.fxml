@@ -13,31 +13,29 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterProduitFront">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="854.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterProduitFront">
    <center>
       <VBox prefHeight="756.0" prefWidth="1148.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #10172C;" styleClass="search-container">
+            <HBox alignment="CENTER_RIGHT" prefHeight="111.0" prefWidth="200.0" style="-fx-background-color: #10172C;" styleClass="search-container">
                <children>
-                  <ImageView fitHeight="65.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="83.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@LOGO.png" />
                      </image>
-                  </ImageView>
-                  <Label prefHeight="35.0" prefWidth="183.0" text="SWAPCRAZE" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
                      <HBox.margin>
-                        <Insets />
+                        <Insets right="200.0" />
                      </HBox.margin>
-                  </Label>
-                  <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="350.0" spacing="10.0" styleClass="right-side-border">
+                  </ImageView>
+                  <HBox alignment="CENTER_LEFT" prefHeight="111.0" prefWidth="289.0" spacing="10.0" styleClass="right-side-border">
                      <children>
-                        <ImageView fitHeight="79.0" fitWidth="109.0" onMouseClicked="#shop" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="62.0" fitWidth="69.0" onMouseClicked="#shop" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@store.png" />
                            </image>
+                           <HBox.margin>
+                              <Insets left="50.0" />
+                           </HBox.margin>
                         </ImageView>
                      </children></HBox>
                   <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="300.0" styleClass="transparent">
@@ -67,7 +65,7 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </HBox>
-                  <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@profileIcon.png" />
                      </image>
@@ -93,25 +91,25 @@
                            </font>
                         </Label>
                         <TextField fx:id="PnomTF" layoutX="487.0" layoutY="97.0" prefHeight="49.0" prefWidth="463.0" promptText="Product Name" />
-                        <TextField fx:id="DescTF" layoutX="485.0" layoutY="245.0" prefHeight="154.0" prefWidth="467.0" promptText="Description" />
-                        <TextField fx:id="EpTF" layoutX="560.0" layoutY="410.0" prefHeight="53.0" prefWidth="298.0" promptText="Equivalent Price$" />
+                        <TextField fx:id="DescTF" layoutX="482.0" layoutY="240.0" prefHeight="154.0" prefWidth="467.0" promptText="Description" />
+                        <TextField fx:id="EpTF" layoutX="482.0" layoutY="416.0" prefHeight="53.0" prefWidth="215.0" promptText="Equivalent Price$" />
                         <ComboBox fx:id="typeTF" layoutX="486.0" layoutY="169.0" prefHeight="56.0" prefWidth="465.0" promptText="Type" />
-                        <Button alignment="CENTER" layoutX="1149.0" layoutY="610.0" mnemonicParsing="false" onAction="#AjouterP" prefHeight="60.0" prefWidth="149.0" style="-fx-background-color: #10172C;" text="ADD Product" textFill="#f0f2f5">
+                        <Button alignment="CENTER" layoutX="600.0" layoutY="645.0" mnemonicParsing="false" onAction="#AjouterP" prefHeight="46.0" prefWidth="237.0" style="-fx-background-color: #10172C;" text="ADD Product" textFill="#f0f2f5">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font></Button>
-                        <ImageView fx:id="imageView" fitHeight="194.0" fitWidth="470.0" layoutX="480.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fitHeight="553.0" fitWidth="346.0" layoutX="1050.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="477.0" layoutX="477.0" layoutY="478.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="553.0" fitWidth="346.0" layoutX="1061.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@product-add-to-cart-e1438362099361.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="343.0" fitWidth="353.0" layoutX="21.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="407.0" fitWidth="373.0" layoutX="26.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@product.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="insert_image" layoutX="595.0" layoutY="670.0" mnemonicParsing="false" onAction="#addImage" prefHeight="40.0" prefWidth="207.0" style="-fx-background-color: #10172C;" text="Insert Picture" textFill="#f2e6e6">
+                        <Button fx:id="insert_image" layoutX="770.0" layoutY="416.0" mnemonicParsing="false" onAction="#addImage" prefHeight="52.0" prefWidth="179.0" style="-fx-background-color: #10172C;" text="Insert Picture" textFill="#f2e6e6">
                            <font>
                               <Font name="System Bold Italic" size="20.0" />
                            </font></Button>

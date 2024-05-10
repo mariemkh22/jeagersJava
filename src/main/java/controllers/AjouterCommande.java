@@ -10,10 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.ServiceCommande;
 import services.ServiceProduit;
@@ -25,6 +23,16 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class AjouterCommande {
+    @FXML
+    private Label deliveryB;
+    @FXML
+    private Label serviceB;
+    @FXML
+    private Label userB;
+    @FXML
+    private Label productB;
+    @FXML
+    private Label messageB;
 
     @FXML
     private DatePicker DateCommdTf;
@@ -146,4 +154,53 @@ public class AjouterCommande {
     }
 
 
+    public void userButton(MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/profile.fxml"));
+            userB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void productButton(MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/afficherProduit.fxml"));
+            productB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void serviceButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherService.fxml"));
+            serviceB.getScene().setRoot(root);
+            System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void deliveryButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/afficherLivraison.fxml"));
+            deliveryB.getScene().setRoot(root);
+            System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    void messageButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherNotifications.fxml"));
+            messageB.getScene().setRoot(root);
+            System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
 }

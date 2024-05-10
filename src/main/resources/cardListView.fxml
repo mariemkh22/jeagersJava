@@ -13,27 +13,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontProduit">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="879.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontProduit">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="127.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container">
+            <HBox alignment="CENTER_RIGHT" prefHeight="111.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="127.0" prefWidth="339.0" spacing="10.0" styleClass="right-side-border">
+                  <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="197.0" spacing="10.0" styleClass="right-side-border">
                      <children>
                         <ImageView fitHeight="83.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@LOGO.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="addI" fitHeight="80.0" fitWidth="200.0" onMouseClicked="#addpng" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@—Pngtree—vector%20add%20icon_4260322.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="78.0" fitWidth="200.0" onMouseClicked="#ordersL" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@checklist.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -41,11 +31,27 @@
                         <Insets right="250.0" />
                      </HBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="300.0" styleClass="transparent">
+                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="110.0" prefWidth="352.0" styleClass="transparent">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                      <children>
+                        <ImageView fx:id="addI" fitHeight="80.0" fitWidth="200.0" onMouseClicked="#addpng" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@—Pngtree—vector%20add%20icon_4260322.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="40.0" right="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="78.0" fitWidth="200.0" onMouseClicked="#ordersL" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@checklist.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </ImageView>
                         <ImageView fitHeight="81.0" fitWidth="136.0" onMouseClicked="#StatB" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@graph.png" />
@@ -55,7 +61,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="357.0" styleClass="transparent">
                      <HBox.margin>
-                        <Insets right="50.0" />
+                        <Insets left="100.0" right="50.0" />
                      </HBox.margin>
                      <children>
                         <ImageView fitHeight="51.0" fitWidth="60.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
@@ -84,7 +90,7 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </HBox>
-                  <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@profileIcon.png" />
                      </image>
@@ -114,7 +120,7 @@
                         </Label>
                         <ScrollPane prefHeight="533.0" prefWidth="1509.0" VBox.vgrow="ALWAYS">
                            <content>
-                              <HBox fx:id="boxproduit" alignment="CENTER_LEFT" prefHeight="481.0" prefWidth="1472.0" spacing="20.0" />
+                              <HBox fx:id="boxproduit" alignment="CENTER_LEFT" prefHeight="641.0" prefWidth="1464.0" spacing="20.0" />
                            </content>
                         </ScrollPane>
                      </children>
@@ -125,6 +131,9 @@
       </VBox>
    </center>
    <bottom>
-      <Pagination fx:id="pagination" prefHeight="43.0" prefWidth="1550.0" BorderPane.alignment="CENTER" />
+      <Pagination fx:id="pagination" prefHeight="67.0" prefWidth="1550.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin></Pagination>
    </bottom>
 </BorderPane>

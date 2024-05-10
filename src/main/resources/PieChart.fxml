@@ -14,22 +14,17 @@
    <center>
       <VBox prefHeight="756.0" prefWidth="1148.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="87.0" prefWidth="1451.0" style="-fx-background-color: #10172C;" styleClass="search-container">
+            <HBox alignment="CENTER_RIGHT" prefHeight="110.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container">
                <children>
                   <ImageView fitHeight="65.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@LOGO.png" />
                      </image>
-                  </ImageView>
-                  <Label prefHeight="35.0" prefWidth="183.0" text="SWAPCRAZE" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
                      <HBox.margin>
-                        <Insets />
+                        <Insets left="50.0" right="500.0" />
                      </HBox.margin>
-                  </Label>
-                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="300.0" styleClass="transparent">
+                  </ImageView>
+                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="96.0" prefWidth="90.0" styleClass="transparent">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -38,6 +33,9 @@
                            <image>
                               <Image url="@store.png" />
                            </image>
+                           <HBox.margin>
+                              <Insets right="350.0" />
+                           </HBox.margin>
                         </ImageView>
                      </children>
                   </HBox>
@@ -46,7 +44,7 @@
                         <Insets right="50.0" />
                      </HBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
+                  <HBox alignment="CENTER" prefHeight="96.0" prefWidth="219.0">
                      <children>
                         <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -63,7 +61,7 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </HBox>
-                  <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@profileIcon.png" />
                      </image>
