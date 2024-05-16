@@ -15,54 +15,6 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="119.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container">
-               <children>
-                  <ImageView fitHeight="78.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@LOGO.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="400.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <ImageView fx:id="homeB" fitHeight="73.0" fitWidth="93.0" onMouseClicked="#homeButton" pickOnBounds="true" preserveRatio="true">
-                     <HBox.margin>
-                        <Insets right="700.0" />
-                     </HBox.margin>
-                     <image>
-                        <Image url="@store.png" />
-                     </image>
-                  </ImageView>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
-                     <children>
-                        <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@english.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="EN" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@profileIcon.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </ImageView>
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
             <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="1245.0">
                <VBox.margin>
                   <Insets />
@@ -70,12 +22,12 @@
             </VBox>
             <AnchorPane prefHeight="747.0" prefWidth="1550.0">
                <children>
-                  <Label alignment="TOP_CENTER" layoutX="794.0" layoutY="133.0" prefHeight="23.0" prefWidth="150.0" text="Rate ME" textFill="#10172c">
+                  <Label alignment="TOP_CENTER" layoutX="668.0" layoutY="54.0" prefHeight="49.0" prefWidth="302.0" text="Rate Me" textFill="#25218c">
                      <font>
-                        <Font name="System Bold Italic" size="18.0" />
+                        <Font size="36.0" />
                      </font>
                   </Label>
-                  <HBox alignment="CENTER" layoutX="191.0" layoutY="180.0" prefHeight="107.0" prefWidth="1355.0" spacing="5">
+                  <HBox alignment="CENTER" layoutX="197.0" layoutY="186.0" prefHeight="54.0" prefWidth="246.0" spacing="5">
                      <children>
                         <Button fx:id="star1Button" onAction="#handleRating" text="★" />
                         <Button fx:id="star2Button" onAction="#handleRating" text="★" />
@@ -85,23 +37,23 @@
                      </children>
                   </HBox>
                   <Label layoutX="929.0" layoutY="309.0" prefHeight="18.0" prefWidth="74.0" />
-                  <Button fx:id="rateButton" layoutX="838.0" layoutY="290.0" onAction="#handleRate" style="-fx-background-color: #10172C;" text="Rate" textFill="#f4eaea">
+                  <Button fx:id="rateButton" layoutX="215.0" layoutY="269.0" onAction="#handleRate" prefHeight="40.0" prefWidth="210.0" style="-fx-background-color: #10172C;" text="Rate" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="18.0" />
+                        <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="819.0" layoutY="345.0" onAction="#handleRefresh" prefHeight="40.0" prefWidth="99.0" style="-fx-background-color: #10172C;" text="Refresh" textFill="#f2eded">
+                  <Button layoutX="215.0" layoutY="338.0" onAction="#handleRefresh" prefHeight="40.0" prefWidth="210.0" style="-fx-background-color: #10172C;" text="Refresh" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="18.0" />
+                        <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="backbtn" layoutX="819.0" layoutY="417.0" onAction="#backbtn" prefHeight="49.0" prefWidth="99.0" style="-fx-background-color: #10172C;" text="Back" textFill="#f4eaea">
+                  <Button fx:id="backbtn" layoutX="215.0" layoutY="407.0" onAction="#backbtn" prefHeight="40.0" prefWidth="211.0" style="-fx-background-color: #10172C;" text="Back" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="18.0" />
+                        <Font size="18.0" />
                      </font>
                   </Button>
                   <Label fx:id="ratingLabel" layoutX="935.0" layoutY="327.0" prefHeight="18.0" prefWidth="88.0" />
-                  <ImageView fitHeight="476.0" fitWidth="517.0" layoutX="112.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="505.0" fitWidth="594.0" layoutX="935.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@rate.png" />
                      </image>
@@ -111,4 +63,69 @@
          </children>
       </VBox>
    </center>
+   <top>
+      <HBox alignment="CENTER_RIGHT" prefHeight="105.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="106.0" prefWidth="189.0">
+               <children>
+                  <ImageView fitHeight="78.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@LOGO.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="106.0" prefWidth="1169.0" spacing="20.0">
+               <children>
+                  <Button fx:id="homeB" mnemonicParsing="false" onAction="#homeButton" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="300.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="serviceB" layoutX="310.0" layoutY="50.0" mnemonicParsing="false" onAction="#serviceButton" style="-fx-background-color: transparent;" text="Our services" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="productB" layoutX="360.0" layoutY="50.0" mnemonicParsing="false" onAction="#productButton" style="-fx-background-color: transparent;" text="Our products" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@english.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="EN" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </HBox>
+            <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@profileIcon.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

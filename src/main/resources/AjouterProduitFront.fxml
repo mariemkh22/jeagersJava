@@ -13,105 +13,39 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="854.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterProduitFront">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterProduitFront">
    <center>
       <VBox prefHeight="756.0" prefWidth="1148.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="111.0" prefWidth="200.0" style="-fx-background-color: #10172C;" styleClass="search-container">
-               <children>
-                  <ImageView fitHeight="83.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@LOGO.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="200.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <HBox alignment="CENTER_LEFT" prefHeight="111.0" prefWidth="289.0" spacing="10.0" styleClass="right-side-border">
-                     <children>
-                        <ImageView fitHeight="62.0" fitWidth="69.0" onMouseClicked="#shop" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@store.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                        </ImageView>
-                     </children></HBox>
-                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="300.0" styleClass="transparent">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="357.0" styleClass="transparent">
-                     <HBox.margin>
-                        <Insets right="50.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
-                     <children>
-                        <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@english.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="EN" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@profileIcon.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </ImageView>
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="727.0" prefWidth="1253.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="742.0" prefWidth="1550.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <children>
                   <AnchorPane prefHeight="820.0" prefWidth="1550.0">
                      <children>
-                        <Label layoutX="549.0" layoutY="34.0" text="Add Your Product !">
+                        <Label layoutX="659.0" layoutY="41.0" text="Add New Product" textFill="#25218c">
                            <font>
-                              <Font name="System Bold" size="35.0" />
+                              <Font size="24.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="PnomTF" layoutX="487.0" layoutY="97.0" prefHeight="49.0" prefWidth="463.0" promptText="Product Name" />
-                        <TextField fx:id="DescTF" layoutX="482.0" layoutY="240.0" prefHeight="154.0" prefWidth="467.0" promptText="Description" />
-                        <TextField fx:id="EpTF" layoutX="482.0" layoutY="416.0" prefHeight="53.0" prefWidth="215.0" promptText="Equivalent Price$" />
-                        <ComboBox fx:id="typeTF" layoutX="486.0" layoutY="169.0" prefHeight="56.0" prefWidth="465.0" promptText="Type" />
-                        <Button alignment="CENTER" layoutX="600.0" layoutY="645.0" mnemonicParsing="false" onAction="#AjouterP" prefHeight="46.0" prefWidth="237.0" style="-fx-background-color: #10172C;" text="ADD Product" textFill="#f0f2f5">
+                        <TextField fx:id="PnomTF" layoutX="161.0" layoutY="119.0" prefHeight="34.0" prefWidth="463.0" promptText="Product Name" />
+                        <TextField fx:id="DescTF" alignment="TOP_LEFT" layoutX="159.0" layoutY="252.0" prefHeight="134.0" prefWidth="467.0" promptText="Description" />
+                        <TextField fx:id="EpTF" layoutX="161.0" layoutY="415.0" prefHeight="34.0" prefWidth="464.0" promptText="Equivalent Price$" />
+                        <ComboBox fx:id="typeTF" layoutX="160.0" layoutY="184.0" prefHeight="34.0" prefWidth="465.0" promptText="Type" />
+                        <Button alignment="CENTER" layoutX="159.0" layoutY="648.0" mnemonicParsing="false" onAction="#AjouterP" prefHeight="34.0" prefWidth="468.0" style="-fx-background-color: #10172C;" text="Add Product" textFill="#f0f2f5">
                            <font>
-                              <Font name="System Bold Italic" size="20.0" />
+                              <Font size="18.0" />
                            </font></Button>
-                        <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="477.0" layoutX="477.0" layoutY="478.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fitHeight="553.0" fitWidth="346.0" layoutX="1061.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="260.0" layoutX="362.0" layoutY="478.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="647.0" fitWidth="826.0" layoutX="715.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@product-add-to-cart-e1438362099361.png" />
+                              <Image url="@products.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="407.0" fitWidth="373.0" layoutX="26.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@product.png" />
-                           </image>
-                        </ImageView>
-                        <Button fx:id="insert_image" layoutX="770.0" layoutY="416.0" mnemonicParsing="false" onAction="#addImage" prefHeight="52.0" prefWidth="179.0" style="-fx-background-color: #10172C;" text="Insert Picture" textFill="#f2e6e6">
+                        <Button fx:id="insert_image" layoutX="159.0" layoutY="527.0" mnemonicParsing="false" onAction="#addImage" prefHeight="34.0" prefWidth="179.0" style="-fx-background-color: #10172C;" text="Insert Picture" textFill="WHITE">
                            <font>
-                              <Font name="System Bold Italic" size="20.0" />
+                              <Font size="18.0" />
                            </font></Button>
                      </children>
                   </AnchorPane>
@@ -120,4 +54,85 @@
          </children>
       </VBox>
    </center>
+   <top>
+      <HBox alignment="CENTER_RIGHT" prefHeight="105.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="106.0" prefWidth="150.0" spacing="10.0" styleClass="right-side-border">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@LOGO.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="110.0" prefWidth="1090.0" spacing="20.0" styleClass="transparent">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <Button fx:id="homeB" mnemonicParsing="false" onAction="#homeButton" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="300.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="productB" layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#productButton" style="-fx-background-color: transparent;" text="Our products" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="addProductB" layoutX="80.0" layoutY="50.0" mnemonicParsing="false" onAction="#addProductButton" style="-fx-background-color: transparent;" text="Add product" textFill="#ffad29">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="stat" layoutX="151.0" layoutY="50.0" mnemonicParsing="false" onAction="#statisticsButton" style="-fx-background-color: transparent;" text="Statistics" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="commandeB" layoutX="599.0" layoutY="50.0" mnemonicParsing="false" onAction="#commandeButton" style="-fx-background-color: transparent;" text="Commands" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@english.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="EN" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </HBox>
+            <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@profileIcon.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

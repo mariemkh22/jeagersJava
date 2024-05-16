@@ -17,102 +17,29 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="146.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container">
-               <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="199.0" spacing="10.0" styleClass="right-side-border">
-                     <children>
-                        <ImageView fitHeight="83.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@LOGO.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <HBox.margin>
-                        <Insets right="250.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="110.0" prefWidth="440.0" styleClass="transparent">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <children>
-                        <ImageView fitHeight="79.0" fitWidth="109.0" onMouseClicked="#shop" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@store.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="50.0" />
-                           </HBox.margin>
-                        </ImageView>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="357.0" styleClass="transparent">
-                     <HBox.margin>
-                        <Insets right="50.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="110.0" prefWidth="118.0">
-                     <children>
-                        <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@english.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="EN" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@profileIcon.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </ImageView>
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="111.0" prefWidth="1200.0">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </VBox>
             <AnchorPane prefHeight="716.0" prefWidth="1245.0">
                <children>
-                  <Label fx:id="nomProduitLabel" layoutX="516.0" layoutY="167.0" prefHeight="47.0" prefWidth="322.0" text="                 " textAlignment="CENTER">
+                  <Label fx:id="nomProduitLabel" alignment="CENTER" layoutX="127.0" layoutY="171.0" prefHeight="38.0" prefWidth="470.0" text="                 " textAlignment="CENTER" AnchorPane.leftAnchor="130.0">
                      <font>
-                        <Font name="System Bold Italic" size="35.0" />
-                     </font></Label>
-                  <ComboBox fx:id="VilleTF" layoutX="519.0" layoutY="357.0" prefHeight="59.0" prefWidth="314.0" promptText="                                    Delivery Type" />
-                  <DatePicker fx:id="DateCommdTf" layoutX="519.0" layoutY="254.0" onAction="#DateCommdTf" prefHeight="59.0" prefWidth="314.0" />
-                  <Label layoutX="586.0" layoutY="32.0" prefHeight="86.0" prefWidth="205.0" text="Add Order !">
-                     <font>
-                        <Font name="System Bold" size="35.0" />
+                        <Font size="35.0" />
                      </font>
                   </Label>
-                  <Button layoutX="444.0" layoutY="574.0" mnemonicParsing="false" onAction="#AjoutCmdbtn" prefHeight="60.0" prefWidth="148.0" style="-fx-background-color: #10172C;" text="Add Order" textFill="#f2eded">
+                  <ComboBox fx:id="VilleTF" layoutX="127.0" layoutY="361.0" prefHeight="38.0" prefWidth="470.0" promptText="Delivery Type" AnchorPane.leftAnchor="130.0" />
+                  <DatePicker fx:id="DateCommdTf" layoutX="132.0" layoutY="268.0" onAction="#DateCommdTf" prefHeight="38.0" prefWidth="470.0" AnchorPane.leftAnchor="130.0" />
+                  <Label layoutX="664.0" layoutY="31.0" prefHeight="86.0" prefWidth="205.0" text="Order Now !" textFill="#25218c">
                      <font>
-                        <Font name="System Bold Italic" size="20.0" />
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="132.0" layoutY="528.0" mnemonicParsing="false" onAction="#AjoutCmdbtn" prefHeight="43.0" prefWidth="470.0" style="-fx-background-color: #10172C;" text="Order" textFill="WHITE" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="132.0">
+                     <font>
+                        <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutX="759.0" layoutY="574.0" mnemonicParsing="false" onAction="#Affichercmdbtn" prefHeight="60.0" prefWidth="148.0" style="-fx-background-color: #10172C;" text="Orders list" textFill="#f8f5f5">
-                     <font>
-                        <Font name="System Bold Italic" size="20.0" />
-                     </font>
-                  </Button>
-                  <ComboBox fx:id="MethodelivTF" layoutX="518.0" layoutY="472.0" prefHeight="62.0" prefWidth="316.0" promptText="                                     Region" />
-                  <ImageView fitHeight="487.0" fitWidth="370.0" layoutX="992.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+                  <ComboBox fx:id="MethodelivTF" layoutX="130.0" layoutY="440.0" prefHeight="38.0" prefWidth="470.0" promptText="Region" AnchorPane.leftAnchor="130.0" />
+                  <ImageView fitHeight="568.0" fitWidth="528.0" layoutX="834.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@cardboard-box-with-cargo-checklist-pencil.jpg" />
+                        <Image url="@cardbox.png" />
                      </image>
                   </ImageView>
                </children>
@@ -120,4 +47,85 @@
          </children>
       </VBox>
    </center>
+   <top>
+      <HBox alignment="CENTER_RIGHT" prefHeight="105.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="106.0" prefWidth="150.0" spacing="10.0" styleClass="right-side-border">
+               <children>
+                  <ImageView fitHeight="83.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@LOGO.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="106.0" prefWidth="1070.0" spacing="20.0" styleClass="transparent">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <children>
+                  <Button fx:id="homeB" mnemonicParsing="false" onAction="#homeButton" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="300.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="productB" layoutX="310.0" layoutY="50.0" mnemonicParsing="false" onAction="#productButton" style="-fx-background-color: transparent;" text="Our products" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="addProductB" layoutX="360.0" layoutY="50.0" mnemonicParsing="false" onAction="#addProductButton" style="-fx-background-color: transparent;" text="Add product" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="stat" layoutX="411.0" layoutY="50.0" mnemonicParsing="false" onAction="#statisticsButton" style="-fx-background-color: transparent;" text="Statistics" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="commandB" layoutX="599.0" layoutY="50.0" mnemonicParsing="false" onAction="#commandButton" style="-fx-background-color: transparent;" text="Commands" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="110.0" prefWidth="118.0">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@english.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="EN" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </HBox>
+            <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@profileIcon.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

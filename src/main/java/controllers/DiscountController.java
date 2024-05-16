@@ -25,7 +25,13 @@ import javafx.stage.Stage;
 public class DiscountController {
 
     @FXML
-    private ImageView homeB;
+    private Button homeB;
+
+    @FXML
+    private Button productB;
+
+    @FXML
+    private Button serviceB;
 
     @FXML
     private Label regionWith30PercentOff;
@@ -89,10 +95,30 @@ public class DiscountController {
     }
 
     @FXML
-    void homeButton(MouseEvent event) {
+    void homeButton(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
             homeB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void serviceButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/ourServices.fxml"));
+            serviceB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void productButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/cardListView.fxml"));
+            productB.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);
         }

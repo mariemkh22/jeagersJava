@@ -40,6 +40,7 @@
         </dependency>
 
 <!-- User -->
+
         <dependency>
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>
@@ -88,7 +89,6 @@
             <artifactId>json</artifactId>
             <version>20210307</version>
         </dependency>
-
         <!-- Service -->
         <dependency>
             <groupId>com.google.zxing</groupId>

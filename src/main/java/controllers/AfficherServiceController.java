@@ -348,7 +348,6 @@ public class AfficherServiceController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/afficherProduit.fxml"));
             productB.getScene().setRoot(root);
-            System.out.println(Login.getCurrentUser().getFull_name());
         } catch (IOException e){
             throw new RuntimeException(e);
         }
@@ -359,7 +358,6 @@ public class AfficherServiceController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/AfficherService.fxml"));
             serviceB.getScene().setRoot(root);
-            System.out.println(Login.getCurrentUser().getFull_name());
         } catch (IOException e){
             throw new RuntimeException(e);
         }
@@ -370,7 +368,6 @@ public class AfficherServiceController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/displayBackEnd.fxml"));
             userB.getScene().setRoot(root);
-            System.out.println(Login.getCurrentUser().getFull_name());
         } catch (IOException e){
             throw new RuntimeException(e);
         }
@@ -381,7 +378,6 @@ public class AfficherServiceController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/afficherLivraison.fxml"));
             deliveryB.getScene().setRoot(root);
-            System.out.println(Login.getCurrentUser().getFull_name());
         } catch (IOException e){
             throw new RuntimeException(e);
         }
@@ -392,7 +388,6 @@ public class AfficherServiceController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/AfficherNotifications.fxml"));
             messageB.getScene().setRoot(root);
-            System.out.println(Login.getCurrentUser().getFull_name());
         } catch (IOException e){
             throw new RuntimeException(e);
         }

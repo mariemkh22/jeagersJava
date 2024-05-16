@@ -15,74 +15,45 @@
 
 <AnchorPane prefHeight="682.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterService">
    <children>
-      <Text fill="#04577c" layoutX="326.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add your service" textAlignment="CENTER">
+      <Text fill="#04577c" layoutX="428.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add your service" textAlignment="CENTER">
          <font>
-            <Font name="System Bold Italic" size="36.0" />
+            <Font name="System Bold" size="36.0" />
          </font>
       </Text>
-      <Text fill="#f2b819" layoutX="333.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text fill="#f2b819" layoutX="329.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text fill="#f2b819" layoutX="330.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location :">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text fill="#f2b819" layoutX="329.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State :">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text fill="#f2b819" layoutX="329.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Availability Date :">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <TextField fx:id="namestf" layoutX="484.0" layoutY="174.0" promptText="Nom du service" />
+      <TextField fx:id="namestf" layoutX="388.0" layoutY="200.0" prefHeight="26.0" prefWidth="342.0" promptText="Nom du service" />
       <Label fx:id="erreurNomLabel" layoutX="484.0" layoutY="204.0" textFill="red" />
 
-      <TextField fx:id="descriptionstf" layoutX="484.0" layoutY="244.0" promptText="Description du service" />
+      <TextField fx:id="descriptionstf" layoutX="388.0" layoutY="257.0" prefHeight="26.0" prefWidth="342.0" promptText="Description du service" />
       <Label fx:id="erreurDescriptionLabel" layoutX="484.0" layoutY="274.0" textFill="red" />
 
-      <TextField fx:id="locationtf" layoutX="484.0" layoutY="314.0" promptText="Emplacement du service" />
+      <TextField fx:id="locationtf" layoutX="388.0" layoutY="318.0" prefHeight="26.0" prefWidth="342.0" promptText="Emplacement du service" />
       <Label fx:id="erreurLocationLabel" layoutX="484.0" layoutY="344.0" textFill="red" />
 
-      <TextField fx:id="statetf" layoutX="484.0" layoutY="389.0" promptText="État du service" />
+      <TextField fx:id="statetf" layoutX="388.0" layoutY="386.0" prefHeight="26.0" prefWidth="342.0" promptText="État du service" />
       <Label fx:id="erreurStateLabel" layoutX="484.0" layoutY="419.0" textFill="red" />
 
-      <TextField fx:id="datetf" layoutX="484.0" layoutY="460.0" promptText="Date de disponibilité du service" />
+      <TextField fx:id="datetf" layoutX="388.0" layoutY="453.0" prefHeight="26.0" prefWidth="342.0" promptText="Date de disponibilité du service" />
       <Label fx:id="erreurDateLabel" layoutX="484.0" layoutY="490.0" textFill="red" />
 
 
 
-      <Button layoutX="1100.0" layoutY="534.0" mnemonicParsing="false" onAction="#ajouterService" styleClass="addBTN" stylesheets="@style.css" text="Add Service" textFill="#1c1a69">
+      <Button layoutX="1054.0" layoutY="508.0" mnemonicParsing="false" onAction="#ajouterService" prefHeight="31.0" prefWidth="266.0" styleClass="addBTN" stylesheets="@style.css" text="Add Service" textFill="#1c1a69">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="1080.0" layoutY="572.0" mnemonicParsing="false" onAction="#afficherService" prefHeight="26.0" prefWidth="118.0" styleClass="addBTN" stylesheets="@style.css" text="Show all services" textFill="#1c1a69">
+      <Button layoutX="1054.0" layoutY="556.0" mnemonicParsing="false" onAction="#afficherService" prefHeight="31.0" prefWidth="266.0" styleClass="addBTN" stylesheets="@style.css" text="Show all services" textFill="#1c1a69">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <ComboBox fx:id="categorieBox" layoutX="490.0" layoutY="534.0" prefWidth="150.0" promptText="Select category" style="-fx-background-color: #f2b819;" />
-      <Text fill="#f2b819" layoutX="332.0" layoutY="553.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <ImageView fx:id="imageView" fitHeight="83.0" fitWidth="105.0" layoutX="317.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="insert_image" layoutX="494.0" layoutY="608.0" mnemonicParsing="false" onAction="#addImage" style="-fx-background-color: #231fa9;" text="Insert the service image" textFill="WHITE" />
-      <ImageView fitHeight="273.0" fitWidth="358.0" layoutX="972.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+      <ComboBox fx:id="categorieBox" layoutX="388.0" layoutY="521.0" prefHeight="26.0" prefWidth="342.0" promptText="Select category" style="-fx-background-color: #f2b819;" />
+      <ImageView fx:id="imageView" fitHeight="90.0" fitWidth="169.0" layoutX="559.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="insert_image" layoutX="388.0" layoutY="598.0" mnemonicParsing="false" onAction="#addImage" style="-fx-background-color: #231fa9;" text="Insert the service image" textFill="WHITE" />
+      <ImageView fitHeight="323.0" fitWidth="511.0" layoutX="982.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@categorize3.jpg" />
          </image>
       </ImageView>
+      <ImageView fx:id="qrCodeImageView" fitHeight="108.0" fitWidth="142.0" layoutX="488.0" layoutY="667.0" />
       <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="350.0" spacing="10.0" styleClass="right-side-border">
@@ -105,9 +76,9 @@
                   <Insets bottom="50.0" left="20.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;">
+            <VBox prefHeight="797.0" prefWidth="305.0" style="-fx-background-color: #10172C;" stylesheets="@style.css">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0" styleClass="selected">
                      <children>
                         <ImageView fitHeight="54.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -127,7 +98,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0" styleClass="selected">
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -147,7 +118,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="selected">
                      <children>
                         <ImageView fitHeight="54.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -167,7 +138,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="317.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="317.0" spacing="10.0" styleClass="selected">
                      <children>
                         <ImageView fitHeight="39.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -187,7 +158,7 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="271.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="271.0" spacing="10.0" styleClass="selected">
                      <children>
                         <ImageView fitHeight="36.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -258,7 +229,6 @@
             </ImageView>
          </children>
       </HBox>
-      <ImageView fx:id="qrCodeImageView" fitHeight="200.0" fitWidth="200.0" layoutX="484.0" layoutY="570.0" />
 
    </children>
 </AnchorPane>

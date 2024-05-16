@@ -14,14 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="424.0" minWidth="800.0" prefHeight="737.0" prefWidth="1502.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontService">
-    <left>
-        <VBox prefHeight="736.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
-    </left>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="424.0" minWidth="800.0" prefHeight="737.0" prefWidth="1508.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontService">
    <top>
-        <VBox prefHeight="820.0" prefWidth="1502.0" BorderPane.alignment="CENTER">
+        <VBox prefHeight="214.0" prefWidth="1508.0" BorderPane.alignment="CENTER">
             <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="86.0" prefWidth="1502.0" spacing="20.0" style="-fx-background-color: #10172C;" styleClass="search-container">
+            <HBox alignment="CENTER_RIGHT" prefHeight="105.0" prefWidth="1508.0" spacing="20.0" style="-fx-background-color: #10172C;" styleClass="search-container">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="83.0" prefWidth="189.0" spacing="10.0" styleClass="right-side-border">
                      <children>
@@ -30,25 +27,25 @@
                               <Image url="@LOGO.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets left="30.0" />
                            </HBox.margin>
                         </ImageView>
                      </children>
                      <HBox.margin>
-                        <Insets right="250.0" />
+                        <Insets right="100.0" />
                      </HBox.margin>
                   </HBox>
-                  <Button fx:id="homeB" mnemonicParsing="false" onAction="#homeButton" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="75.0" prefWidth="430.0" spacing="20.0" styleClass="transparent">
+                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="106.0" prefWidth="386.0" spacing="20.0" styleClass="transparent">
                      <HBox.margin>
-                        <Insets />
+                        <Insets right="70.0" />
                      </HBox.margin>
                      <children>
-                        <Button fx:id="serviceB" mnemonicParsing="false" onAction="#serviceButton" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: transparent;" text="Our services" textFill="WHITE">
+                        <Button fx:id="homeB" mnemonicParsing="false" onAction="#homeButton" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="serviceB" mnemonicParsing="false" onAction="#serviceButton" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: transparent;" text="Our services" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -61,15 +58,15 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <ComboBox fx:id="filter" onAction="#filterS" prefWidth="150.0" promptText="Select category" style="-fx-background-color: #fffff;" styleClass="table-view" stylesheets="@style.css" />
 
-                     </children>
+                           </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="357.0" styleClass="transparent">
+                  <HBox alignment="CENTER_LEFT" prefHeight="106.0" prefWidth="546.0" spacing="20.0" styleClass="transparent">
                      <HBox.margin>
                         <Insets right="50.0" />
                      </HBox.margin>
                      <children>
+                        <ComboBox fx:id="filter" onAction="#filterS" prefHeight="27.0" prefWidth="232.0" promptText="Select category" style="-fx-background-color: #fffff;" styleClass="table-view" stylesheets="@style.css" />
                         <ImageView fitHeight="51.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@search.png" />
@@ -78,7 +75,7 @@
                         <TextField fx:id="searchS" onKeyTyped="#searchservice" prefHeight="26.0" prefWidth="291.0" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="75.0" prefWidth="230.0">
+                  <HBox alignment="CENTER" prefHeight="106.0" prefWidth="180.0">
                      <children>
                         <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -105,31 +102,36 @@
                   </ImageView>
                </children>
             </HBox>
-            <Button mnemonicParsing="false" onAction="#navigatetoAdd1" prefHeight="50.0" style="-fx-background-color: #ffb007;" text="Add new service" textFill="WHITE">
+            <Button fx:id="addService" mnemonicParsing="false" onAction="#navigatetoAdd1" prefHeight="36.0" prefWidth="141.0" style="-fx-background-color: #ffb007;" text="Add new service" textFill="WHITE">
                <padding>
                   <Insets left="20.0" right="20.0" />
                </padding>
                <VBox.margin>
-                  <Insets left="20.0" top="20.0" />
+                  <Insets left="1300.0" top="20.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Button>
                 <Label alignment="CENTER" prefHeight="32.0" prefWidth="1575.0" text="My Services" textFill="#25218c">
                     <font>
                         <Font name="Elephant" size="24.0" />
                     </font>
                <VBox.margin>
-                  <Insets top="30.0" />
+                  <Insets />
                </VBox.margin>
                 </Label>
-                <ScrollPane prefHeight="800.0" prefWidth="1316.0" VBox.vgrow="ALWAYS">
-               <content>
-                  <HBox fx:id="boxservices" alignment="CENTER_LEFT" prefHeight="400.0" prefWidth="3080.0" spacing="20.0" />
-               </content>
-                </ScrollPane>
             </children>
         </VBox>
    </top>
-   <center>
+   <bottom>
       <Pagination fx:id="pagination" maxPageIndicatorCount="5" pageCount="10" prefHeight="17.0" prefWidth="1502.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+          <ScrollPane prefHeight="800.0" prefWidth="1316.0" BorderPane.alignment="CENTER">
+         <content>
+            <HBox fx:id="boxservices" alignment="CENTER_LEFT" prefHeight="400.0" prefWidth="1504.0" spacing="20.0" />
+         </content>
+          </ScrollPane>
    </center>
 </BorderPane>

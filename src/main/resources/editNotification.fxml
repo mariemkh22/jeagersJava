@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="820.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EditNotification">
+<AnchorPane prefHeight="835.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EditNotification">
    <children>
-      <AnchorPane prefHeight="802.0" prefWidth="1550.0">
+      <AnchorPane prefHeight="825.0" prefWidth="1555.0">
          <children>
             <Text fill="#0c28a8" layoutX="527.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT Notification" textAlignment="CENTER" wrappingWidth="180.0">
                <font>
@@ -39,8 +39,18 @@
             <TextField fx:id="dateTF" layoutX="588.0" layoutY="195.0" prefHeight="40.0" prefWidth="180.0" />
             <TextField fx:id="sujetTF" layoutX="588.0" layoutY="286.0" prefHeight="40.0" prefWidth="180.0" />
             <TextField fx:id="contenueTF" layoutX="588.0" layoutY="381.0" prefHeight="40.0" prefWidth="180.0" />
-            <HBox alignment="CENTER_LEFT" layoutX="158.0" layoutY="-13.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="113.0" prefWidth="1392.0" style="-fx-background-color: #10172c;" styleClass="transparent" />
-            <VBox layoutY="-1.0" prefHeight="825.0" prefWidth="315.0" style="-fx-background-color: #10172C;">
+            <VBox layoutY="-22.0" prefHeight="762.0" prefWidth="295.0" style="-fx-background-color: #10172c;">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="231.0" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="90.0" prefWidth="306.0" spacing="10.0" />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER_LEFT" layoutX="158.0" layoutY="-13.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="113.0" prefWidth="923.0" style="-fx-background-color: #10172c;" styleClass="transparent" />
+            <VBox layoutX="-1.0" layoutY="10.0" prefHeight="826.0" prefWidth="317.0" style="-fx-background-color: #10172C;">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="350.0" spacing="10.0" styleClass="right-side-border">
                      <children>
@@ -62,9 +72,9 @@
                         <Insets bottom="50.0" left="20.0" top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <VBox prefHeight="629.0" prefWidth="322.0" style="-fx-background-color: #10172C;">
+                  <VBox prefHeight="629.0" prefWidth="322.0" style="-fx-background-color: #10172C;" stylesheets="@style.css">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0" styleClass="selected">
                            <children>
                               <ImageView fitHeight="54.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -84,7 +94,7 @@
                               <Insets left="10.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="350.0" spacing="10.0" styleClass="selected">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -104,7 +114,7 @@
                               <Insets left="10.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="selected">
                            <children>
                               <ImageView fitHeight="54.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -114,7 +124,7 @@
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label fx:id="serviceB" onMouseClicked="#servceiButton" text="Service managment" textFill="WHITE">
+                              <Label fx:id="serviceB" onMouseClicked="#serviceButton" text="Service managment" textFill="WHITE">
                                  <font>
                                     <Font size="21.0" />
                                  </font>
@@ -124,7 +134,7 @@
                               <Insets left="10.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="317.0" spacing="10.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="317.0" spacing="10.0" styleClass="selected">
                            <children>
                               <ImageView fitHeight="39.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -144,7 +154,7 @@
                               <Insets left="10.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="271.0" spacing="10.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="271.0" spacing="10.0" styleClass="selected">
                            <children>
                               <ImageView fitHeight="36.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -154,7 +164,7 @@
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Label fx:id="deliveryB" onMouseClicked="#devlieryButton" text="Delivery managment" textFill="WHITE">
+                              <Label fx:id="deliveryB" onMouseClicked="#deliveryButton" text="Delivery managment" textFill="WHITE">
                                  <font>
                                     <Font size="21.0" />
                                  </font>

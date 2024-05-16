@@ -4,11 +4,13 @@ import controllers.CardController;
 import entities.Produit;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -26,6 +28,24 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 public class FrontProduit implements Initializable {
+
+    @FXML
+    private Button myPB;
+
+    @FXML
+    private Button commandB;
+
+    @FXML
+    private Button addB;
+
+    @FXML
+    private Button stat;
+
+    @FXML
+    private Button productB;
+
+    @FXML
+    private Button homeB;
 
     @FXML
     private HBox boxproduit;
@@ -52,21 +72,21 @@ public class FrontProduit implements Initializable {
         }
     }
 
-    private void loadArticles() throws SQLException {
-        allProducts = serviceProduit.afficher();
-        int pageCount = (int) Math.ceil((double) allProducts.size() / ITEMS_PER_PAGE);
-        pagination.setPageCount(pageCount);
-        pagination.setCurrentPageIndex(0); // Set current page to the first page
+        private void loadArticles() throws SQLException {
+            allProducts = serviceProduit.afficher();
+            int pageCount = (int) Math.ceil((double) allProducts.size() / ITEMS_PER_PAGE);
+            pagination.setPageCount(pageCount);
+            pagination.setCurrentPageIndex(0); // Set current page to the first page
 
-        pagination.currentPageIndexProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                loadPage(newValue.intValue());
-            }
-        });
+            pagination.currentPageIndexProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    loadPage(newValue.intValue());
+                }
+            });
 
-        loadPage(0);
-    }
+            loadPage(0);
+        }
 
     private void loadPage(int pageIndex) {
         boxproduit.getChildren().clear();
@@ -126,64 +146,70 @@ public class FrontProduit implements Initializable {
         pagination.setCurrentPageIndex(0); // Set to the first page
     }
 
-
-
-    @FXML
-    public void addpng(javafx.scene.input.MouseEvent mouseEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterProduitFront.fxml"));
-            Parent root = loader.load();
-
-            // Obtenez la fenêtre actuelle à partir de l'image cliquée
-            Stage currentStage = (Stage) ((ImageView) mouseEvent.getSource()).getScene().getWindow();
-
-            // Changez la scène de la fenêtre actuelle
-            currentStage.setScene(new Scene(root));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void ordersL(javafx.scene.input.MouseEvent mouseEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherCommandeFront.fxml"));
-            Parent root = loader.load();
-
-            // Obtenez la fenêtre actuelle à partir de l'image cliquée
-            Stage currentStage = (Stage) ((ImageView) mouseEvent.getSource()).getScene().getWindow();
-
-            // Changez la scène de la fenêtre actuelle
-            currentStage.setScene(new Scene(root));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @FXML
-    public void StatB(javafx.scene.input.MouseEvent mouseEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/PieChart.fxml"));
-            Parent root = loader.load();
-
-            // Obtenez la fenêtre actuelle à partir de l'image cliquée
-            Stage currentStage = (Stage) ((ImageView) mouseEvent.getSource()).getScene().getWindow();
-
-            // Changez la scène de la fenêtre actuelle
-            currentStage.setScene(new Scene(root));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void profileButton(javafx.scene.input.MouseEvent mouseEvent) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/profile.fxml"));
             profileB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    void homeButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
+            homeB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void ordersL(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/cardListView.fxml"));
+            productB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @FXML
+    void StatB(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/PieChart.fxml"));
+            stat.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void addpng(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AjouterProduitFront.fxml"));
+            addB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void commandButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherCommandeFront.fxml"));
+            commandB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void myProducts(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/myProductsFront.fxml"));
+            myPB.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);
         }

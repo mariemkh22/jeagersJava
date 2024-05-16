@@ -31,6 +31,9 @@ import java.util.ResourceBundle;
 public class FrontService implements Initializable {
 
     @FXML
+    private Button addService;
+
+    @FXML
     private Button homeB;
 
     @FXML
@@ -71,11 +74,9 @@ public class FrontService implements Initializable {
         ServiceCategorie serviceCategorie = new ServiceCategorie();
 
         try {
-            List<categorie_service> categorieServices = serviceCategorie.afficher();
-            filter.setItems(FXCollections.observableList(categorieServices));
-            filter.getItems().add(new categorie_service("ALL","ALL"));
-
-
+                List<categorie_service> categorieServices = serviceCategorie.afficher();
+                filter.setItems(FXCollections.observableList(categorieServices));
+                filter.getItems().add(new categorie_service("ALL","ALL"));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -87,13 +88,17 @@ public class FrontService implements Initializable {
 
         if(selectedValue!=null){
             if(selectedValue.toString().equals("ALL")){
-                services=serviceService.afficher();
+                if (Login.getCurrentUser() != null) {
+                    services = serviceService.afficherPrivate();
+                }
             }else{
             int id = selectedValue.getId();
             services=serviceService.getServiceByCategorie(id);
             selectedValue=null;}
         }else{
-            services=serviceService.afficher();
+            if (Login.getCurrentUser() != null) {
+                services=serviceService.afficherPrivate();
+                }
         }
 
 
@@ -136,13 +141,10 @@ public class FrontService implements Initializable {
     @FXML
     void navigatetoAdd1(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterService.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterServiceFront.fxml"));
             Parent root = loader.load();
-
-            AjouterService AjouterService = loader.getController();
-
-
-            boxservices.getScene().setRoot(root);
+            AjouterServiceFront AjouterService = loader.getController();
+            addService.getScene().setRoot(root);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -203,7 +205,7 @@ public class FrontService implements Initializable {
     @FXML
     void serviceButton(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/ServicecardListView.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/ourServices.fxml"));
             serviceB.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);

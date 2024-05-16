@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class EditNotification {
+
     @FXML
     private Label deliveryB;
     @FXML
@@ -28,6 +29,7 @@ public class EditNotification {
     private Label productB;
     @FXML
     private Label messageB;
+
     @FXML
     private TextField contenueTF;
 
@@ -90,17 +92,34 @@ public class EditNotification {
         notification.setSujet(sujet);
         notification.setContenue(contenue);
 
+
+
         try {
             serviceNotification.modifier(notification);
-        } catch (SQLException e) {
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("error");
-            alert.setContentText(e.getMessage());
-            alert.showAndWait();
+            // Update TableView in AfficherNotifications
+            afficherNotificationsController.updateNotification(notification);
+
+            // Afficher le message de succès
+            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+            successAlert.setTitle("Notification modifiée");
+            successAlert.setHeaderText(null);
+            successAlert.setContentText("La notification a été modifiée avec succès !");
+            successAlert.showAndWait();
+
+            // Charger et afficher l'interface AfficherNotifications
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherNotifications.fxml"));
+            Parent root = loader.load();
+            AfficherNotifications controller = loader.getController();
+            // Vous pouvez passer des données au contrôleur AfficherNotifications si nécessaire
+
+            Stage stage = (Stage) dateTF.getScene().getWindow(); // Récupérer la fenêtre actuelle
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (SQLException | IOException e) {
+            // Votre gestion des erreurs existante
         }
-
-
     }
 
     @FXML
@@ -161,23 +180,29 @@ public class EditNotification {
 
     }
 
-    @FXML
-    void productButton(MouseEvent event) {
+    public void userButton(MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/profile.fxml"));
+            userB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void productButton(MouseEvent mouseEvent) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/afficherProduit.fxml"));
             productB.getScene().setRoot(root);
-            System.out.println(Login.getCurrentUser().getFull_name());
         } catch (IOException e){
             throw new RuntimeException(e);
         }
     }
 
     @FXML
-    void messageButton(MouseEvent event) {
+    void deliveryButton(MouseEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/AfficherNotifications.fxml"));
-            messageB.getScene().setRoot(root);
-            System.out.println(Login.getCurrentUser().getFull_name());
+            Parent root = FXMLLoader.load(getClass().getResource("/afficherLivraison.fxml"));
+            deliveryB.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);
         }
@@ -195,21 +220,10 @@ public class EditNotification {
     }
 
     @FXML
-    void userButton(MouseEvent event) {
+    void messageButton(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/displayBackEnd.fxml"));
-            userB.getScene().setRoot(root);
-            System.out.println(Login.getCurrentUser().getFull_name());
-        } catch (IOException e){
-            throw new RuntimeException(e);
-        }
-    }
-
-    @FXML
-    void deliveryButton(MouseEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/afficherLivraison.fxml"));
-            deliveryB.getScene().setRoot(root);
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherNotifications.fxml"));
+            messageB.getScene().setRoot(root);
             System.out.println(Login.getCurrentUser().getFull_name());
         } catch (IOException e){
             throw new RuntimeException(e);

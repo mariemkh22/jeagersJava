@@ -26,7 +26,13 @@ import java.util.regex.Pattern;
 public class PayementlivraisonController {
 
     @FXML
-    private ImageView homeB;
+    private Button homeB;
+
+    @FXML
+    private Button productB;
+
+    @FXML
+    private Button serviceB;
 
     @FXML
     private Button PurchaseBtn;
@@ -147,6 +153,26 @@ public class PayementlivraisonController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
             homeB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void productButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/cardListView.fxml"));
+            productB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void serviceButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/ourServices.fxml"));
+            serviceB.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);
         }

@@ -1,8 +1,10 @@
 package entities;
 
+import controllers.Login;
+
 public class Produit {
 
-    private int id;
+    private int id, user_id;
     private String nom_produit;
     private String type;
     private String description;
@@ -58,6 +60,13 @@ public class Produit {
         this.equiv = equiv;
     }
 
+    public int getUser_id() {
+        return Login.getCurrentUser().getId();
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
 
     public Produit(String nom_produit, String type, String description, float equiv) {
         this.id = id;
@@ -78,6 +87,15 @@ public class Produit {
         this.description = description;
         this.equiv = equiv;
         this.imageFile= imageFile;
+    }
+
+    public Produit(String nom_produit, String type, String description, float equiv,String imageFile,int user_id) {
+        this.nom_produit = nom_produit;
+        this.type = type;
+        this.description = description;
+        this.equiv = equiv;
+        this.imageFile= imageFile;
+        this.user_id= user_id;
     }
 
 

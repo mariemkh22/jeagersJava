@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
@@ -18,6 +19,15 @@ import javafx.scene.control.TextArea;
 import java.io.IOException;
 
 public class Remboursement {
+
+    @FXML
+    private Button homeB;
+
+    @FXML
+    private Button productB;
+
+    @FXML
+    private Button serviceB;
 
     @FXML
     private Button genererEtiquetteBtn;
@@ -88,4 +98,33 @@ public class Remboursement {
         }
     }
 
+    @FXML
+    void homeButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
+            homeB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void productButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/cardListView.fxml"));
+            productB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void serviceButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/ourServices.fxml"));
+            serviceB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
 }

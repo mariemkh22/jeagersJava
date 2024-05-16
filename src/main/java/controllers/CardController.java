@@ -44,12 +44,7 @@ public class CardController {
 
     private Produit produit;
 
-    private String[] lightBlueColors = {
-            "lightblue",
-            "skyblue",
-            "powderblue",
-            // Add more light blue colors here if needed
-    };
+    private String[] lightBlueColors = {"D5D6D4"};
 
     public void setService(Produit produit) {
         this.produit = produit;
@@ -91,15 +86,11 @@ public class CardController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterCommandeFront.fxml"));
             Parent root = loader.load();
-
             AjouterCommandeFront ajouterCommandeFrontController = loader.getController();
             ajouterCommandeFrontController.setProductName(Pname.getText());
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            orderButton.getScene().setRoot(root);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 

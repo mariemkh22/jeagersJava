@@ -1,5 +1,6 @@
 package entities;
 
+import controllers.Login;
 import javafx.scene.image.Image;
 
 import java.util.Calendar;
@@ -8,8 +9,7 @@ public class service {
 
     private int id;
     private String name_s, description_s, localisation, state, dispo_date;
-
-    private int cat_id;
+    private int cat_id, user_id;
     private String imageFile;
     public static String searchValue;
     private Calendar date;
@@ -86,7 +86,13 @@ public class service {
         this.dispo_date = dispo_date;
     }
 
+    public int getUser_id() {
+        return Login.getCurrentUser().getId();
+    }
 
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
     public service(int id,String name_s, String description_s, String localisation, String state, String dispo_date, int cat_id,String imageFile) {
         this.id = id;
         this.name_s = name_s;
@@ -96,22 +102,16 @@ public class service {
         this.dispo_date = dispo_date;
         this.cat_id=cat_id;
         this.imageFile=imageFile;
-
-
     }
 
-    public service(String name_s, String description_s, String localisation, String state, String dispo_date, int cat_id, String imageFile
-    ) {
-
+    public service(String name_s, String description_s, String localisation, String state, String dispo_date, int cat_id, String imageFile) {
         this.name_s = name_s;
-
         this.description_s = description_s;
         this.localisation = localisation;
         this.state = state;
         this.dispo_date = dispo_date;
         this.cat_id=cat_id;
         this.imageFile= imageFile;
-
     }
 
     public service() {
@@ -119,5 +119,16 @@ public class service {
 
     public Calendar getDate() {
         return date;
+    }
+
+    public service(String name_s, String description_s, String localisation, String state, String dispo_date, int cat_id,String imageFile, int user_id) {
+        this.name_s = name_s;
+        this.description_s = description_s;
+        this.localisation = localisation;
+        this.state = state;
+        this.dispo_date = dispo_date;
+        this.cat_id=cat_id;
+        this.imageFile=imageFile;
+        this.user_id=user_id;
     }
 }

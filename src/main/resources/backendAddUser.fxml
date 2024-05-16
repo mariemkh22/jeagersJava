@@ -240,7 +240,7 @@
             </VBox>
             <VBox prefHeight="609.0" prefWidth="1245.0">
                <children>
-                  <Label fx:id="labelErrorMessage" alignment="CENTER" prefHeight="46.0" prefWidth="403.0" textFill="RED">
+                  <Label fx:id="labelErrorMessage" alignment="CENTER" prefHeight="46.0" prefWidth="403.0" textFill="RED" wrapText="true">
                      <VBox.margin>
                         <Insets left="430.0" />
                      </VBox.margin>

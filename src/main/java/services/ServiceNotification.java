@@ -21,7 +21,7 @@ public class ServiceNotification implements IService<Notification>{
             return;
         }
 
-        String req = "insert into notification (contenue, sujet, date_envoie) values (?, ?, ?)";
+        String req = "insert into notification (date_envoie, sujet, contenue) values (?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(req);
         preparedStatement.setString(1, notification.getContenue());
         preparedStatement.setString(2, notification.getSujet());
@@ -31,7 +31,7 @@ public class ServiceNotification implements IService<Notification>{
     }
     @Override
     public void modifier(Notification notification) throws SQLException {
-        String req="update notification  set date_envoie=?,sujet=?,contenue=?, where id=?";
+        String req="update notification  set date_envoie=?,sujet=?,contenue=? where id=?";
         PreparedStatement preparedStatement= connection.prepareStatement(req);
         preparedStatement.setString(1,notification.getDate_envoie());
         preparedStatement.setString(2,notification.getSujet());

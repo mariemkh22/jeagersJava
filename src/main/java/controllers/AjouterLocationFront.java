@@ -35,7 +35,13 @@ import java.sql.SQLException;
 public class AjouterLocationFront {
 
     @FXML
-    private ImageView homeB;
+    private Button homeB;
+
+    @FXML
+    private Button productB;
+
+    @FXML
+    private Button serviceB;
 
     @FXML
     private Label Adresstfcont;
@@ -260,6 +266,26 @@ public class AjouterLocationFront {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
             homeB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void productButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/cardListView.fxml"));
+            productB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void serviceButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/ourServices.fxml"));
+            serviceB.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);
         }

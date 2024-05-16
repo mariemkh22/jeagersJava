@@ -23,7 +23,7 @@ public class ServiceMessage implements IService<Message> {
             return;
         }
 
-        String req = "insert into Message (date_envoie, date_reception, contenue) values (?, ?, ?)";
+        String req = "insert into message (date_envoie, date_reception, contenue) values (?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(req);
         preparedStatement.setString(1, msg.getDate_envoie());
         preparedStatement.setString(2, msg.getDate_reception());
@@ -50,7 +50,7 @@ public class ServiceMessage implements IService<Message> {
     @Override
     public void supprimer(int id) throws SQLException {
 
-        String req ="delete from Message where id="+id;
+        String req ="delete from message where id="+id;
         Statement statement= connection.createStatement();
         statement.executeUpdate(req);
     }
@@ -61,7 +61,7 @@ public class ServiceMessage implements IService<Message> {
     @Override
     public List<Message> afficher() throws SQLException {
         List<Message> msgs = new ArrayList<>();
-        String req = "select * from Message";
+        String req = "select * from message";
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(req);
         while (rs.next()) {

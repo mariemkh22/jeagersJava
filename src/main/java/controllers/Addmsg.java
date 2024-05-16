@@ -9,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -31,14 +28,24 @@ import static java.time.zone.ZoneRulesProvider.refresh;
 public class Addmsg {
 
     @FXML
+    private Button homeB;
+
+    @FXML
+    private Button productB;
+
+    @FXML
+    private ImageView profileB;
+
+    @FXML
+    private Button serviceB;
+
+    @FXML
     private ListView<String> listview;
     @FXML
     private TextField dateenvTF;
 
     @FXML
     private TextField daterecTF;
-    @FXML
-    private Label homeB;
 
     @FXML
     private TextField sendmsgTF;
@@ -70,8 +77,6 @@ public class Addmsg {
             msgs.add(msg.getContenue()); // Ajouter le contenu du message à la ListView
             listview.setItems(msgs); // Mettre à jour la ListView avec la nouvelle liste de messages
             sendmsgTF.clear(); // Effacer le champ de texte après l'ajout
-            // Afficher un message de confirmation
-            showAlert("Message sent to username .");
         } catch (SQLException e) {
             e.printStackTrace(); // Gérer les exceptions si nécessaire
         }
@@ -109,7 +114,7 @@ public class Addmsg {
             refreshShowInterface();
         }
 
-        }
+    }
 
 
 
@@ -293,6 +298,39 @@ public class Addmsg {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
             homeB.getScene().setRoot(root);
+            System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void productButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/cardListView.fxml"));
+            productB.getScene().setRoot(root);
+            System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void profileButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/profile.fxml"));
+            profileB.getScene().setRoot(root);
+            System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void serviceButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/ourServices.fxml"));
+            serviceB.getScene().setRoot(root);
             System.out.println(Login.getCurrentUser().getFull_name());
         } catch (IOException e){
             throw new RuntimeException(e);

@@ -21,7 +21,13 @@ import java.io.IOException;
 public class RatingController {
 
     @FXML
-    private ImageView homeB;
+    private Button homeB;
+
+    @FXML
+    private Button serviceB;
+
+    @FXML
+    private Button productB;
 
     @FXML
     private Label ratingLabel;
@@ -121,4 +127,23 @@ public class RatingController {
         }
     }
 
+    @FXML
+    void serviceButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/ourServices.fxml"));
+            serviceB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void productButton(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/cardListView.fxml"));
+            productB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
 }

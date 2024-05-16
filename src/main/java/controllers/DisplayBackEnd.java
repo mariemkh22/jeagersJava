@@ -267,7 +267,13 @@ public class DisplayBackEnd {
 
     @FXML
     void MessagingButton(ActionEvent event) {
-
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherNotifications.fxml"));
+            MessageB.getScene().setRoot(root);
+            System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

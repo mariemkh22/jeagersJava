@@ -20,66 +20,6 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="141.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container">
-               <children>
-                  <ImageView fitHeight="72.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@LOGO.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="600.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="84.0" prefWidth="407.0" styleClass="transparent">
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                     <children>
-                        <ImageView fx:id="homeB" fitHeight="59.0" fitWidth="68.0" onMouseClicked="#homeButton" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@store.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="84.0" prefWidth="98.0">
-                     <children>
-                        <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@english.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label text="EN" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <HBox.margin>
-                        <Insets left="200.0" right="20.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@profileIcon.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </ImageView>
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="1245.0">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </VBox>
             <AnchorPane id="AnchorPane" prefHeight="792.0" prefWidth="1082.0">
                <children>
                   <TextField fx:id="cardNumberField" layoutX="460.0" layoutY="411.0" prefHeight="34.0" prefWidth="421.0" promptText="Enter your card number" />
@@ -150,4 +90,75 @@
          </children>
       </VBox>
    </center>
+   <top>
+      <HBox alignment="CENTER_RIGHT" prefHeight="105.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="106.0" prefWidth="150.0" styleClass="transparent">
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+               <children>
+                  <ImageView fitHeight="72.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@LOGO.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="106.0" prefWidth="903.0" spacing="20.0">
+               <children>
+                  <Button fx:id="homeB" mnemonicParsing="false" onAction="#homeButton" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="300.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="serviceB" layoutX="310.0" layoutY="50.0" mnemonicParsing="false" onAction="#serviceButton" style="-fx-background-color: transparent;" text="Our services" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="productB" layoutX="380.0" layoutY="50.0" mnemonicParsing="false" onAction="#productButton" style="-fx-background-color: transparent;" text="Our products" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="84.0" prefWidth="98.0">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@english.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label text="EN" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets left="200.0" right="20.0" />
+               </HBox.margin>
+            </HBox>
+            <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@profileIcon.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

@@ -5,7 +5,6 @@ public class LocalisationGeographique {
     private String region;
     private int codepostal;
     private String adresse;
-
     public int getId() {
         return id;
     }
@@ -56,7 +55,7 @@ public class LocalisationGeographique {
 
     @Override
     public String toString() {
-        return "LocalisationGeo{" +
+        return "LocalisationGeographique{" +
                 "id=" + id +
                 ", region='" + region + '\'' +
                 ", codepostal=" + codepostal +

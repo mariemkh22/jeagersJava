@@ -1,6 +1,8 @@
 package services;
 
+import controllers.Login;
 import entities.Produit;
+import entities.service;
 import services.IService;
 import utils.MyDatabase;
 
@@ -17,14 +19,15 @@ public class ServiceProduit implements IService<Produit> {
 
     @Override
     public void ajouter(Produit produit) throws SQLException {
-        String req = "insert into produit (nom_produit,type,description,equiv,imageFile)" +
-                "values(?,?,?,?,?)";
+        String req = "insert into produit (nom_produit,type,description,equiv,imageFile, user_id)" +
+                "values(?,?,?,?,?,?)";
         PreparedStatement statement = connection.prepareStatement(req);
         statement.setString(1, produit.getNomProduit());
         statement.setString(2, produit.getType());
         statement.setString(3, produit.getDescription());
         statement.setFloat(4, produit.getEquiv());
         statement.setString(5, produit.getImageFile());
+        statement.setInt(6, produit.getUser_id());
 
         statement.executeUpdate();
         System.out.println("Product added");
@@ -89,5 +92,25 @@ public class ServiceProduit implements IService<Produit> {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public List<Produit> afficherPrivate() throws SQLException {
+        List<Produit> produitsL = new ArrayList<>();
+        String req = "SELECT * FROM produit WHERE user_id = ?";
+        PreparedStatement statement = connection.prepareStatement(req);
+        statement.setInt(1, Login.getCurrentUser().getId());
+        ResultSet rs = statement.executeQuery();
+        while (rs.next()) {
+            Produit produit = new Produit();
+            produit.setId(rs.getInt("id"));
+            produit.setNomProduit(rs.getString("nom_produit"));
+            produit.setType(rs.getString("type"));
+            produit.setDescription(rs.getString("description"));
+            produit.setEquiv(rs.getFloat("equiv"));
+            produit.setImageFile(rs.getString("imageFile"));
+
+            produitsL.add(produit);
+        }
+        return produitsL;
     }
 }

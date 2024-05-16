@@ -25,7 +25,13 @@ import java.util.List;
 public class AjouterLivraisonFront {
 
     @FXML
-    private ImageView homeB;
+    private Button homeB;
+
+    @FXML
+    private Button productB;
+
+    @FXML
+    private Button serviceB;
 
     @FXML
     private ComboBox<String> EntrpriseTf;
@@ -177,8 +183,6 @@ public class AjouterLivraisonFront {
                 alert.showAndWait();
                 return;
             }
-
-
             if (!isValid) {
                 // Afficher une alerte si toutes les valeurs ne sont pas sélectionnées
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -188,8 +192,6 @@ public class AjouterLivraisonFront {
                 alert.showAndWait();
                 return;
             }
-
-            // Convertir les dates sélectionnées en objets Date
             Date start = Date.valueOf(startDate);
             Date end = Date.valueOf(endDate);
 
@@ -296,6 +298,26 @@ public class AjouterLivraisonFront {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
             homeB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void productButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/cardListView.fxml"));
+            productB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void serviceButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/ourServices.fxml"));
+            serviceB.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);
         }

@@ -13,55 +13,48 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Addmsg">
+<AnchorPane prefHeight="850.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Addmsg">
    <children>
-      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="127.0" prefWidth="346.0" spacing="10.0" styleClass="right-side-border">
+      <HBox alignment="CENTER_RIGHT" prefHeight="105.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container">
          <children>
-            <ImageView fitHeight="83.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@LOGO.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER_RIGHT" layoutX="-27.0" prefHeight="144.0" prefWidth="1577.0" style="-fx-background-color: #10172C;" styleClass="search-container">
-         <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="127.0" prefWidth="346.0" spacing="10.0" styleClass="right-side-border">
+            <HBox alignment="CENTER_LEFT" prefHeight="144.0" prefWidth="146.0" spacing="10.0" styleClass="right-side-border">
                <children>
                   <ImageView fitHeight="83.0" fitWidth="153.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@LOGO.png" />
                      </image>
                      <HBox.margin>
-                        <Insets left="40.0" />
+                        <Insets left="50.0" />
                      </HBox.margin>
                   </ImageView>
                </children>
                <HBox.margin>
-                  <Insets right="250.0" />
+                  <Insets right="100.0" />
                </HBox.margin>
             </HBox>
-            <Label fx:id="homeB" onMouseClicked="#homeButton" text="Home" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="300.0" styleClass="transparent">
+            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="106.0" prefWidth="1094.0" spacing="20.0" styleClass="transparent">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="357.0" styleClass="transparent">
-               <HBox.margin>
-                  <Insets right="50.0" />
-               </HBox.margin>
                <children>
-                  <ImageView fitHeight="51.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@search.png" />
-                     </image>
-                  </ImageView>
-                  <TextField prefHeight="26.0" prefWidth="266.0" />
+                  <Button fx:id="homeB" mnemonicParsing="false" onAction="#homeButton" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="300.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="serviceB" layoutX="310.0" layoutY="50.0" mnemonicParsing="false" onAction="#serviceButton" style="-fx-background-color: transparent;" text="Our services" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="productB" layoutX="360.0" layoutY="50.0" mnemonicParsing="false" onAction="#productButton" style="-fx-background-color: transparent;" text="Our products" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0">
@@ -81,7 +74,7 @@
                   <Insets right="20.0" />
                </HBox.margin>
             </HBox>
-            <ImageView fitHeight="59.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@profileIcon.png" />
                </image>
@@ -91,7 +84,7 @@
             </ImageView>
          </children>
       </HBox>
-      <Pane layoutX="-1.0" layoutY="144.0" prefHeight="834.0" prefWidth="465.0" style="-fx-background-color: #D3D3D3;">
+      <Pane layoutX="-1.0" layoutY="105.0" prefHeight="873.0" prefWidth="466.0" style="-fx-background-color: #D3D3D3;">
          <children>
             <ImageView fitHeight="60.0" fitWidth="69.0" layoutX="21.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -171,20 +164,20 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="564.0" layoutY="751.0" mnemonicParsing="false" onAction="#addmsgAction" prefHeight="60.0" prefWidth="190.0" style="-fx-background-color: #10172c;" text="Add message" textFill="WHITE">
+      <Button layoutX="1004.0" layoutY="721.0" mnemonicParsing="false" onAction="#addmsgAction" prefHeight="32.0" prefWidth="103.0" style="-fx-background-color: #10172c;" text="Send" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <TextField fx:id="sendmsgTF" layoutX="775.0" layoutY="751.0" prefHeight="59.0" prefWidth="182.0" promptText="Send a message" />
+      <TextField fx:id="sendmsgTF" layoutX="587.0" layoutY="721.0" prefHeight="32.0" prefWidth="393.0" promptText="Write a message" />
       <ImageView fitHeight="50.0" fitWidth="47.0" layoutX="564.0" layoutY="152.0" onMouseClicked="#Addnotification" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@nn.png" />
          </image>
       </ImageView>
-      <Button layoutX="1011.0" layoutY="326.0" mnemonicParsing="false" onAction="#likeAction" prefHeight="59.0" prefWidth="182.0" text="Like " textFill="#0a00ff">
+      <Button layoutX="1297.0" layoutY="290.0" mnemonicParsing="false" onAction="#likeAction" prefHeight="40.0" prefWidth="182.0" style="-fx-background-color: #10172c;" text="Like " textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="12.0" />
+            <Font size="14.0" />
          </font>
       </Button>
       <ImageView fitHeight="78.0" fitWidth="50.0" layoutX="1136.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
@@ -192,9 +185,9 @@
             <Image url="@like_456115.png" />
          </image>
       </ImageView>
-      <Button layoutX="1011.0" layoutY="415.0" mnemonicParsing="false" onAction="#dislikeAction" prefHeight="60.0" prefWidth="182.0" text="Dislike" textFill="#f4310a">
+      <Button layoutX="1297.0" layoutY="350.0" mnemonicParsing="false" onAction="#dislikeAction" prefHeight="40.0" prefWidth="182.0" style="-fx-background-color: #10172c;" text="Dislike" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font size="14.0" />
          </font>
       </Button>
       <ImageView fitHeight="51.0" fitWidth="59.0" layoutX="1136.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true">
@@ -202,7 +195,7 @@
             <Image url="@dislike_880460.png" />
          </image>
       </ImageView>
-      <ListView fx:id="listview" layoutX="587.0" layoutY="227.0" prefHeight="503.0" prefWidth="376.0" />
+      <ListView fx:id="listview" layoutX="587.0" layoutY="227.0" prefHeight="448.0" prefWidth="649.0" />
       <TextField fx:id="daterecTF" layoutX="762.0" layoutY="898.0" />
       <TextField fx:id="dateenvTF" layoutX="762.0" layoutY="924.0" />
       <ImageView fitHeight="310.0" fitWidth="332.0" layoutX="1123.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
@@ -215,15 +208,15 @@
             <Image url="@msg-removebg-preview.png" />
          </image>
       </ImageView>
-      <Button layoutX="973.0" layoutY="756.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="50.0" prefWidth="92.0" />
+      <Button layoutX="1134.0" layoutY="721.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="32.0" prefWidth="103.0" style="-fx-background-color: #10172c;" text="Delete" textFill="WHITE" />
       <ImageView fitHeight="54.0" fitWidth="74.0" layoutX="992.0" layoutY="754.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@dd-removebg-preview.png" />
          </image>
       </ImageView>
-      <Button layoutX="1278.0" layoutY="365.0" mnemonicParsing="false" onAction="#showAction" prefHeight="54.0" prefWidth="92.0" text="show" textFill="#19f248">
+      <Button layoutX="1297.0" layoutY="409.0" mnemonicParsing="false" onAction="#showAction" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #10172c;" text="show" textFill="WHITE">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
+            <Font size="14.0" />
          </font>
       </Button>
    </children>

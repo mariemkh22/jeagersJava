@@ -13,75 +13,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="854.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherCommande">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherCommande">
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_RIGHT" prefHeight="161.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container">
-               <children>
-                  <ImageView fitHeight="83.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@LOGO.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="79.0" fitWidth="109.0" onMouseClicked="#shop" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@store.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="300.0" />
-                     </HBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="81.0" fitWidth="149.0" onMouseClicked="#StatB" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@graph.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="20.0" right="700.0" />
-                     </HBox.margin>
-                  </ImageView>
-
-                        <HBox alignment="CENTER" prefHeight="110.0" prefWidth="96.0">
-                     <children>
-                        <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@english.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="EN" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@profileIcon.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </ImageView>
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="111.0" prefWidth="1200.0">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </VBox>
             <AnchorPane prefHeight="733.0" prefWidth="1550.0">
                <children>
-                  <TableView fx:id="ListTF" layoutX="57.0" layoutY="101.0" prefHeight="487.0" prefWidth="1426.0" stylesheets="@style.css">
+                  <TableView fx:id="ListTF" layoutX="62.0" layoutY="106.0" prefHeight="487.0" prefWidth="1426.0" stylesheets="@style.css">
                      <columns>
                         <TableColumn fx:id="NomProduitCol" prefWidth="389.0" text="Product Name" />
                         <TableColumn fx:id="DateCmdCol" prefWidth="466.0" text="Order's Date" />
@@ -89,22 +27,22 @@
                         <TableColumn fx:id="VilleCmdCol" prefWidth="389.0" text="Region" />
                      </columns>
                   </TableView>
-                  <Label layoutX="678.0" layoutY="20.0" prefHeight="66.0" prefWidth="275.0" text="Orders List">
+                  <Label layoutX="710.0" layoutY="38.0" prefHeight="66.0" prefWidth="122.0" text="Orders List" textFill="#25218c">
                      <font>
-                        <Font name="System Bold" size="45.0" />
+                        <Font size="24.0" />
                      </font>
                   </Label>
-                  <Button fx:id="SupprimerCmdbtn" layoutX="331.0" layoutY="609.0" mnemonicParsing="false" onAction="#SupprimerCmdbtn" prefHeight="60.0" prefWidth="202.0" style="-fx-background-color: #10172C;" text="Cancel Order" textFill="#fcf3f3">
+                  <Button fx:id="SupprimerCmdbtn" layoutX="357.0" layoutY="640.0" mnemonicParsing="false" onAction="#SupprimerCmdbtn" prefHeight="43.0" prefWidth="374.0" style="-fx-background-color: #10172C;" text="Cancel Order" textFill="#fcf3f3">
                      <font>
-                        <Font name="System Bold Italic" size="20.0" />
+                        <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="ClearCmdbtn" layoutX="987.0" layoutY="609.0" mnemonicParsing="false" onAction="#ClearCmdbtn" prefHeight="60.0" prefWidth="204.0" style="-fx-background-color: #10172C;" text="Cancel All" textFill="WHITE">
+                  <Button fx:id="ClearCmdbtn" layoutX="846.0" layoutY="640.0" mnemonicParsing="false" onAction="#ClearCmdbtn" prefHeight="43.0" prefWidth="374.0" style="-fx-background-color: #10172C;" text="Cancel All" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="20.0" />
+                        <Font size="20.0" />
                      </font>
                   </Button>
-                  <ImageView fx:id="telechargerPDFImage" fitHeight="86.0" fitWidth="86.0" layoutX="727.0" layoutY="596.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="telechargerPDFImage" fitHeight="63.0" fitWidth="84.0" layoutX="1415.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@pdf.png" />
                      </image>
@@ -114,4 +52,83 @@
          </children>
       </VBox>
    </center>
+   <top>
+      <HBox alignment="CENTER_RIGHT" prefHeight="105.0" prefWidth="1550.0" style="-fx-background-color: #10172C;" styleClass="search-container" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="111.0" prefWidth="128.0">
+               <children>
+                  <ImageView fitHeight="75.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@LOGO.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="106.0" prefWidth="1114.0" spacing="20.0">
+               <children>
+                  <Button fx:id="homeB" mnemonicParsing="false" onAction="#homeButton" style="-fx-background-color: transparent;" text="Home" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="300.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="productB" layoutX="310.0" layoutY="50.0" mnemonicParsing="false" onAction="#productButton" style="-fx-background-color: transparent;" text="Our products" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="addProductB" layoutX="380.0" layoutY="50.0" mnemonicParsing="false" onAction="#addProductButton" style="-fx-background-color: transparent;" text="Add product" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="stat" layoutX="491.0" layoutY="50.0" mnemonicParsing="false" onAction="#statisticsButton" style="-fx-background-color: transparent;" text="Statistics" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="commandB" layoutX="599.0" layoutY="50.0" mnemonicParsing="false" onAction="#commandButton" style="-fx-background-color: transparent;" text="My commands" textFill="#ffad29">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+
+                  <HBox alignment="CENTER" prefHeight="110.0" prefWidth="96.0">
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@english.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="EN" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </HBox>
+            <ImageView fx:id="profileB" fitHeight="59.0" fitWidth="81.0" onMouseClicked="#profileButton" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@profileIcon.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

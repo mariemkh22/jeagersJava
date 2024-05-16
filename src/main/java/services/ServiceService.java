@@ -1,5 +1,6 @@
 package services;
 
+import controllers.Login;
 import entities.service;
 import entities.categorie_service;
 
@@ -20,8 +21,8 @@ public class ServiceService implements IService <service> {
 
     @Override
     public void ajouter(service service) throws SQLException {
-        String req = "insert into service (name_s,description_s,localisation,state,dispo_date,categorie_id, imageFile)" +
-                "values(?,?,?,?,?,?,?)";
+        String req = "insert into service (name_s,description_s,localisation,state,dispo_date,categorie_id, imageFile, user_id)" +
+                "values(?,?,?,?,?,?,?,?)";
 
         PreparedStatement statement = connection.prepareStatement(req);
         statement.setString(1, service.getName_s());
@@ -31,6 +32,7 @@ public class ServiceService implements IService <service> {
         statement.setString(5, service.getDispo_date());
         statement.setInt(6, service.getCat_id());
         statement.setString(7, service.getImageFile());
+        statement.setInt(8, service.getUser_id());
         statement.executeUpdate(); //exécuter requete
         System.out.println("service ajoute");
     }
@@ -77,11 +79,8 @@ public class ServiceService implements IService <service> {
             service.setLocalisation(rs.getString("localisation"));
             service.setState(rs.getString("state"));
             service.setDispo_date(rs.getString("dispo_date"));
-
             service.setCat_id(rs.getInt("categorie_id"));
             service.setImageFile(rs.getString("imageFile"));
-
-
             servicesL.add(service);
 
         }
@@ -148,6 +147,27 @@ public class ServiceService implements IService <service> {
         preparedStatement.close();
 
         return services;
+    }
+
+    public List<service> afficherPrivate() throws SQLException {
+        List<service> servicesL = new ArrayList<>();
+        String req = "SELECT * FROM service WHERE user_id = ?";
+        PreparedStatement statement = connection.prepareStatement(req);
+        statement.setInt(1, Login.getCurrentUser().getId());
+        ResultSet rs = statement.executeQuery();
+        while (rs.next()) {
+            service service = new service();
+            service.setId(rs.getInt("id"));
+            service.setName_s(rs.getString("name_s"));
+            service.setDescription_s(rs.getString("description_s"));
+            service.setLocalisation(rs.getString("localisation"));
+            service.setState(rs.getString("state"));
+            service.setDispo_date(rs.getString("dispo_date"));
+            service.setCat_id(rs.getInt("categorie_id"));
+            service.setImageFile(rs.getString("imageFile"));
+            servicesL.add(service);
+        }
+        return servicesL;
     }
 }
 

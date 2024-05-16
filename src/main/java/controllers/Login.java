@@ -78,7 +78,7 @@ public class Login {
             try {
                 if (currentUser!=null && !isUserBlocked(emailTextField.getText())) {
                     TextToSpeech.main(new String[]{});
-                    Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/backendHome.fxml"));
                     Stage stage = new Stage();
                     stage.initStyle(StageStyle.UNDECORATED);
                     stage.setScene(new Scene(root, 1550, 820));

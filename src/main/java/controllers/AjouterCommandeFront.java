@@ -10,11 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
@@ -29,6 +25,24 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class AjouterCommandeFront {
+
+    @FXML
+    private Button afficherB;
+
+    @FXML
+    private Button addProductB;
+
+    @FXML
+    private Button commandB;
+
+    @FXML
+    private Button homeB;
+
+    @FXML
+    private Button productB;
+
+    @FXML
+    private Button stat;
 
     @FXML
     private DatePicker DateCommdTf;
@@ -50,24 +64,6 @@ public class AjouterCommandeFront {
 
     private final ServiceCommande sc = new ServiceCommande();
     private final ServiceProduit sp = new ServiceProduit();
-
-
-    @FXML
-    void Affichercmdbtn(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherCommandeFront.fxml"));
-            Parent root = loader.load();
-
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            Scene scene = new Scene(root);
-
-            currentStage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     @FXML
     void initialize() {
@@ -142,11 +138,12 @@ public class AjouterCommandeFront {
 
                 Commande commande = new Commande(datecommande, methodeLiv, Ville, new Produit(nomprod, null, null, 0));
                 sc.ajouter(commande);
-
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Confirmation");
-                alert.setContentText("Order added successfully.");
-                alert.showAndWait();
+                try {
+                    Parent pass = FXMLLoader.load(getClass().getResource("/AjouterLivraisonFront.fxml"));
+                    addProductB.getScene().setRoot(pass);
+                } catch (IOException e){
+                    throw new RuntimeException(e);
+                }
             } else {
                 // Handle CAPTCHA not solved correctly
                 // For example, display an error message to the user
@@ -168,31 +165,60 @@ public class AjouterCommandeFront {
         System.out.println("Date sélectionnée : " + selectedDate);
     }
 
-
-
-
-    @FXML
-    public void shop(javafx.scene.input.MouseEvent mouseEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home.fxml"));
-            Parent root = loader.load();
-
-            // Obtenez la fenêtre actuelle à partir de l'image cliquée
-            Stage currentStage = (Stage) ((ImageView) mouseEvent.getSource()).getScene().getWindow();
-
-            // Changez la scène de la fenêtre actuelle
-            currentStage.setScene(new Scene(root));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
     public void profileButton(MouseEvent mouseEvent) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/profile.fxml"));
             profileB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void addProductButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AjouterProduitFront.fxml"));
+            addProductB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void commandButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherCommandeFront.fxml"));
+            commandB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void homeButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
+            homeB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void productButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/cardListView.fxml"));
+            productB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void statisticsButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/PieChart.fxml"));
+            stat.getScene().setRoot(root);
         } catch (IOException e){
             throw new RuntimeException(e);
         }

@@ -26,12 +26,11 @@ import org.controlsfx.control.Rating;
 import services.ServiceCategorie;
 import services.ServiceService;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -122,41 +121,53 @@ public class ServiceCardController {
 
     public void setService(service service) {
         this.service = service;
-        if (service != null) {
-            Image imageFile = new Image(new File(service.getImageFile()).toURI().toString());
-            imgSRC.setImage(imageFile);
-
-            SERname.setText(service.getName_s());
-
-
-            String randomColor = Colors[(int) (Math.random() * Colors.length)];
-            box.setStyle("-fx-background-color: " + randomColor +
-                    "; -fx-background-radius: 15;" +
-                    "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 10);");
-
+        if (service != null && service.getImageFile() != null && !service.getImageFile().isEmpty()) {
             try {
-                ServiceCategorie categorieService = new ServiceCategorie();
-                categorie_service categorie = categorieService.getById(service.getCat_id());
+                String filePath = service.getImageFile().replace("file:", "");
+                filePath = URLDecoder.decode(filePath, StandardCharsets.UTF_8.name());
 
-                // Vérifier si la catégorie est trouvée
-                if (categorie != null) {
-                    // Afficher le nom de la catégorie
-                    SERcategorie.setText(categorie.getName_c());
+                File imageFile = new File(filePath);
+                if (imageFile.exists()) {
+                    Image image = new Image(imageFile.toURI().toString());
+                    imgSRC.setImage(image);
                 } else {
-                    // Si la catégorie n'est pas trouvée, afficher un message générique ou vide
-                    SERcategorie.setText("Unknown");
+                    System.out.println("Image file does not exist: " + service.getImageFile());
                 }
+                SERname.setText(service.getName_s());
 
-                // Générer et afficher le QRCode avec les données du service
-                String qrData = generateQRData(service);
-                AjouterService ajouterServiceController = new AjouterService(); // Créer une instance du contrôleur AjouterService
-                ByteArrayOutputStream outputStream = ajouterServiceController.generateQRCode(qrData); // Appeler la méthode generateQRCode() depuis cette instance
-                byte[] qrCodeBytes = outputStream.toByteArray();
-                qrCodeImageView.setImage(new Image(new ByteArrayInputStream(qrCodeBytes)));
 
-            } catch (SQLException | WriterException | IOException e) {
-                e.printStackTrace(); // Gérer les exceptions appropriées
+                String randomColor = Colors[(int) (Math.random() * Colors.length)];
+                box.setStyle("-fx-background-color: " + randomColor +
+                        "; -fx-background-radius: 15;" +
+                        "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 10);");
+
+                try {
+                    ServiceCategorie categorieService = new ServiceCategorie();
+                    categorie_service categorie = categorieService.getById(service.getCat_id());
+
+                    // Vérifier si la catégorie est trouvée
+                    if (categorie != null) {
+                        // Afficher le nom de la catégorie
+                        SERcategorie.setText(categorie.getName_c());
+                    } else {
+                        // Si la catégorie n'est pas trouvée, afficher un message générique ou vide
+                        SERcategorie.setText("Unknown");
+                    }
+
+                    String qrData = generateQRData(service);
+                    AjouterServiceFront ajouterServiceController = new AjouterServiceFront();
+                    ByteArrayOutputStream outputStream = ajouterServiceController.generateQRCode(qrData);
+                    byte[] qrCodeBytes = outputStream.toByteArray();
+                    qrCodeImageView.setImage(new Image(new ByteArrayInputStream(qrCodeBytes)));
+
+                } catch (SQLException | WriterException | IOException e) {
+                    e.printStackTrace(); // Gérer les exceptions appropriées
+                }
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
             }
+        } else {
+            System.out.println("Produit or image file path is null or empty");
         }
     }
 

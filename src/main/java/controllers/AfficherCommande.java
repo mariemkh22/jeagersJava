@@ -24,6 +24,22 @@ import java.util.List;
 import java.util.Optional;
 
 public class AfficherCommande {
+
+    @FXML
+    private Button addProductB;
+
+    @FXML
+    private Button commandB;
+
+    @FXML
+    private Button homeB;
+
+    @FXML
+    private Button productB;
+
+    @FXML
+    private Button stat;
+
     @FXML
     private ImageView profileB;
 
@@ -78,14 +94,8 @@ public class AfficherCommande {
             DateCmdCol.setCellValueFactory(new PropertyValueFactory<>("dateCmd"));
             MethodLivCol.setCellValueFactory(new PropertyValueFactory<>("methode_livraison"));
             VilleCmdCol.setCellValueFactory(new PropertyValueFactory<>("ville"));
-
         } catch (SQLException e) {
             e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Error Fetching Deliveries");
-            alert.setContentText("An error occurred while fetching deliveries from the database.");
-            alert.showAndWait();
         }
     }
 
@@ -163,44 +173,6 @@ public class AfficherCommande {
             e.printStackTrace();
         }
     }
-
-
-
-    @FXML
-    public void StatB(javafx.scene.input.MouseEvent mouseEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/PieChart.fxml"));
-            Parent root = loader.load();
-
-            // Obtenez la fenêtre actuelle à partir de l'image cliquée
-            Stage currentStage = (Stage) ((ImageView) mouseEvent.getSource()).getScene().getWindow();
-
-            // Changez la scène de la fenêtre actuelle
-            currentStage.setScene(new Scene(root));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void shop(javafx.scene.input.MouseEvent mouseEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home.fxml"));
-            Parent root = loader.load();
-
-            // Obtenez la fenêtre actuelle à partir de l'image cliquée
-            Stage currentStage = (Stage) ((ImageView) mouseEvent.getSource()).getScene().getWindow();
-
-            // Changez la scène de la fenêtre actuelle
-            currentStage.setScene(new Scene(root));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
     public void profileButton(MouseEvent mouseEvent) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/profile.fxml"));
@@ -209,4 +181,55 @@ public class AfficherCommande {
             throw new RuntimeException(e);
         }
     }
+    @FXML
+    void addProductButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AjouterProduitFront.fxml"));
+            addProductB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void commandButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherCommandeFront.fxml"));
+            commandB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void homeButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
+            homeB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void productButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/cardListView.fxml"));
+            productB.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void statisticsButton(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/PieChart.fxml"));
+            stat.getScene().setRoot(root);
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }

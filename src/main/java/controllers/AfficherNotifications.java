@@ -9,12 +9,15 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import services.ServiceNotification;
 
 import java.io.IOException;
@@ -22,6 +25,22 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public class AfficherNotifications {
+
+    @FXML
+    private Label deliveryB;
+
+    @FXML
+    private Label messageB;
+
+    @FXML
+    private Label productB;
+
+    @FXML
+    private Label serviceB;
+
+    @FXML
+    private Label userB;
+
     @FXML
     private TableColumn<Notification, Boolean> selectCol; // New column for checkboxes
 
@@ -42,19 +61,12 @@ public class AfficherNotifications {
 
     @FXML
     private CheckBox selectAllCheckBox;
+    @FXML
+    private ListView<Notification> listView;
+    @FXML
+    private Label messagerieTF;
 
     private final ServiceNotification serviceNotification = new ServiceNotification();
-
-    @FXML
-    private Label deliveryB;
-    @FXML
-    private Label serviceB;
-    @FXML
-    private Label userB;
-    @FXML
-    private Label productB;
-    @FXML
-    private Label messageB;
 
     @FXML
     void initialize() {
@@ -167,8 +179,25 @@ public class AfficherNotifications {
             alert.showAndWait();
             return;
         }
-        // Navigate to Edit Notification scene
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/EditNotification.fxml"));
+            Parent root = loader.load();
+            EditNotification editNotificationController = loader.getController();
+            editNotificationController.initData(notificationSelectionnee); // Pass selected notification
+            editNotificationController.setAfficherNotificationsController(this); // Pass the AfficherNotifications controller
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur lors de l'ouverture de la fenêtre de modification");
+            alert.setContentText("Une erreur s'est produite lors de l'ouverture de la fenêtre de modification de la notification.");
+            alert.showAndWait();
+        }
     }
+
 
     public void updateNotification(Notification notification) {
         tableview.getItems().set(tableview.getItems().indexOf(notification), notification);
@@ -223,10 +252,10 @@ public class AfficherNotifications {
     }
 
     @FXML
-    void productButton(MouseEvent event) {
+    void deliveryManagment(MouseEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/afficherProduit.fxml"));
-            productB.getScene().setRoot(root);
+            Parent root = FXMLLoader.load(getClass().getResource("/afficherLivraison.fxml"));
+            deliveryB.getScene().setRoot(root);
             System.out.println(Login.getCurrentUser().getFull_name());
         } catch (IOException e){
             throw new RuntimeException(e);
@@ -234,7 +263,7 @@ public class AfficherNotifications {
     }
 
     @FXML
-    void messageButton(MouseEvent event) {
+    void messageManagment(MouseEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/AfficherNotifications.fxml"));
             messageB.getScene().setRoot(root);
@@ -245,7 +274,18 @@ public class AfficherNotifications {
     }
 
     @FXML
-    void serviceButton(MouseEvent event) {
+    void productManagment(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/afficherProduit.fxml"));
+            productB.getScene().setRoot(root);
+            System.out.println(Login.getCurrentUser().getFull_name());
+        } catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void serviceManagment(MouseEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/AfficherService.fxml"));
             serviceB.getScene().setRoot(root);
@@ -256,28 +296,12 @@ public class AfficherNotifications {
     }
 
     @FXML
-    void userButton(MouseEvent event) {
+    void userManagment(MouseEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/displayBackEnd.fxml"));
             userB.getScene().setRoot(root);
-            System.out.println(Login.getCurrentUser().getFull_name());
         } catch (IOException e){
             throw new RuntimeException(e);
         }
-    }
-
-    @FXML
-    void deliveryButton(MouseEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/afficherLivraison.fxml"));
-            deliveryB.getScene().setRoot(root);
-            System.out.println(Login.getCurrentUser().getFull_name());
-        } catch (IOException e){
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void updateAction(ActionEvent actionEvent) {
     }
 }
-
