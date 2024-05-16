@@ -48,7 +48,7 @@ public class CardController {
             "lightblue",
             "skyblue",
             "powderblue",
-            // Add more light blue colors here if needed
+
     };
 
     public void setService(Produit produit) {
@@ -75,7 +75,8 @@ public class CardController {
         Pname.setText(produit.getNomProduit());
         Pdescription.setText(produit.getDescription());
         Ptype.setText(produit.getType());
-        PEquiv.setText(String.valueOf(produit.getEquiv()));
+        String price = String.valueOf(produit.getEquiv());
+        PEquiv.setText(price+ " TND");
 
         // Select a random light blue color from the array
         String randomColor = lightBlueColors[new Random().nextInt(lightBlueColors.length)];

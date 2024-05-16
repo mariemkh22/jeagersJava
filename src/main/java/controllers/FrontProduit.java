@@ -37,7 +37,7 @@ public class FrontProduit implements Initializable {
 
     private final ServiceProduit serviceProduit = new ServiceProduit();
     private List<Produit> allProducts;
-    private final int ITEMS_PER_PAGE = 3; // Number of items per page
+    private final int ITEMS_PER_PAGE = 3;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -52,7 +52,7 @@ public class FrontProduit implements Initializable {
         allProducts = serviceProduit.afficher();
         int pageCount = (int) Math.ceil((double) allProducts.size() / ITEMS_PER_PAGE);
         pagination.setPageCount(pageCount);
-        pagination.setCurrentPageIndex(0); // Set current page to the first page
+        pagination.setCurrentPageIndex(0);
 
         pagination.currentPageIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -119,7 +119,7 @@ public class FrontProduit implements Initializable {
         // Update pagination based on the filtered products
         int pageCount = (int) Math.ceil((double) products.size() / ITEMS_PER_PAGE);
         pagination.setPageCount(pageCount);
-        pagination.setCurrentPageIndex(0); // Set to the first page
+        pagination.setCurrentPageIndex(0);
     }
 
 
@@ -130,10 +130,10 @@ public class FrontProduit implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterProduitFront.fxml"));
             Parent root = loader.load();
 
-            // Obtenez la fenêtre actuelle à partir de l'image cliquée
+
             Stage currentStage = (Stage) ((ImageView) mouseEvent.getSource()).getScene().getWindow();
 
-            // Changez la scène de la fenêtre actuelle
+
             currentStage.setScene(new Scene(root));
 
         } catch (IOException e) {

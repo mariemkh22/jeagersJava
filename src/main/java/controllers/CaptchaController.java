@@ -46,7 +46,7 @@ public class CaptchaController {
             randomNumber -= 8;
         } while (randomNumber < -4 && randomNumber > 4);
         randomRotation = 10.0*randomNumber;
-        System.out.println("Random Rotation Angle: " + randomRotation); // Print the random rotation angle
+        System.out.println("Random Rotation Angle: " + randomRotation); // random rotation angle
     }
     @FXML
     private void handleCaptchaVerification(ActionEvent event) {
@@ -62,8 +62,8 @@ public class CaptchaController {
     private void closeCaptchaDialog() {
         Stage stage = (Stage) checkRotationButton.getScene().getWindow();
         PauseTransition delay = new PauseTransition(Duration.seconds(1.5));
-        delay.setOnFinished(event -> stage.close()); // Close the stage when the transition finishes
-        delay.play(); // Start the pause transition
+        delay.setOnFinished(event -> stage.close());
+        delay.play();
     }
     @FXML
     void initialize() {
@@ -74,20 +74,20 @@ public class CaptchaController {
         arrowtoleft.setOnMouseClicked(this::rotateImageLeft);
     }
     private void rotateImageRight(MouseEvent event) {
-        rotationAngle += 10.0; // Adjust the rotation angle as needed
+        rotationAngle += 10.0;
         randomRotation+=10.0;
-        camelImage.setRotate(camelImage.getRotate() + 10.0); // Rotate from the current angle
-        System.out.println("rotation angle : " + rotationAngle); // Print the random rotation angle
-        System.out.println("rotation angle : " + randomRotation); // Print the random rotation angle
+        camelImage.setRotate(camelImage.getRotate() + 10.0);
+        System.out.println("rotation angle : " + rotationAngle);
+        System.out.println("rotation angle : " + randomRotation);
         System.out.println(randomRotation % 360);
         ; // Print the random rotation angle
     }
     private void rotateImageLeft(MouseEvent event) {
         rotationAngle -= 10.0; // Adjust the rotation angle as
         randomRotation-=10.0;
-        camelImage.setRotate(camelImage.getRotate() - 10.0); // Rotate from the current angle
-        System.out.println("rotation angle : " + rotationAngle); // Print the random rotation angle
-        System.out.println("rotation angle : " + randomRotation); // Print the random rotation
+        camelImage.setRotate(camelImage.getRotate() - 10.0);
+        System.out.println("rotation angle : " + rotationAngle);
+        System.out.println("rotation angle : " + randomRotation);
         System.out.println(randomRotation % 360);
 
 
@@ -101,8 +101,7 @@ public class CaptchaController {
         }
     }
     private void showError() {
-        error.setVisible(true); // Make the error anchor pane visible
-        // Schedule a task to hide the error anchor pane after 4 seconds
+        error.setVisible(true);
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override

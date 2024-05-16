@@ -20,19 +20,19 @@ import java.util.List;
 public class PDFGenerator {
 
     public void generateCmdPDF(List<Commande> cmds) {
-        // Path to the user's Downloads folder
+
         String downloadsFolder = System.getProperty("user.home") + "/Downloads/";
 
-        // File name for the PDF
+
         String fileName = downloadsFolder + "liste_commandes.pdf";
 
         Document document = new Document();
 
         try {
-            // Create the PDF file
+
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(fileName));
 
-            // Add watermark
+
             addWatermark(writer);
 
 
@@ -44,7 +44,7 @@ public class PDFGenerator {
             // Add title
             Paragraph title = new Paragraph("Your Orders", titleFont);
             title.setAlignment(Element.ALIGN_CENTER);
-            title.setSpacingAfter(20f); // Add space after the title
+            title.setSpacingAfter(20f);
             document.add(title);
 
             addLogo(writer);
@@ -52,7 +52,7 @@ public class PDFGenerator {
             // Add greeting message
             Paragraph greeting = new Paragraph("Dear Valued Customer,", normalFont);
             greeting.setAlignment(Element.ALIGN_LEFT);
-            greeting.setSpacingAfter(10f); // Add space after the greeting
+            greeting.setSpacingAfter(10f);
             document.add(greeting);
 
             // Add commands
@@ -61,9 +61,9 @@ public class PDFGenerator {
 
                 String imageUrl = cmd.getProduit().getImageFile(); // Récupérer le nom du fichier de l'image du produit
                 if (imageUrl != null && !imageUrl.isEmpty()) {
-                    Image productImage = Image.getInstance(imageUrl); // Charger l'image à partir du fichier
-                    productImage.scaleToFit(100, 100); // Ajuster la taille de l'image selon vos besoins
-                    document.add(productImage); // Ajouter l'image au document PDF
+                    Image productImage = Image.getInstance(imageUrl);
+                    productImage.scaleToFit(100, 100);
+                    document.add(productImage);
                 }
 
                 // Add product details
@@ -79,10 +79,10 @@ public class PDFGenerator {
                 orderDetails.add(new ListItem(deliveryMethod));
                 orderDetails.add(new ListItem(city));
 
-                // Add the list to the document
+
                 document.add(orderDetails);
 
-                // Add space between orders
+
                 document.add(Chunk.NEWLINE);
             }
 
